@@ -15,18 +15,18 @@ namespace HillerødSailingClubClassLibrary
 
         List<Member> Participants = new List<Member>();
 
-        public Events(int id, string name, string description, int day, int month, int year)
+        public Events(int id, string name, string description, int year, int month, int day)
         {
             Id = id;
             Name = name;
             Description = description;
-            Date = new DateTime(day, month, year);
+            Date = new DateTime(year, month, day);
         }
 
         //Method which overrrides the base ConsoleWriteLine
         public override string ToString()
         {
-            return $"Id: {Id} Name: {Name} Description: {Description} Date: {Date}";
+            return $"Id: {Id} \nName: {Name} \nDescription: {Description} \nDate: {Date}";
         }
 
         //Method which adds a member to an activity, by chechking if the activity is valid and makes sure the same member can't join mulitple times. 
