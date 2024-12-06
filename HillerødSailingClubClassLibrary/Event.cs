@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HillerødSailingClubClassLibrary
 {
-    internal class Activity
+    public class Event
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -15,8 +15,8 @@ namespace HillerødSailingClubClassLibrary
 
         List<Member> Participants = new List<Member>();
 
-        public Activity() { }
-        public Activity(int id, string name, string description, int year, int month, int day)
+        public Event() { }
+        public Event(int id, string name, string description, int year, int month, int day)
         {
             Id = id;
             Name = name;
@@ -31,7 +31,7 @@ namespace HillerødSailingClubClassLibrary
         }
 
         //Method which adds a member to an activity, by chechking if the activity is valid and makes sure the same member can't join mulitple times. 
-        public void JoinActivity(Member member, Activity activity)
+        public void JoinActivity(Member member, Event activity)
         {
             if (activity != null && !Participants.Contains(member))
             {

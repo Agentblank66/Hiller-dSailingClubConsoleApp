@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HillerødSialingClub;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,8 @@ namespace HillerødSailingClubClassLibrary
         #region Proterties
         public int Id { get; set; }
         public DateTime DateTime { get; set; }
-        Member Member { get; }
-        Boat Boat { get; }
+        public Member Member { get; }
+        public Boat Boat { get; }
         #endregion
 
         #region Constructor
