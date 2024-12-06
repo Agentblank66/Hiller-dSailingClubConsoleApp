@@ -45,12 +45,13 @@ Console.WriteLine(boat);
 Console.WriteLine(event1);
 Console.WriteLine(blog);
 
-
+//  Boat
 boat.AddToMaintenanceLog("testtexttoMaintencelog");
 boat.RequestRepairs("testtextToReapairlog");
 boat.PrintMaintenanceLog();
 boat.PrintRepairsLog();
 
+// BoatDict
 boatDict.Add(boat);
 boatDict.PrintAllBoat();
 boatDict.Update(1, "type", "model", "name", 123, "engineinfo", 12, 1990);
