@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,9 +34,18 @@ namespace HillerødSialingClub
 		}
 
 		// retunere Boat som type når kaldet 
-		public Boat GetBoat(int id)
+		public Boat? GetBoat(int id)
 		{
-			return Boats[id];
+			if (Boats.ContainsKey(id))
+			{
+                Console.WriteLine(Boats[id]);
+				return Boats[id];
+			}
+			else
+			{
+				Console.WriteLine("hej");
+				return null;
+			}
 		}
 
 		// boat med det angivede id fjernes fra dictionary når kaldet

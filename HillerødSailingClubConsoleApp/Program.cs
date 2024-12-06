@@ -1,7 +1,7 @@
-﻿using HillerødSailingClubClassLibrary;
+﻿// See https://aka.ms/new-console-template for more information
+using HillerødSailingClubClassLibrary;
 using HillerødSialingClub;
 using System.Diagnostics;
-using System.Reflection.Metadata;
 
 Boat boat = new Boat(1, 4, "Båd Navn", 2000, "Benut", "Macedes", 234, "Julie");
 Blog blog = new Blog(1, "blogTitel", "text text text");
@@ -45,3 +45,17 @@ Console.WriteLine(boat);
 Console.WriteLine(event1);
 Console.WriteLine(blog);
 
+
+boat.AddToMaintenanceLog("testtexttoMaintencelog");
+boat.RequestRepairs("testtextToReapairlog");
+boat.PrintMaintenanceLog();
+boat.PrintRepairsLog();
+
+boatDict.Add(boat);
+boatDict.PrintAllBoat();
+boatDict.Update(1, "type", "model", "name", 123, "engineinfo", 12, 1990);
+boatDict.PrintAllBoat();
+boatDict.GetBoat(1);
+boatDict.GetBoat(2);
+boatDict.DeleteBoat(1);
+boatDict.PrintAllBoat();
