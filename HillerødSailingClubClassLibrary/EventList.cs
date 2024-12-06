@@ -8,24 +8,24 @@ namespace HillerødSailingClubClassLibrary
 {
     public class EventList
     {
-        List<Events> List = new List<Events>();
+        List<Events> EventsList = new List<Events>();
 
         //Method which adds an activity to the List.
         public void AddEvents(Events events)
         {
-            List.Add(events);
+            EventsList.Add(events);
         }
 
         //Method which deletes an activtity from the list.
         public void DeleteEvents(Events events)
         {
-            List.Remove(events);
+            EventsList.Remove(events);
         }
 
         //Method which finds a specific activity, by searching for an activitys Id in the list and then returns that activity.  
         public Events? GetEvents(int id)
         {
-            foreach (var events in List)
+            foreach (var events in EventsList)
             {
                 if (events.Id == id)
                     return events;
@@ -34,14 +34,14 @@ namespace HillerødSailingClubClassLibrary
         }
 
         //Method which updates an activity, by using the GetActivity method to find a specific activity and then changing that activitys parameters.
-        public void UpdateEvents(Events events, string name, string description, int year, int month, int day)
+        public void UpdateEvents(Events events, string name, string description, int day, int month, int year)
         {
             var theEvents = GetEvents(events.Id);
             if (theEvents != null)
             {
                 theEvents.Name = name;
                 theEvents.Description = description;
-                theEvents.Date = new DateTime(year, month, day);
+                theEvents.Date = new DateTime(day, month, year);
             }
         }
 
@@ -49,7 +49,7 @@ namespace HillerødSailingClubClassLibrary
         public List<Events> SearchEvents(string keyWord)
         {
             List<Events> evented = new List<Events>();
-            foreach (Events events in List)
+            foreach (Events events in EventsList)
             {
                 if (events.Name.ToLower().Contains(keyWord.ToLower()) || events.Description.ToLower().Contains(keyWord.ToLower()))
                 {
@@ -63,7 +63,7 @@ namespace HillerødSailingClubClassLibrary
         //Method which prints out every activity.
         public void ListPrint()
         {
-            foreach (var events in List)
+            foreach (var events in EventsList)
             {
                 Console.WriteLine(events);
             }

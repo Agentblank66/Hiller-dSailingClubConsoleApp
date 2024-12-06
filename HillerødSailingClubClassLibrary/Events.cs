@@ -15,12 +15,12 @@ namespace HillerødSailingClubClassLibrary
 
         List<Member> Participants = new List<Member>();
 
-        public Events(int id, string name, string description, int year, int month, int day)
+        public Events(int id, string name, string description, int day, int month, int year)
         {
             Id = id;
             Name = name;
             Description = description;
-            Date = new DateTime(year, month, day);
+            Date = new DateTime(day, month, year);
         }
 
         //Method which overrrides the base ConsoleWriteLine
