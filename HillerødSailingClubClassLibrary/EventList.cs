@@ -11,13 +11,13 @@ namespace HillerødSailingClubClassLibrary
         List<Events> List = new List<Events>();
 
         //Method which adds an activity to the List.
-        public void AddActivity(Events events)
+        public void AddEvents(Events events)
         {
             List.Add(events);
         }
 
         //Method which deletes an activtity from the list.
-        public void DeleteActivity(Events events)
+        public void DeleteEvents(Events events)
         {
             List.Remove(events);
         }
