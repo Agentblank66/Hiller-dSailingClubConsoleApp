@@ -4,7 +4,7 @@
     {
         public void HH()
         {
-            Console.WriteLine("Hey");
+            Console.WriteLine("Jeg vil have weekend");
         }
     }
 }
