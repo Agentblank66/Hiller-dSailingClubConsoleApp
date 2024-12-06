@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace HillerødSailingClubClassLibrary
 {
-    public class Member
+    public class Member : Person
     {
         #region Property
         #endregion
