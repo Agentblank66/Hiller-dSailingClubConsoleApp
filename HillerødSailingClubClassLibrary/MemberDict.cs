@@ -24,7 +24,7 @@ namespace HillerødSailingClubClassLibrary
         }
 
         // This method removes a Member from the Dictionay if Member given exist in Menmbers
-        public void RemoveMember(Member member)
+        public void DeleteMember(Member member)
         {
             if (Members.ContainsKey(member.Id))
             {

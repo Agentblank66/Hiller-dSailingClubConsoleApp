@@ -14,7 +14,7 @@ namespace HillerødSailingClubClassLibrary
 
         public void AddBlogPost(Blog blog)
         {
-            Blogs.TryAdd(blog.Id, blog);
+            Blogs.Add(blog.Id, blog);
         }
 
         public void UpdateBlogPost(Blog blog)

@@ -22,7 +22,7 @@ namespace HillerødSailingClubClassLibrary
             List.Remove(activity);
         }
 
-        //Method which finds a specific activity, by searching for an activitys Id in the list and then returns that activity.  
+        //Method which finds a specific activity, by searching for an Event Id in the list and then returns that activity.  
         public Events? GetActivity(int id)
         {
             foreach (var activity in List)
