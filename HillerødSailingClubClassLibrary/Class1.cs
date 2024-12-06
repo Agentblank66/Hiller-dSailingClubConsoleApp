@@ -2,6 +2,9 @@
 {
     public class Class1
     {
-      
+        public void HH()
+        {
+            Console.WriteLine("Hey");
+        }
     }
 }
