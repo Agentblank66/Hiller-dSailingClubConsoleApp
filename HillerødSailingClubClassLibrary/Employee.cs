@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HillerødSailingClubClassLibrary
 {
-    {
+    
         //Her opretter vi en "Employee" som skal nedarve fra klassen "Person"
         //Måden vi gør det på, er at gøre som illustreret nedenfor.
         public class Employee : Person
@@ -23,5 +23,5 @@ namespace HillerødSailingClubClassLibrary
                 Role = role;
             }
         }
-    }
+    
 }
