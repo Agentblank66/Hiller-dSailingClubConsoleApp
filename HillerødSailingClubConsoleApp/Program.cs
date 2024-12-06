@@ -1,4 +1,5 @@
-﻿using HillerødSialingClub;
+﻿using HillerødSailingClubClassLibrary;
+using HillerødSialingClub;
 using System.Diagnostics;
 using System.Reflection.Metadata;
 
