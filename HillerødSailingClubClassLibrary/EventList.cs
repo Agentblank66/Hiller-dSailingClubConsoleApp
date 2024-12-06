@@ -8,22 +8,22 @@ namespace HillerødSailingClubClassLibrary
 {
     public class EventList
     {
-        List<Event> List = new List<Event>();
+        List<Events> List = new List<Events>();
 
         //Method which adds an activity to the List.
-        public void AddActivity(Event activity)
+        public void AddActivity(Events activity)
         {
             List.Add(activity);
         }
 
         //Method which deletes an activtity from the list.
-        public void DeleteActivity(Event activity)
+        public void DeleteActivity(Events activity)
         {
             List.Remove(activity);
         }
 
         //Method which finds a specific activity, by searching for an activitys Id in the list and then returns that activity.  
-        public Event? GetActivity(int id)
+        public Events? GetActivity(int id)
         {
             foreach (var activity in List)
             {
@@ -34,7 +34,7 @@ namespace HillerødSailingClubClassLibrary
         }
 
         //Method which updates an activity, by using the GetActivity method to find a specific activity and then changing that activitys parameters.
-        public void UpdateActivity(Event activity, string name, string description, int year, int month, int day)
+        public void UpdateActivity(Events activity, string name, string description, int year, int month, int day)
         {
             var theActivity = GetActivity(activity.Id);
             if (theActivity != null)
@@ -46,10 +46,10 @@ namespace HillerødSailingClubClassLibrary
         }
 
         //Method which goes through the old list(List) by searching for either a name or a description and is than added to the new empty list(activities) of all the activities, either with big or small lette.
-        public List<Event> SearchActivity(string keyWord)
+        public List<Events> SearchActivity(string keyWord)
         {
-            List<Event> activities = new List<Event>();
-            foreach (Event activity in List)
+            List<Events> activities = new List<Events>();
+            foreach (Events activity in List)
             {
                 if (activity.Name.ToLower().Contains(keyWord.ToLower()) || activity.Description.ToLower().Contains(keyWord.ToLower()))
                 {
