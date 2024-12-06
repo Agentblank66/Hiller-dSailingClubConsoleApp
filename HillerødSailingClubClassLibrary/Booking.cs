@@ -17,14 +17,20 @@ namespace HillerødSailingClubClassLibrary
         #endregion
 
         #region Constructor
-        public Booking(int id, DateTime dateTime, Member member, Boat boat)
+        public Booking(int id, Member member, Boat boat, int year, int month, int day)
         {
             Id = id;
-            DateTime = dateTime;
+            DateTime = new DateTime(year, month, day);
             Member = member;
             Boat = boat;
         }
         #endregion
 
+        #region Methods
+        public override string ToString()
+        {
+            return $"Id: {Id}" + $"\nMember: {Member}" + $"\nBoat: {Boat}" + $"\nDate: {DateTime}";
+        }
+        #endregion
     }
 }

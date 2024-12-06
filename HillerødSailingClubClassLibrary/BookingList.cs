@@ -33,7 +33,7 @@ namespace HillerødSailingClubClassLibrary
         {
             foreach (Booking booking in BookedBoats)
             {
-                if (booking.Id.Equals(id)) // TODO
+                if (booking.Id.Equals(id))
                 {
                     return BookedBoats[id];
                 }
