@@ -13,11 +13,13 @@ namespace HillerødSailingClubClassLibrary
         #endregion
 
         #region Methods
+        //This method adds the a booking of a boat with to a list of all bookedboats
         public void BookBoat(Booking booking)
         {
             BookedBoats.Add(booking);
         }
 
+        //This method removes a bookedboat from the Bookedboat list
         public void RemoveBookedBoat(Booking booking)
         {
             if (BookedBoats.Contains(booking))
@@ -26,12 +28,12 @@ namespace HillerødSailingClubClassLibrary
             }
         }
 
-
+        //This method searches the BookedBoat list after a booking with a matching id
         public Booking? GetBookedBoat(int id)
         {
             foreach (Booking booking in BookedBoats)
             {
-                if (BookedBoats.Contains(booking)) // TODO
+                if (booking.Id.Equals(id)) // TODO
                 {
                     return BookedBoats[id];
                 }
