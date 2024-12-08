@@ -32,9 +32,10 @@ Console.WriteLine("Update of Event:");
 events.UpdateEvents(event1, "Juleaften", "Der holdes Juleaften.", 2025, 12, 24);
 Console.WriteLine(events.GetEvents(1)); 
 Console.WriteLine();
-//Snak med henrik om search metode
+//Snak med henrik om search metode, selvom den er blevet lavet, hør hvorfor man skal gøre på denne måde
 Console.WriteLine("Search of Events with, holder, in the description:");
-events.SearchEvents("holdes");
+List<Events> eventlist = events.SearchEvents("holdes");
+foreach(Events Events in eventlist) Console.WriteLine(Events);
 Console.WriteLine();
 Console.WriteLine("Delete of event3 and the new EventList shown:");
 events.DeleteEvents(event3);
