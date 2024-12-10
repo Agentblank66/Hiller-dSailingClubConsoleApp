@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,14 +35,14 @@ namespace HillerødSailingClubClassLibrary
         }
 
         //Method which updates an activity, by using the GetActivity method to find a specific activity and then changing that activitys parameters.
-        public void UpdateEvents(Events events, string name, string description, int day, int month, int year)
+        public void UpdateEvents(Events events, string name, string description, int year, int month, int day)
         {
             var theEvents = GetEvents(events.Id);
             if (theEvents != null)
             {
                 theEvents.Name = name;
                 theEvents.Description = description;
-                theEvents.Date = new DateTime(day, month, year);
+                theEvents.Date = new DateTime(year, month, day);
             }
         }
 
