@@ -15,6 +15,8 @@ Booking booking = new Booking(0, member, boat, 2024, 12, 24);
 BookingList bookingList = new BookingList();
 bookingList.BookBoat(booking);
 Console.WriteLine(bookingList.GetBookedBoat(0));
+bookingList.UpdateBookedBoat(booking, member, boat, 2025, 01, 01);
+bookingList.PrintAllBookedBoats();
 
 BoatDict boatDict = new BoatDict();
 

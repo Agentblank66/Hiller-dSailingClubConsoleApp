@@ -12,8 +12,8 @@ namespace HillerødSailingClubClassLibrary
         #region Proterties
         public int Id { get; set; }
         public DateTime DateTime { get; set; }
-        public Member Member { get; }
-        public Boat Boat { get; }
+        public Member Member { get; set; }
+        public Boat Boat { get; set; }
         #endregion
 
         #region Constructor
