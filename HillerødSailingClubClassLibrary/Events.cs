@@ -30,7 +30,7 @@ namespace HillerødSailingClubClassLibrary
             return $"Id: {Id} \nName: {Name} \nDescription: {Description} \nDate: {Date}";
         }
 
-        //Method which adds a member to an activity, by chechking if the activity is valid and makes sure the same member can't join mulitple times. 
+        //Method which adds a member to an activity, by chechking if the member hasnt joined already, then adds that member. 
         public void JoinEvent(Member member)
         {
             if (!Participants.Contains(member))
