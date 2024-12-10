@@ -3,22 +3,71 @@ using HillerødSailingClubClassLibrary;
 using HillerødSialingClub;
 using System.Diagnostics;
 
+// Creating Boat Objects:
 Boat boat = new Boat(1, 11.30, "Volvo D2-40 37HP", 2016, "Dehler 38", "Cruiser/Racer", 234, "Berit");
 Boat boat2 = new Boat(2, 3, "Årer", 2022, "Walkerbay", "Plast Jolle", 652, "Ralle");
 Boat boat3 = new Boat(3, 13, "Yanmar 4JH57 57HP", 2019, "Arcona 435 Carbon", "Cruiser/Racer", 472, "Sandra");
+
+// Creating Blog objects:
 Blog blog = new Blog(1, "blogTitel", "text text text");
-// booking create 
+
+// Creating Employee Objects:
 Employee employee = new Employee("Kunde", 1, "Casper", 42418990, "test@mail.com", "addresseTest1");
-Member member = new Member(1, "Casper", 42418990, "test@mail.com", "addresseTest1");
 
+// Creating Member Objects:
+Member member = new Member(1, "Casper", 42418990, "test1@mail.com", "addresseTest1");
+Member member2 = new Member(2, "Oliver", 34568913, "test2@mail.com", "addresseTest2");
+Member member3 = new Member(3, "Rasmus", 12457801, "test3@mail.com", "addresseTest3");
+Member member4 = new Member(4, "Martin", 15609284, "test4@mail.com", "addresseTest4");
+
+// Testing Member Methods:
+MemberDict memberDict = new MemberDict();
+
+    // Start by adding members to the memberDict Dictionary
+    memberDict.AddMember(member);
+    memberDict.AddMember(member2);
+    memberDict.AddMember(member3);
+    memberDict.AddMember(member4);
+
+    // Deleting a member from the memberDict Dictionary
+    memberDict.DeleteMember(member4);
+
+    // Getting member 3 and 4, but 4 was deleted above so it will not get printed out
+    Console.WriteLine(memberDict.GetMember(3));
+    Console.WriteLine(memberDict.GetMember(4));
+
+    // Updating member and member4, but member4 don't exist
+    memberDict.UpdateMember(member, "AddressTest0", "Kasper", "test0@mail.com", 43518990);
+    memberDict.UpdateMember(member4, "AddressTest4", "martin", "Test4@mail.com", 16758933);
+
+    // Printing out all members in the memberDict Dictionary
+    memberDict.PrintAllMembers();
+
+// Creating Booking Objects:
 Booking booking = new Booking(0, member, boat, 2024, 12, 24);
-BookingList bookingList = new BookingList();
-bookingList.BookBoat(booking);
-Console.WriteLine(bookingList.GetBookedBoat(0));
-bookingList.UpdateBookedBoat(booking, member, boat, 2025, 01, 01);
-bookingList.PrintAllBookedBoats();
+Booking booking2 = new Booking(1, member2, boat2, 2024, 12, 26);
+Booking booking3 = new Booking(2, member3, boat3, 2024, 12, 31);
 
-BoatDict boatDict = new BoatDict();
+// Testing Booking methods:
+BookingList bookingList = new BookingList();
+    
+    // Start by adding Booking object to the bookingList
+    bookingList.BookBoat(booking);
+    bookingList.BookBoat(booking2);
+    bookingList.BookBoat(booking3);
+
+    // Deleting a Booking object from the bookingList
+    bookingList.RemoveBookedBoat(booking2);
+
+    // Getting booking 0 and 2, but 2 was deleted above
+    Console.WriteLine(bookingList.GetBookedBoat(0));
+    Console.WriteLine(bookingList.GetBookedBoat(2));
+
+    // Updating the booking object
+    bookingList.UpdateBookedBoat(booking, member, boat, 2025, 01, 01);
+    
+    // Printing all bookings out
+    bookingList.PrintAllBookedBoats();
 
 //Test of Event methods:
 Events event1 = new Events(1, "Juleaften", "Der holdes juleaften event.", 2024, 12, 24);
@@ -72,6 +121,7 @@ boat.PrintMaintenanceLog();
 boat.PrintRepairsLog();
 
 // BoatDict
+BoatDict boatDict = new BoatDict();
 boatDict.Add(boat);
 boatDict.Add(boat2);
 boatDict.Add(boat3);
