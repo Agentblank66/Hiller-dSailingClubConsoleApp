@@ -38,12 +38,10 @@ namespace HillerødSialingClub
 		{
 			if (Boats.ContainsKey(id))
 			{
-                Console.WriteLine(Boats[id]);
 				return Boats[id];
 			}
 			else
 			{
-				Console.WriteLine("hej");
 				return null;
 			}
 		}
