@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HillerødSailingClubConsole
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HillerødSailingClubClassLibrary", "..\HillerødSailingClubClassLibrary\HillerødSailingClubClassLibrary.csproj", "{7AC7D601-FE3C-4166-918D-DF8A7919CE81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HillerødSailingClubRazorPage", "..\HillerødSailingClubRazorPage\HillerødSailingClubRazorPage.csproj", "{EF78562F-BB3B-496B-886E-2CD78CBA5FCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HillerødSailingClubRazorPage", "..\HillerødSailingClubRazorPage\HillerødSailingClubRazorPage.csproj", "{EF78562F-BB3B-496B-886E-2CD78CBA5FCE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

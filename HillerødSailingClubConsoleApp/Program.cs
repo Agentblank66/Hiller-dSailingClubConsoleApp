@@ -25,7 +25,9 @@ Console.WriteLine();
 //Add events to Events List and then printing all events
 Console.WriteLine("List of Events:");
 events.AddEvents(event1);
+Console.WriteLine();
 events.AddEvents(event2);
+Console.WriteLine();
 events.AddEvents(event3);
 List<Events> allEvents= events.GetAllEvents();
 foreach(Events events1 in allEvents) Console.WriteLine(events1);
