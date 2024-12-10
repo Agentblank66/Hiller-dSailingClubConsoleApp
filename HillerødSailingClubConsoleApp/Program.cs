@@ -50,6 +50,14 @@ events.DeleteEvents(3);
 List<Events> allevents = events.GetAllEvents();
 foreach (Events events1 in allevents) Console.WriteLine(events1);
 Console.WriteLine();
+//Member joins an event.
+Console.WriteLine("Member joins event1:");
+List<Events> joinEvent = new List<Events>();
+event1.JoinEvent(member);
+Console.WriteLine(events.GetEvents(1));
+Console.WriteLine(event1.ShowLastMember());
+foreach (Events joinevent1 in joinEvent) Console.WriteLine(joinevent1);
+Console.WriteLine();
 
 Console.WriteLine(boat);
 Console.WriteLine(event1);
