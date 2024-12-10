@@ -55,10 +55,6 @@ namespace HillerødSialingClub
 		// metoden udskriver alle objecter i consolen og retunere dictionariet
 		public Dictionary<int, Boat> PrintAllBoat()
 		{
-			foreach (Boat boat in Boats.Values)
-			{
-				Console.WriteLine(boat);
-			}
 			return Boats;
 		}
 	}

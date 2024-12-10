@@ -120,23 +120,25 @@ Console.WriteLine(boat);
 Console.WriteLine(event1);
 Console.WriteLine(blog);
 
-
-//  Boat
+// Boat
+Console.WriteLine();
+Console.WriteLine("Boat Part");
 boat.AddToMaintenanceLog("testtexttoMaintencelog");
 boat.RequestRepairs("testtextToReapairlog");
-boat.PrintMaintenanceLog();
-boat.PrintRepairsLog();
+Console.WriteLine(boat.PrintMaintenanceLog());
+Console.WriteLine();
+Console.WriteLine(boat.PrintRepairsLog());
 
 // BoatDict
 BoatDict boatDict = new BoatDict();
 boatDict.Add(boat);
 boatDict.Add(boat2);
 boatDict.Add(boat3);
-boatDict.PrintAllBoat();
+Console.WriteLine(boatDict.PrintAllBoat());
 boatDict.Update(1, "type", "model", "name", 123, "engineinfo", 12, 1990);
-boatDict.PrintAllBoat();
-boatDict.GetBoat(1);
-boatDict.GetBoat(2);
-boatDict.GetBoat(3);
+Console.WriteLine(boatDict.PrintAllBoat());
+Console.WriteLine(boatDict.GetBoat(1));
+Console.WriteLine(boatDict.GetBoat(2));
+Console.WriteLine(boatDict.GetBoat(3));
 boatDict.DeleteBoat(1);
-boatDict.PrintAllBoat();
+Console.WriteLine(boatDict.PrintAllBoat());
