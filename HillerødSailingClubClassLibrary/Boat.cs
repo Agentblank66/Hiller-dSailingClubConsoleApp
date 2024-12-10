@@ -32,10 +32,6 @@ namespace HillerødSialingClub
 		// PrintMaintenanceLog() udskriver alle strings i list til consolen og retunere List<string>
 		public List<string> PrintMaintenanceLog()
 		{
-			foreach (var log in MaintenanceLog)
-			{
-				Console.WriteLine(log);
-			}
 			return MaintenanceLog;
 		}
 
@@ -48,10 +44,6 @@ namespace HillerødSialingClub
 		// PrintRepairsLog() udskriver alle strings i list til consolen og retunere List<string>
 		public List<string> PrintRepairsLog()
 		{
-			foreach (var log in RepairsLog)
-			{
-				Console.WriteLine(log);
-			}
 			return RepairsLog;
 		}
 
@@ -67,8 +59,6 @@ namespace HillerødSialingClub
 		{
 			return $"Boat {BoatName} has id:{Id} and is {Size} big as model {Model} and type {BoatType} with a {EngineInformation} Engine with sailnumber {SailingNumber} build in {BuildYear}";
 		}
-
-		public int nr = 0;
 	}
 }
 
