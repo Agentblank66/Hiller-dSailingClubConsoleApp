@@ -3,7 +3,9 @@ using HillerødSailingClubClassLibrary;
 using HillerødSialingClub;
 using System.Diagnostics;
 
-Boat boat = new Boat(1, 4, "Båd Navn", 2000, "Benut", "Macedes", 234, "Julie");
+Boat boat = new Boat(1, 11.30, "Volvo D2-40 37HP", 2016, "Dehler 38", "Cruiser/Racer", 234, "Berit");
+Boat boat2 = new Boat(2, 3, "Årer", 2022, "Walkerbay", "Plast Jolle", 652, "Ralle");
+Boat boat3 = new Boat(3, 13, "Yanmar 4JH57 57HP", 2019, "Arcona 435 Carbon", "Cruiser/Racer", 472, "Sandra");
 Blog blog = new Blog(1, "blogTitel", "text text text");
 // booking create 
 Employee employee = new Employee("Kunde", 1, "Casper", 42418990, "test@mail.com", "addresseTest1");
@@ -61,10 +63,13 @@ boat.PrintRepairsLog();
 
 // BoatDict
 boatDict.Add(boat);
+boatDict.Add(boat2);
+boatDict.Add(boat3);
 boatDict.PrintAllBoat();
 boatDict.Update(1, "type", "model", "name", 123, "engineinfo", 12, 1990);
 boatDict.PrintAllBoat();
 boatDict.GetBoat(1);
 boatDict.GetBoat(2);
+boatDict.GetBoat(3);
 boatDict.DeleteBoat(1);
 boatDict.PrintAllBoat();
