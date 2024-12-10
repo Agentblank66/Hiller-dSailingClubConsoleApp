@@ -18,8 +18,9 @@ namespace HillerødSailingClubClassLibrary
         }
 
         //Method which deletes an activtity from the list.
-        public void DeleteEvents(Events events)
+        public void DeleteEvents(int id)
         {
+            Events events = GetEvents(id);
             EventsList.Remove(events);
         }
 
@@ -35,9 +36,9 @@ namespace HillerødSailingClubClassLibrary
         }
 
         //Method which updates an activity, by using the GetActivity method to find a specific activity and then changing that activitys parameters.
-        public void UpdateEvents(Events events, string name, string description, int year, int month, int day)
+        public void UpdateEvents(int id, string name, string description, int year, int month, int day)
         {
-            var theEvents = GetEvents(events.Id);
+            var theEvents = GetEvents(id);
             if (theEvents != null)
             {
                 theEvents.Name = name;
@@ -62,12 +63,9 @@ namespace HillerødSailingClubClassLibrary
 
 
         //Method which prints out every activity.
-        public void ListPrint()
+        public List<Events> GetAllEvents()
         {
-            foreach (var events in EventsList)
-            {
-                Console.WriteLine(events);
-            }
+            return new List<Events>(EventsList);
         }
     }
 }
