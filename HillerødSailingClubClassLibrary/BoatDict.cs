@@ -53,9 +53,10 @@ namespace HillerødSialingClub
 		}
 
 		// metoden udskriver alle objecter i consolen og retunere dictionariet
-		public Dictionary<int, Boat> PrintAllBoat()
+		public string PrintAllBoat()
 		{
-			return Boats;
+			string BoatsString = string.Join(",", Boats);
+			return BoatsString;
 		}
 	}
 }

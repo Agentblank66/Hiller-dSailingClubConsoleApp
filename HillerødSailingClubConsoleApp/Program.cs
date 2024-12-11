@@ -120,25 +120,41 @@ Console.WriteLine(boat);
 Console.WriteLine(event1);
 Console.WriteLine(blog);
 
-// Boat
+// --------------------------- Boat --------------------------------
 Console.WriteLine();
 Console.WriteLine("Boat Part");
+// Add string to the Two lists on object boat 
+// get the two lists printed out
+Console.WriteLine("get the two lists printed out:");
+boat.AddToMaintenanceLog("testtexttoMaintencelog");
+boat.RequestRepairs("testtextToReapairlog");
 boat.AddToMaintenanceLog("testtexttoMaintencelog");
 boat.RequestRepairs("testtextToReapairlog");
 Console.WriteLine(boat.PrintMaintenanceLog());
-Console.WriteLine();
-Console.WriteLine(boat.PrintRepairsLog());
+Console.WriteLine(boat.PrintRepairsLog() + "\n");
 
-// BoatDict
+// --------------------------- BoatDict ---------------------------------
+// creates object of BoatDict and adds 3 boats to the Dictioonary
+Console.WriteLine("BoatDict Part:");
 BoatDict boatDict = new BoatDict();
 boatDict.Add(boat);
 boatDict.Add(boat2);
 boatDict.Add(boat3);
-Console.WriteLine(boatDict.PrintAllBoat());
+
+// Prints All boats from the Dictioonary
+Console.WriteLine("Prints All boats from the Dictioonary:");
+Console.WriteLine(boatDict.PrintAllBoat() + "\n");
+
+// Updates Boat with Id: 1 
 boatDict.Update(1, "type", "model", "name", 123, "engineinfo", 12, 1990);
-Console.WriteLine(boatDict.PrintAllBoat());
+
+// Get metode on 3 Boats 
+Console.WriteLine("\n" + "Get metode on 3 Boats:");
 Console.WriteLine(boatDict.GetBoat(1));
 Console.WriteLine(boatDict.GetBoat(2));
 Console.WriteLine(boatDict.GetBoat(3));
+
+// Delete() on Boat with Id: 1 && PrintAllBoat
+Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoat:");
 boatDict.DeleteBoat(1);
 Console.WriteLine(boatDict.PrintAllBoat());
