@@ -40,10 +40,7 @@ namespace HillerødSialingClub
 			{
 				return Boats[id];
 			}
-			else
-			{
-				return null;
-			}
+			return null;
 		}
 
 		// boat med det angivede id fjernes fra dictionary når kaldet
