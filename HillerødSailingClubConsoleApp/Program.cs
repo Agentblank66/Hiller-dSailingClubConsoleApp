@@ -71,9 +71,9 @@ BookingList bookingList = new BookingList();
 
 
 // Creating Event objects:
-Events event1 = new Events(1, "Juleaften", "Der holdes juleaften event.", 2024, 12, 24);
-Events event2 = new Events(2, "Påske", "Der holdes påskefrokost.", 2024, 4, 5);
-Events event3 = new Events(3, "Sommerstart", "Der fejres at sommeren begynder.", 2024, 6, 21);
+Events event1 = new Events(1, "Juleaften", "Der holdes juleaften event.", 2024, 12, 24, 13, 49, 30);
+Events event2 = new Events(2, "Påske", "Der holdes påskefrokost.", 2024, 4, 5, 13, 49, 30);
+Events event3 = new Events(3, "Sommerstart", "Der fejres at sommeren begynder.", 2024, 6, 21, 13, 49, 30);
 
 //Testing EventList methods:
 EventList events = new EventList();
@@ -86,7 +86,7 @@ EventList events = new EventList();
 
 //Update an event and the showing that one event
 Console.WriteLine("Update of Event:");
-events.UpdateEvents(1, "Juleaften", "Der holdes Juleaften.", 2025, 12, 24);
+events.UpdateEvents(1, "Juleaften", "Der holdes Juleaften.", 2025, 12, 24, 13, 49, 30);
 Console.WriteLine(events.GetEvents(1)); 
 Console.WriteLine();
 
