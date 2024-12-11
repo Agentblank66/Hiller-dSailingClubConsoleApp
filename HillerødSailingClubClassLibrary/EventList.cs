@@ -11,7 +11,7 @@ namespace HillerødSailingClubClassLibrary
     {
         List<Events> EventsList = new List<Events>();
 
-        //Method which adds an activity to the List.
+        //Method which adds an activity to the list.
         public void AddEvents(Events events)
         {
             EventsList.Add(events);

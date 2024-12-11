@@ -116,9 +116,6 @@ Console.WriteLine();
     foreach (Events joinevent1 in joinEvent) Console.WriteLine(joinevent1);
     Console.WriteLine();
 
-Console.WriteLine(boat);
-Console.WriteLine(event1);
-Console.WriteLine(blog);
 
 // --------------------------- Boat --------------------------------
 Console.WriteLine();
