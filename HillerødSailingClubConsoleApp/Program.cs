@@ -84,16 +84,11 @@ EventList events = new EventList();
     events.AddEvents(event3);
     Console.WriteLine(events);
 
-    // Delete event and then showing the remaining events
-    events.DeleteEvents(3);
-    Console.WriteLine(events);
-
-    // Getting event2 and showing it
-    Console.WriteLine(events.GetEvents(2));
-
-    // Updating evnet1 and showing the updates
-    events.UpdateEvents(1, "Juleaften", "Der holdes Juleaften.", 2025, 12, 24);
-    Console.WriteLine(events.GetEvents(1));
+//Update an event and the showing that one event
+Console.WriteLine("Update of Event:");
+events.UpdateEvents(1, "Juleaften", "Der holdes Juleaften.", 2025, 12, 24);
+Console.WriteLine(events.GetEvents(1)); 
+Console.WriteLine();
 
     // Here we will search after a specific event with "holdes" in the description
     //Snak med henrik om search metode, selvom den er blevet lavet, hør hvorfor man skal gøre på denne måde
@@ -122,29 +117,41 @@ Console.WriteLine(boat);
 Console.WriteLine(event1);
 Console.WriteLine(blog);
 
-// Testing Boat and its metohds:
-    // Starting with adding to the MaintenaceLog list
-    boat.AddToMaintenanceLog("testtexttoMaintencelog");
+// --------------------------- Boat --------------------------------
+Console.WriteLine();
+Console.WriteLine("Boat Part");
+// Add string to the Two lists on object boat 
+// get the two lists printed out
+Console.WriteLine("get the two lists printed out:");
+boat.AddToMaintenanceLog("testtexttoMaintencelog");
+boat.RequestRepairs("testtextToReapairlog");
+boat.AddToMaintenanceLog("testtexttoMaintencelog");
+boat.RequestRepairs("testtextToReapairlog");
+Console.WriteLine(boat.PrintMaintenanceLog());
+Console.WriteLine(boat.PrintRepairsLog() + "\n");
 
-    // Printing out the MaintenaceLog List
-    boat.PrintMaintenanceLog();
-
-    // Adding a requested repair to the RepairsLog list
-    boat.RequestRepairs("testtextToReapairlog");
-
-    // Printing out the RepairsLog list
-    boat.PrintRepairsLog();
-
-// BoatDict
+// --------------------------- BoatDict ---------------------------------
+// creates object of BoatDict and adds 3 boats to the Dictioonary
+Console.WriteLine("BoatDict Part:");
 BoatDict boatDict = new BoatDict();
 boatDict.Add(boat);
 boatDict.Add(boat2);
 boatDict.Add(boat3);
-boatDict.PrintAllBoat();
+
+// Prints All boats from the Dictioonary
+Console.WriteLine("Prints All boats from the Dictioonary:");
+Console.WriteLine(boatDict.PrintAllBoat() + "\n");
+
+// Updates Boat with Id: 1 
 boatDict.Update(1, "type", "model", "name", 123, "engineinfo", 12, 1990);
-boatDict.PrintAllBoat();
-boatDict.GetBoat(1);
-boatDict.GetBoat(2);
-boatDict.GetBoat(3);
+
+// Get metode on 3 Boats 
+Console.WriteLine("\n" + "Get metode on 3 Boats:");
+Console.WriteLine(boatDict.GetBoat(1));
+Console.WriteLine(boatDict.GetBoat(2));
+Console.WriteLine(boatDict.GetBoat(3));
+
+// Delete() on Boat with Id: 1 && PrintAllBoat
+Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoat:");
 boatDict.DeleteBoat(1);
-boatDict.PrintAllBoat();
+Console.WriteLine(boatDict.PrintAllBoat());

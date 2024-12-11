@@ -46,9 +46,12 @@
                                     <span class="text-primary"> • </span>
                                     <span>Ren sejlglæde<br /></span>
                                 </div>
-                                <p class="text mb-4 mb-md-0">
-                                    Med denne båd, bliver du med garanti lagt mærke til på de høje bølger. Med en 7 meter høj mast, kan du blive set fra rundetårn og kystvagten er aldrig i tvivl om din lokationSå slå til nu, og få en fantasisk oplevese på denne båd, hvor toilettet ALDRIG er optaget.
+                                <p id="hiddenText1">
+                                    Med denne båd, bliver du med garanti lagt mærke til på de høje bølger. 
+                                    Med en 7 meter høj mast, kan du blive set fra rundetårn og kystvagten er aldrig i tvivl om din lokation
+                                    Så slå til nu, og få en fantasisk oplevese på denne båd, hvor toilettet ALDRIG er optaget.
                                 </p>
+                                 <button id="toggleButton1">Skjul tekst</button>
                             </div>
                             <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
                                 <div class="d-flex flex-row align-items-center mb-1">
@@ -109,9 +112,11 @@
                                     <span class="text-primary"> • </span>
                                     <span>Det kan ikke gå galt<br /></span>
                                 </div>
-                                <p class="text mb-4 mb-md-0">
-                                    Er du ude efter en hyggelig tur, men ikke vil springe banken? Så er Walkerbay noget for dig.
+                                <p class="text-truncate mb-4 mb-md-0" id="hiddenText2">
+                                    Er du klar på at blive til grin? Så er Z9 Racer lige noget for dig.
+                                    Skal du imponere svigerfar, så er dette ikke måden at gøre det på.
                                 </p>
+                                <button id="toggleButton2">Skjul tekst</button>
                             </div>
                             <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
                                 <div class="d-flex flex-row align-items-center mb-1">
@@ -171,9 +176,12 @@
                                     <span class="text-primary"> • </span>
                                     <span>Garantere en god oplevelse<br /></span>
                                 </div>
-                                <p class="text mb-4 mb-md-0">
-                                    Hvis penge ikke er et problem, og du vil have den fulde oplevelse, så er denne perle fra Arcona lige noget for dig.
+                                <p class="text-truncate mb-4 mb-md-0" id="hiddenText3">
+                                    There are many variations of passages of Lorem Ipsum available, but the
+                                    majority have suffered alteration in some form, by injected humour, or
+                                    randomised words which don't look even slightly believable.
                                 </p>
+                                <button id="toggleButton3">Skjul tekst</button>
                             </div>
                             <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
                                 <div class="d-flex flex-row align-items-center mb-1">
@@ -195,3 +203,48 @@
         </div>
     </div>
 </section>
+
+<script>
+        // Hent knappen og tekst-elementet
+        const button1 = document.getElementById("toggleButton1");
+        const text1 = document.getElementById("hiddenText1");
+        const button2 = document.getElementById("toggleButton2");
+        const text2 = document.getElementById("hiddenText2");
+        const button3 = document.getElementById("toggleButton3");
+        const text3 = document.getElementById("hiddenText3");
+
+        // Event listener for knapklik på første
+        button1.addEventListener("click", function() {
+            // Tjek om teksten allerede er skjult
+            if (text1.style.display === "none") {
+                text1.style.display = "block"; // Vis teksten igen
+                button1.textContent = "Skjul tekst"; // Ændre knapteksten
+            } else {
+                text1.style.display = "none"; // Skjul teksten
+                button1.textContent = "Vis tekst"; // Ændre knapteksten
+            }
+        });
+
+        // Event listener for knapklik på anden
+        button2.addEventListener("click", function() {
+            // Tjek om teksten allerede er skjult
+            if (text2.style.display === "none") {
+                text2.style.display = "block"; // Vis teksten igen
+                button2.textContent = "Skjul tekst"; // Ændre knapteksten
+            } else {
+                text2.style.display = "none"; // Skjul teksten
+                button2.textContent = "Vis tekst"; // Ændre knapteksten
+            }
+        });
+        // Event listener for knapklik på tredje
+        button3.addEventListener("click", function() {
+            // Tjek om teksten allerede er skjult
+            if (text3.style.display === "none") {
+                text3.style.display = "block"; // Vis teksten igen
+                button3.textContent = "Skjul tekst"; // Ændre knapteksten
+            } else {
+                text3.style.display = "none"; // Skjul teksten
+                button3.textContent = "Vis tekst"; // Ændre knapteksten
+            }
+        });
+    </script>

@@ -30,21 +30,23 @@ namespace HillerødSialingClub
 		}
 
 		// PrintMaintenanceLog() udskriver alle strings i list til consolen og retunere List<string>
-		public List<string> PrintMaintenanceLog()
+		public string PrintMaintenanceLog()
 		{
-			return MaintenanceLog;
-		}
+            string Maintencelog = string.Join(", ", MaintenanceLog);
+            return Maintencelog;
+        }
 
 		// metode tilføjer en string til List
 		public void AddToMaintenanceLog(string maintenanceString)
 		{
-			RepairsLog.Add(maintenanceString);
+            MaintenanceLog.Add(maintenanceString);
 		}
 
 		// PrintRepairsLog() udskriver alle strings i list til consolen og retunere List<string>
-		public List<string> PrintRepairsLog()
+		public string PrintRepairsLog()
 		{
-			return RepairsLog;
+			string ReoairsLogString = string.Join(", ", RepairsLog);
+            return ReoairsLogString;
 		}
 
 		// metode tilføjer en string til List
