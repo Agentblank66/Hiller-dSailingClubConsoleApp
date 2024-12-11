@@ -112,10 +112,6 @@ List<Events> joinEvent = new List<Events>();
     foreach (Events joinevent1 in joinEvent) Console.WriteLine(joinevent1);
     Console.WriteLine();
 
-// What the purpoes of this?
-Console.WriteLine(boat);
-Console.WriteLine(event1);
-Console.WriteLine(blog);
 
 // --------------------------- Boat --------------------------------
 Console.WriteLine();
