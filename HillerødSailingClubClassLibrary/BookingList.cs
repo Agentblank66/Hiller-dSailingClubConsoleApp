@@ -36,7 +36,7 @@ namespace HillerødSailingClubClassLibrary
             {
                 if (booking.Id.Equals(id))
                 {
-                    return BookedBoats[id];
+                    return booking;
                 }
             }
             return null;
