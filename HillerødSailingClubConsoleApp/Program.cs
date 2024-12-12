@@ -123,7 +123,7 @@ Console.WriteLine();
     Console.WriteLine();
 
 // --------------------------- Events --------------------------------
-// Testing Event Methods:
+// Testing Events Methods:
 List<Events> joinEvent = new List<Events>();
 
     // Here we will add a Member to the joinEvent list
