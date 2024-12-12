@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace HillerødSailingClubClassLibrary
 {
-    internal class BlogDict
+    public class BlogDict
     {
         private Dictionary<int, Blog> Blogs = new Dictionary<int, Blog>();
-
-        public BlogDict() { }
+        
 
         public void AddBlogPost(Blog blog)
         {

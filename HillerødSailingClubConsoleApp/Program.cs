@@ -151,3 +151,6 @@ Console.WriteLine(boatDict.GetBoat(3));
 Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoat:");
 boatDict.DeleteBoat(1);
 Console.WriteLine(boatDict.PrintAllBoat());
+
+
+employee.RescueMember(bookingList);
