@@ -29,8 +29,8 @@ namespace HillerødSialingClub
 			BoatName = name;
 		}
 
-		// PrintMaintenanceLog() udskriver alle strings i list til consolen og retunere List<string>
-		public string PrintMaintenanceLog()
+        // PrintMaintenanceLog() laver en joined string af listen som så retuneres
+        public string PrintMaintenanceLog()
 		{
             string Maintencelog = string.Join(", ", MaintenanceLog);
             return Maintencelog;
@@ -42,8 +42,8 @@ namespace HillerødSialingClub
             MaintenanceLog.Add(maintenanceString);
 		}
 
-		// PrintRepairsLog() udskriver alle strings i list til consolen og retunere List<string>
-		public string PrintRepairsLog()
+        // PrintRepairsLog() laver en joined string af listen som så retuneres
+        public string PrintRepairsLog()
 		{
 			string ReoairsLogString = string.Join(", ", RepairsLog);
             return ReoairsLogString;

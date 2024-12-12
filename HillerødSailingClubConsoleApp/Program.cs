@@ -4,11 +4,27 @@ using HillerødSialingClub;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-// --------------------------- BoatDict ---------------------------------
+
+
+// --------------------------- Boat --------------------------------
 // Creating Boat Objects:
 Boat boat = new Boat(1, 11.30, "Volvo D2-40 37HP", 2016, "Dehler 38", "Cruiser/Racer", 234, "Berit");
 Boat boat2 = new Boat(2, 3, "Årer", 2022, "Walkerbay", "Plast Jolle", 652, "Ralle");
 Boat boat3 = new Boat(3, 13, "Yanmar 4JH57 57HP", 2019, "Arcona 435 Carbon", "Cruiser/Racer", 472, "Sandra");
+Console.WriteLine();
+Console.WriteLine("Boat Part");
+// Add string to the Two lists on object boat 
+// get the two lists printed out
+Console.WriteLine("get the two lists printed out:");
+boat.AddToMaintenanceLog("testtexttoMaintencelog");
+boat.RequestRepairs("testtextToReapairlog");
+boat.AddToMaintenanceLog("testtexttoMaintencelog");
+boat.RequestRepairs("testtextToReapairlog");
+Console.WriteLine(boat.PrintMaintenanceLog());
+Console.WriteLine(boat.PrintRepairsLog() + "\n");
+
+
+// --------------------------- BoatDict ---------------------------------
 // creates object of BoatDict and adds 3 boats to the Dictioonary
 Console.WriteLine("BoatDict Part:");
 BoatDict boatDict = new BoatDict();
@@ -19,6 +35,9 @@ boatDict.Add(boat3);
 // Prints All boats from the Dictioonary
 Console.WriteLine("Prints All boats from the Dictioonary:");
 Console.WriteLine(boatDict.PrintAllBoat() + "\n");
+
+// Creating Blogs Dictionary 
+BlogDict Blogs = new BlogDict();
 
 // Updates Boat with Id: 1 
 boatDict.Update(1, "type", "model", "name", 123, "engineinfo", 12, 1990);
@@ -136,26 +155,39 @@ List<Events> joinEvent = new List<Events>();
     foreach (Events joinevent1 in joinEvent) Console.WriteLine(joinevent1);
     Console.WriteLine();
 
-
-// --------------------------- Boat --------------------------------
-Console.WriteLine();
-Console.WriteLine("Boat Part");
-// Add string to the Two lists on object boat 
-// get the two lists printed out
-Console.WriteLine("get the two lists printed out:");
-boat.AddToMaintenanceLog("testtexttoMaintencelog");
-boat.RequestRepairs("testtextToReapairlog");
-boat.AddToMaintenanceLog("testtexttoMaintencelog");
-boat.RequestRepairs("testtextToReapairlog");
-Console.WriteLine(boat.PrintMaintenanceLog());
-Console.WriteLine(boat.PrintRepairsLog() + "\n");
-
-
 // --------------------------- BlogDict --------------------------------
 // Creating Blog objects:
 Blog blog = new Blog(1, "blogTitel", "text text text");
+Blog blog2 = new Blog(2, "blogTitel2", "text text text2");
+Blog blog3 = new Blog(3, "blogTitel3", "text text text3");
+
+// Delete() on Boat with Id: 1 && PrintAllBoat
+Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoat:");
+boatDict.DeleteBoat(1);
+Console.WriteLine(boatDict.PrintAllBoat());
+
+// ----------------------- Blog ---------------------------------------
 
 
+// ----------------------- BlogDict ------------------------------------
+// add to Dictionary
+Blogs.AddBlogPost(blog);
+Blogs.AddBlogPost(blog2);
+Blogs.AddBlogPost(blog3);
+
+// Get blog by Id update and get again 
+
+Console.WriteLine( Blogs.GetBlogPost(1));
+Blogs.UpdateBlogPost(1, "updatedTitel", "updatedText text");
+Console.WriteLine( Blogs.GetBlogPost(1));
+
+// delete blog with Id 1
+Blogs.DeleteBlogPost(1);
+Console.WriteLine(Blogs.GetBlogPost(1) + " deleted here");
+
+// Search blog
+Console.WriteLine( Blogs.SearchBlog("blog"));
+Console.WriteLine(Blogs.SearchBlog("Din"));
 // --------------------------- EmployeeDict --------------------------------
 // Creating Employee Objects:
 Employee employee = new Employee("Kunde", 1, "Casper", 42418990, "test@mail.com", "addresseTest1");
