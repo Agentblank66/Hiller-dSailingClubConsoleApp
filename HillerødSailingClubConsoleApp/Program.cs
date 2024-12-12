@@ -191,3 +191,4 @@ Console.WriteLine(Blogs.SearchBlog("Din"));
 Employee employee = new Employee("Kunde", 1, "Casper", 42418990, "test@mail.com", "addresseTest1");
 
 Employee employee1 = new Employee("Kunde", 1, "Preben", 45324567, "Preben@mail.com", "Ondstorkevej 2");
+employee.RescueMember(bookingList);
