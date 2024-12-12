@@ -189,3 +189,4 @@ Console.WriteLine(Blogs.SearchBlog("Din"));
 // --------------------------- EmployeeDict --------------------------------
 // Creating Employee Objects:
 Employee employee = new Employee("Kunde", 1, "Casper", 42418990, "test@mail.com", "addresseTest1");
+Employee employee1 = new Employee("Kunde", 1, "Preben", 45324567, "Preben@mail.com", "Ondstorkevej 2");
