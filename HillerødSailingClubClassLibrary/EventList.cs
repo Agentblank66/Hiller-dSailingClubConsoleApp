@@ -65,7 +65,7 @@ namespace HillerødSailingClubClassLibrary
         //Method which prints out every activity.
         public List<Events> GetAllEvents()
         {
-            return new List<Events>(EventsList);
+            return EventsList;
         }
     }
 }
