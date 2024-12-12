@@ -115,14 +115,11 @@ Console.WriteLine(events.GetEvents(1));
 Console.WriteLine();
 
     // Here we will search after a specific event with "holdes" in the description
-    //Snak med henrik om search metode, selvom den er blevet lavet, hør hvorfor man skal gøre på denne måde
-    List<Events> eventlist = events.SearchEvents("holdes"); 
-    foreach (Events Events in eventlist) Console.WriteLine(Events); // Ask Tomorrow
+    foreach (Events Events in events.SearchEvents("holdes")) Console.WriteLine(Events); // Ask Tomorrow
     Console.WriteLine();
 
     // Here we will get all events in the events list
-    List<Events> allevents = events.GetAllEvents();
-    foreach (Events events1 in allevents) Console.WriteLine(events1);
+    foreach (Events events1 in events.GetAllEvents()) Console.WriteLine(events1);
     Console.WriteLine();
 
 // --------------------------- Events --------------------------------
