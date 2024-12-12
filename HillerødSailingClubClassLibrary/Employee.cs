@@ -18,16 +18,16 @@ namespace HillerødSailingClubClassLibrary
             Role = role;
         }
 
-        public string RescueMember(BookingList bookings)
-        {
-            foreach (Booking booking in bookings) 
-            {
-                if (booking.DateTime < DateTime.Now) 
-                {
-                    return "true";
-                }
-            }
-            return "false";
-        }
+        //public string RescueMember(BookingList bookings)
+        //{
+        //    foreach (Booking booking in bookings) 
+        //    {
+        //        if (booking.DateTime < DateTime.Now) 
+        //        {
+        //            return "true";
+        //        }
+        //    }
+        //    return "false";
+        //}
     }
 }
