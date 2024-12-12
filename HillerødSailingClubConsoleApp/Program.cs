@@ -2,6 +2,7 @@
 using HillerødSailingClubClassLibrary;
 using HillerødSialingClub;
 using System.Diagnostics;
+using System.Xml.Serialization;
 
 // --------------------------- BoatDict ---------------------------------
 // Creating Boat Objects:
@@ -63,6 +64,7 @@ MemberDict memberDict = new MemberDict();
 
     // Printing out all members in the memberDict Dictionary
     memberDict.PrintAllMembers();
+    PrintMembers(memberDict.PrintAllMembers());
 
 
 // --------------------------- BookingList --------------------------------
@@ -88,9 +90,9 @@ BookingList bookingList = new BookingList();
 
     // Updating the booking object
     bookingList.UpdateBookedBoat(booking, member, boat, 2025, 01, 01);
-    
+
     // Printing all bookings out
-    bookingList.PrintAllBookedBoats();
+    PrintBookings(bookingList.PrintAllBookedBoats());
 
 
 // --------------------------- EventList --------------------------------
@@ -157,3 +159,14 @@ Blog blog = new Blog(1, "blogTitel", "text text text");
 // --------------------------- EmployeeDict --------------------------------
 // Creating Employee Objects:
 Employee employee = new Employee("Kunde", 1, "Casper", 42418990, "test@mail.com", "addresseTest1");
+
+
+// ---------------------------Function----------------------------------------
+void PrintMembers(Dictionary<int,Member> members)
+{
+    foreach (Member member in members) Console.WriteLine(member);
+}
+void PrintBookings(List<Booking> bookings)
+{
+    foreach (Booking booking in bookings) Console.WriteLine(booking);
+}

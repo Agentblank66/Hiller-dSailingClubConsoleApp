@@ -54,12 +54,9 @@ namespace HillerødSailingClubClassLibrary
         }
 
         // This method goes through the BookedBoats list and printout all booking objects
-        public void PrintAllBookedBoats()
+        public List<Booking> PrintAllBookedBoats()
         {
-            foreach (var booking in BookedBoats)
-            {
-                Console.WriteLine(booking);
-            }
+            return BookedBoats;
         }
 
         #endregion
