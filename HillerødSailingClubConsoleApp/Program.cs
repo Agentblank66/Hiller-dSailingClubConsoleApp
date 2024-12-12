@@ -194,7 +194,7 @@ Employee employee = new Employee("Kunde", 1, "Casper", 42418990, "test@mail.com"
 
 
 // ---------------------------Function----------------------------------------
-void PrintMembers(Dictionary<int,Member> members)
+void PrintMembers(List<Member> members)
 {
     foreach (Member member in members) Console.WriteLine(member);
 }

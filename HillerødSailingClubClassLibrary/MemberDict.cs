@@ -59,9 +59,9 @@ namespace HillerødSailingClubClassLibrary
         }
 
         // This method goes through the Members Dictionary and prints them all out
-        public Dictionary<int, Member> PrintAllMembers()
+        public List<Member> PrintAllMembers()
         {
-            return Members;
+            return Members.Values.ToList();
         }
         #endregion
     }
