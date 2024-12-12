@@ -62,6 +62,24 @@ namespace HillerødSailingClubClassLibrary
             }
         }
 
+
+        public string RescueMember(BookingList value)
+        {
+            foreach (var booking in value)
+            {
+                if (booking.DateTime < DateTime.Now)
+                {
+                    return "Igangsæt eftersøgning";
+                }
+            }
+            return "Medlem er kommet retur";
+        }
+
+        public string MemberSailing(MemberDict value)
+        {
+            if
+
+        }
         #endregion
     }
 }
