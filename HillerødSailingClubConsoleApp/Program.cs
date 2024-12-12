@@ -15,10 +15,19 @@ boatDict.Add(boat);
 boatDict.Add(boat2);
 boatDict.Add(boat3);
 
+// Creating Blog objects:
+Blog blog = new Blog(1, "blogTitel", "text text text");
+Blog blog2 = new Blog(2, "blogTitel2", "text2 text text");
+Blog blog3 = new Blog(3, "blogTitel2", "text2 text text");
 // Prints All boats from the Dictioonary
 Console.WriteLine("Prints All boats from the Dictioonary:");
 Console.WriteLine(boatDict.PrintAllBoat() + "\n");
 
+// Creating Blogs Dictionary 
+BlogDict Blogs = new BlogDict();
+
+// Creating Employee Objects:
+Employee employee = new Employee("Kunde", 1, "Casper", 42418990, "test@mail.com", "addresseTest1");
 // Updates Boat with Id: 1 
 boatDict.Update(1, "type", "model", "name", 123, "engineinfo", 12, 1990);
 
@@ -148,12 +157,50 @@ boat.RequestRepairs("testtextToReapairlog");
 Console.WriteLine(boat.PrintMaintenanceLog());
 Console.WriteLine(boat.PrintRepairsLog() + "\n");
 
+// --------------------------- BoatDict ---------------------------------
+// creates object of BoatDict and adds 3 boats to the Dictioonary
+Console.WriteLine("BoatDict Part:");
+BoatDict boatDict = new BoatDict();
+boatDict.Add(boat);
+boatDict.Add(boat2);
+boatDict.Add(boat3);
+
+// Prints All boats from the Dictioonary
+Console.WriteLine("Prints All boats from the Dictioonary:");
+Console.WriteLine(boatDict.PrintAllBoat() + "\n");
 
 // --------------------------- BlogDict --------------------------------
 // Creating Blog objects:
 Blog blog = new Blog(1, "blogTitel", "text text text");
 
 
+// Delete() on Boat with Id: 1 && PrintAllBoat
+Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoat:");
+boatDict.DeleteBoat(1);
+Console.WriteLine(boatDict.PrintAllBoat());
+
+// ----------------------- Blog ---------------------------------------
+
+
+// ----------------------- BlogDict ------------------------------------
+// add to Dictionary
+Blogs.AddBlogPost(blog);
+Blogs.AddBlogPost(blog2);
+Blogs.AddBlogPost(blog3);
+
+// Get blog by Id update and get again 
+
+Console.WriteLine( Blogs.GetBlogPost(1));
+Blogs.UpdateBlogPost(1, "updatedTitel", "updatedText text");
+Console.WriteLine( Blogs.GetBlogPost(1));
+
+// delete blog with Id 1
+Blogs.DeleteBlogPost(1);
+Console.WriteLine(Blogs.GetBlogPost(1) + " deleted here");
+
+// Search blog
+Console.WriteLine( Blogs.SearchBlog("blog"));
+Console.WriteLine(Blogs.SearchBlog("Din"));
 // --------------------------- EmployeeDict --------------------------------
 // Creating Employee Objects:
 Employee employee = new Employee("Kunde", 1, "Casper", 42418990, "test@mail.com", "addresseTest1");

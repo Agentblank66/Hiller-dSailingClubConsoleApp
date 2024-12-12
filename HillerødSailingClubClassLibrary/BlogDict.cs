@@ -16,24 +16,51 @@ namespace HillerødSailingClubClassLibrary
             Blogs.Add(blog.Id, blog);
         }
 
-        public void UpdateBlogPost(Blog blog)
+        public void UpdateBlogPost(int id, string titel, string text)
         {
-            if (Blogs.ContainsKey(blog.Id))
+            if (Blogs.ContainsKey(id))
             {
-                blog.Id = blog.Id;
-                blog.Titel = blog.Titel;
-                blog.Text = blog.Text;
+                Blogs[id].Titel = titel;
+                Blogs[id].Text = text;
             }
         }
 
-        public Blog GetBlogPost(int id)
+        public Blog? GetBlogPost(int id)
         {
-            return Blogs[id];
+            if (Blogs.ContainsKey(id))
+            {
+                return Blogs[id];
+
+            }
+            return null;
         }
 
         public bool DeleteBlogPost(int id)
         {
             return Blogs.Remove(id);
+        }
+
+        public string SearchBlog(string keyWord)
+        {
+            var result = new List<Blog>();
+
+            // Search through each blog in the dictionary
+            foreach (var blog in Blogs.Values)
+            {
+                // Check if the Title or Text contains the keyword (case-insensitive)
+                if (blog.Titel.IndexOf(keyWord, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                    blog.Text.IndexOf(keyWord, StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    result.Add(blog);
+                }
+            }
+            if (result.Count > 0) { 
+                string resultString = string.Join(", ", result);
+                return resultString; // Return the list of matching blogs
+            } else
+            {
+                return "Der blev ikke fundet noget";
+            } 
         }
     }
 }
