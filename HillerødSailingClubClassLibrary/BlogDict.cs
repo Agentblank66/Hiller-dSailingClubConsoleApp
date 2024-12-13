@@ -16,12 +16,12 @@ namespace HillerødSailingClubClassLibrary
             Blogs.TryAdd(blog.Id, blog);
         }
 
-        public void UpdateBlogPost(Blog blog,int id, string titel, string text)
+        public void UpdateBlogPost(Blog blog,int newid, string newtitel, string newtext)
         {
-            if (Blogs.ContainsKey(id))
+            if (Blogs.ContainsKey(newid))
             {
-                blog.Titel = titel;
-                blog.Text = text;
+                blog.Titel = newtitel;
+                blog.Text = newtext;
             }
         }
 

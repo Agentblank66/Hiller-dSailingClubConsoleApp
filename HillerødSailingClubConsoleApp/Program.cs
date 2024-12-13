@@ -82,7 +82,7 @@ MemberDict memberDict = new MemberDict();
     memberDict.UpdateMember(member4, "AddressTest4", "martin", "Test4@mail.com", 16758933);
 
 // Printing out all members in the memberDict Dictionary
-    PrintMembers(memberDict.PrintAllMembers());
+    //PrintMembers(memberDict.PrintAllMembers());
 
 
 // --------------------------- BookingList --------------------------------
@@ -110,7 +110,7 @@ BookingList bookingList = new BookingList();
     bookingList.UpdateBookedBoat(booking, member, boat, 2025, 01, 01);
 
     // Printing all bookings out
-    PrintBookings(bookingList.PrintAllBookedBoats());
+    //PrintBookings(bookingList.PrintAllBookedBoats());
 
 
 // --------------------------- EventList --------------------------------
@@ -191,7 +191,7 @@ Blogs.AddBlogPost(blog3);
 // Get blog by Id update and get again 
 
 Console.WriteLine( Blogs.GetBlogPost(1));
-Blogs.UpdateBlogPost(1, "updatedTitel", "updatedText text");
+Blogs.UpdateBlogPost( blog2, 1, "updatedText text", "newtext test");
 Console.WriteLine( Blogs.GetBlogPost(1));
 
 // delete blog with Id 1
@@ -206,11 +206,11 @@ Console.WriteLine(Blogs.SearchBlog("Din"));
 Employee employee = new Employee("Kunde", 1, "Casper", 42418990, "test@mail.com", "addresseTest1");
 
 Employee employee1 = new Employee("Kunde", 1, "Preben", 45324567, "Preben@mail.com", "Ondstorkevej 2");
-employee.RescueMember(bookingList);
+//employee.RescueMember(bookingList);
 
-//Creating EmployeeDict Update
+//Update employee with new employee
 EmployeeDict employeeDict = new EmployeeDict();
 employeeDict.Add(employee);
 employeeDict.Add(employee1);
-employeeDict.Update(employee, "Anders", 66655532, "BaskMig@gmail.com", "OndPræstevej");
+employeeDict.Update(employee, "Anders Andersen", 4655532, "BaskMig@gmail.com", "OndPræstevej");
 Console.WriteLine(employee);
