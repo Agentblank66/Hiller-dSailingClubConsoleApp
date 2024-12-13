@@ -18,16 +18,16 @@ namespace HillerødSailingClubClassLibrary
         }
 
         //Her laver vi en Update metode. Vi bruger nedstående metode.
-        //Vores "if" statement, skal finde alle Employees ved hjælp af søgefunktionen "ID"
-        //Derfra kan vi hente Employeen, og ændre i deres oplysninger.
-        public void Update(Employee emp)
+        //Vi laver en “If” statement, da vi skal give employee nye parametre. 
+        //ContainsKey bliver anvendt til at søge i dictionary, om den key vi søger efter er valid. ContainsKey har returtypen “Bool”.
+        public void Update(Employee emp, string newName, int newTlf, string newEmail, string newAddress)
         {
             if (Employees.ContainsKey(emp.Id))
             {
-                emp.Name = emp.Name;
-                emp.Tlf = emp.Tlf;
-                emp.Email = emp.Email;
-                emp.Address = emp.Address;
+                emp.Name = newName;
+                emp.Tlf = newTlf;
+                emp.Email = newEmail;
+                emp.Address = newAddress;
             }
         }
 

@@ -208,3 +208,9 @@ Employee employee = new Employee("Kunde", 1, "Casper", 42418990, "test@mail.com"
 
 Employee employee1 = new Employee("Kunde", 1, "Preben", 45324567, "Preben@mail.com", "Ondstorkevej 2");
 employee.RescueMember(bookingList);
+
+EmployeeDict employeeDict = new EmployeeDict();
+employeeDict.Add(employee);
+employeeDict.Add(employee1);
+employeeDict.Update(employee, "Anders", 66655532, "BaskMig@gmail.com", "OndPræstevej");
+Console.WriteLine(employee);
