@@ -110,7 +110,7 @@ BookingList bookingList = new BookingList();
     bookingList.UpdateBookedBoat(booking, member, boat, 2025, 01, 01);
 
     // Printing all bookings out
-    PrintBookings(bookingList.PrintAllBookedBoats());
+    //PrintBookings(bookingList.PrintAllBookedBoats());
 
     // Starting a rescue of a missing member
     Console.WriteLine(bookingList.RescueMember());
@@ -148,17 +148,31 @@ Console.WriteLine();
     foreach (Events events1 in events.GetAllEvents()) Console.WriteLine(events1);
     Console.WriteLine();
 
-// --------------------------- Events --------------------------------
-// Testing Events Methods:
-List<Events> joinEvent = new List<Events>();
+// --------------------------- JoinerRepo --------------------------------
+// Testing joinedRepo Methods:
+JoinedRepo membersjoined = new JoinedRepo();
+Joined joiner1 = new Joined(1, member, event1);
+Joined joiner2 = new Joined(2, member2, event2);
+Joined joiner3 = new Joined(3, member3, event3);
 
-    // Here we will add a Member to the joinEvent list
-    event1.JoinEvent(member);
-    Console.WriteLine(event1.ShowLastMember());
-    Console.WriteLine(events.GetEvents(1));
-    Console.WriteLine(event1.ShowLastMember());
-    foreach (Events joinevent1 in joinEvent) Console.WriteLine(joinevent1);
-    Console.WriteLine();
+//Add member to list and printing all
+membersjoined.JoinEvent(member);
+membersjoined.JoinEvent(member2);
+membersjoined.JoinEvent(member3);
+Console.WriteLine("List of members joining event:");
+foreach (Member joinedMembers in membersjoined.GetAllJoinedMember()) Console.WriteLine(joinedMembers);
+Console.WriteLine();
+
+//Showing the last member to join the event/list
+Console.WriteLine("The last member to join event:");
+Console.WriteLine(membersjoined.ShowLastMember());
+Console.WriteLine();
+
+//Delte a member that has joined, then shwo the list
+Console.WriteLine("Delete a member from the list, then show the remaining:");
+membersjoined.DeleteMemberInEvent(member);
+foreach (Member joinedMembers in membersjoined.GetAllJoinedMember()) Console.WriteLine(joinedMembers);
+Console.WriteLine();
 
 // --------------------------- BlogDict --------------------------------
 // Creating Blog objects:
@@ -183,7 +197,7 @@ Blogs.AddBlogPost(blog3);
 // Get blog by Id update and get again 
 
 Console.WriteLine( Blogs.GetBlogPost(1));
-Blogs.UpdateBlogPost(1, "updatedTitel", "updatedText text");
+Blogs.UpdateBlogPost( blog2, 1, "updatedText text", "newtext test");
 Console.WriteLine( Blogs.GetBlogPost(1));
 
 // delete blog with Id 1
@@ -197,7 +211,15 @@ Console.WriteLine(Blogs.SearchBlog("Din"));
 // Creating Employee Objects:
 Employee employee = new Employee("Kunde", 1, "Casper", 42418990, "test@mail.com", "addresseTest1");
 
+Employee employee1 = new Employee("Kunde", 1, "Preben", 45324567, "Preben@mail.com", "Ondstorkevej 2");
+//employee.RescueMember(bookingList);
 
+//Update employee with new employee
+EmployeeDict employeeDict = new EmployeeDict();
+employeeDict.Add(employee);
+employeeDict.Add(employee1);
+employeeDict.Update(employee, "Anders Andersen", 4655532, "BaskMig@gmail.com", "OndPræstevej");
+Console.WriteLine(employee);
 // ---------------------------Function----------------------------------------
 void PrintMembers(List<Member> members)
 {

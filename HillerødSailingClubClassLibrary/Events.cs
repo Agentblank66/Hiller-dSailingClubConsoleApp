@@ -14,8 +14,6 @@ namespace HillerødSailingClubClassLibrary
         public string Description { get; set; }
         public DateTime Date { get; set; }
 
-        List<Member> Participants = new List<Member>();
-
         public Events(int id, string name, string description, int year, int month, int day, int hour, int minute, int second)
         {
             Id = id;
@@ -30,19 +28,5 @@ namespace HillerødSailingClubClassLibrary
             return $"Id: {Id} \nName: {Name} \nDescription: {Description} \nDate: {Date}";
         }
 
-        //Method which adds a member to an activity, by chechking if the member hasnt joined already, then adds that member. 
-        public void JoinEvent(Member member)
-        {
-            if (!Participants.Contains(member))
-            {
-                Participants.Add(member);
-            }
-        }
-
-        //Method which looks at list Participants and uses .Count, which looks at all the objects in the list, and minuses with 1, to account for that it starts at 0, and then shows the object.
-        public Member? ShowLastMember() 
-        { 
-            return Participants[Participants.Count-1];
-        }
     }
 }

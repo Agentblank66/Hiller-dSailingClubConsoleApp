@@ -24,17 +24,6 @@ namespace HillerødSailingClubClassLibrary
             EventsList.Remove(events);
         }
 
-        //Method which finds a specific activity, by searching for an activitys Id in the list and then returns that activity.  
-        public Events? GetEvents(int id)
-        {
-            foreach (var events in EventsList)
-            {
-                if (events.Id == id)
-                    return events;
-            }
-            return null;
-        }
-
         //Method which updates an activity, by using the GetActivity method to find a specific activity and then changing that activitys parameters.
         public void UpdateEvents(int id, string name, string description, int year, int month, int day, int hour, int minute, int second)
         {
@@ -61,8 +50,19 @@ namespace HillerødSailingClubClassLibrary
             return evented;
         }
 
+        //Method which finds a specific activity, by searching for an activitys Id in the list and then returns that activity.  
+        public Events? GetEvents(int id)
+        {
+            foreach (var events in EventsList)
+            {
+                if (events.Id == id)
+                    return events;
+            }
+            return null;
+        }
 
-        //Method which prints out every activity.
+
+        //Method which prints out every object.
         public List<Events> GetAllEvents()
         {
             return EventsList;

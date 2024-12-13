@@ -21,15 +21,19 @@ namespace HillerødSialingClub
 		// Den tager flere argumenter når kaldet, som bruges til at opdatere de relevante egenskaber for båden.
 		public void Update(int Id, string boattype, string model, string boatname, int sailnr, string engineinfo, double size, int buildyear)
 		{
-			if (Boats.ContainsKey(Id))
+			// hent båden med det givne id
+			Boat? boatToUpdate = GetBoat(Id);
+
+			// hvis båden findes, opdatere dens egenskaber.
+			if (boatToUpdate != null)
 			{
-				Boats[Id].BoatType = boattype;
-				Boats[Id].Model = model;
-				Boats[Id].BoatName = boatname;
-				Boats[Id].SailingNumber = sailnr;
-				Boats[Id].EngineInformation = engineinfo;
-				Boats[Id].Size = size;
-				Boats[Id].BuildYear = buildyear;
+                boatToUpdate.BoatType = boattype;
+                boatToUpdate.Model = model;
+                boatToUpdate.BoatName = boatname;
+                boatToUpdate.SailingNumber = sailnr;
+                boatToUpdate.EngineInformation = engineinfo;
+                boatToUpdate.Size = size;
+                boatToUpdate.BuildYear = buildyear;
 			}
 		}
 
@@ -38,10 +42,10 @@ namespace HillerødSialingClub
 		{
 			if (Boats.ContainsKey(id))
 			{
-				return Boats[id];
+				return Boats[id]; // retunere båden vis den findes i dictionary
 			}
-			return null;
-		}
+			return null; // Hvis båden ikke findes, returner null
+        }
 
 		// boat med det angivede id fjernes fra dictionary når kaldet
 		public bool DeleteBoat(int id)
