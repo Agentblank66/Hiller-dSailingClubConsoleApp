@@ -54,8 +54,4 @@ namespace HillerødSailingClubClassLibrary
             }
         }
     }
-
-
-
-
 }
