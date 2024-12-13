@@ -81,8 +81,7 @@ MemberDict memberDict = new MemberDict();
     memberDict.UpdateMember(member, "AddressTest0", "Kasper", "test0@mail.com", 43518990);
     memberDict.UpdateMember(member4, "AddressTest4", "martin", "Test4@mail.com", 16758933);
 
-    // Printing out all members in the memberDict Dictionary
-    memberDict.PrintAllMembers();
+// Printing out all members in the memberDict Dictionary
     PrintMembers(memberDict.PrintAllMembers());
 
 
