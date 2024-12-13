@@ -19,17 +19,17 @@ namespace HillerødSialingClub
 
 		// Metoden Update opdaterer informationer for en båd i et Dictionary kaldet Boats.
 		// Den tager flere argumenter når kaldet, som bruges til at opdatere de relevante egenskaber for båden.
-		public void Update(int Id, string boattype, string model, string boatname, int sailnr, string engineinfo, double size, int buildyear)
+		public void Update(Boat boat, int Id, string boattype, string model, string boatname, int sailnr, string engineinfo, double size, int buildyear)
 		{
 			if (Boats.ContainsKey(Id))
 			{
-				Boats[Id].BoatType = boattype;
-				Boats[Id].Model = model;
-				Boats[Id].BoatName = boatname;
-				Boats[Id].SailingNumber = sailnr;
-				Boats[Id].EngineInformation = engineinfo;
-				Boats[Id].Size = size;
-				Boats[Id].BuildYear = buildyear;
+				boat.BoatType = boattype;
+				boat.Model = model;
+				boat.BoatName = boatname;
+				boat.SailingNumber = sailnr;
+				boat.EngineInformation = engineinfo;
+				boat.Size = size;
+				boat.BuildYear = buildyear;
 			}
 		}
 
