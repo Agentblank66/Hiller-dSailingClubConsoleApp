@@ -82,15 +82,14 @@ MemberDict memberDict = new MemberDict();
     memberDict.UpdateMember(member4, "AddressTest4", "martin", "Test4@mail.com", 16758933);
 
     // Printing out all members in the memberDict Dictionary
-    memberDict.PrintAllMembers();
     PrintMembers(memberDict.PrintAllMembers());
 
 
 // --------------------------- BookingList --------------------------------
 // Creating Booking Objects:
-Booking booking = new Booking(0, member, boat, 2024, 12, 24);
-Booking booking2 = new Booking(1, member2, boat2, 2024, 12, 26);
-Booking booking3 = new Booking(2, member3, boat3, 2024, 12, 31);
+Booking booking = new Booking(0, member, boat, 2024, 12, 24, 12, 56, 58);
+Booking booking2 = new Booking(1, member2, boat2, 2024, 12, 26, 12, 56, 58);
+Booking booking3 = new Booking(2, member3, boat3, 2024, 12, 31, 12, 56, 58);
 
 // Testing Booking methods:
 BookingList bookingList = new BookingList();
@@ -112,6 +111,12 @@ BookingList bookingList = new BookingList();
 
     // Printing all bookings out
     PrintBookings(bookingList.PrintAllBookedBoats());
+
+    // Starting a rescue of a missing member
+    Console.WriteLine(bookingList.RescueMember());
+
+    // Getting all members that are out sailing
+    Console.WriteLine(bookingList.MembersSailing);
 
 
 // --------------------------- EventList --------------------------------
@@ -201,4 +206,8 @@ void PrintMembers(List<Member> members)
 void PrintBookings(List<Booking> bookings)
 {
     foreach (Booking booking in bookings) Console.WriteLine(booking);
+}
+void PrintSailingMembers(List<Member> sailingMembers)
+{
+    foreach (Member member in sailingMembers) Console.WriteLine(bookingList.MembersSailing);
 }

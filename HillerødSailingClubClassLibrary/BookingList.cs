@@ -59,12 +59,11 @@ namespace HillerødSailingClubClassLibrary
             return BookedBoats;
         }
 
-
-        public string RescueMember(BookingList value)
+        public string RescueMember()
         {
-            foreach (var booking in value)
+            foreach (Booking booking1 in BookedBoats)
             {
-                if (booking.DateTime < DateTime.Now)
+                if (DateTime.Now >= booking1.DateTime.AddHours(2).AddMinutes(30))
                 {
                     return "Igangsæt eftersøgning";
                 }
@@ -72,10 +71,14 @@ namespace HillerødSailingClubClassLibrary
             return "Medlem er kommet retur";
         }
 
-        public string MemberSailing(MemberDict value)
+        public List<Member> MembersSailing()
         {
-            if
-
+            List<Member> membersSailing = new List<Member>();
+            foreach(Booking booking in BookedBoats)
+            {
+                membersSailing.Add(booking.Member);
+            }
+            return membersSailing;
         }
         #endregion
     }

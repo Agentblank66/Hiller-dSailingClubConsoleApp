@@ -17,10 +17,10 @@ namespace HillerødSailingClubClassLibrary
         #endregion
 
         #region Constructor
-        public Booking(int id, Member member, Boat boat, int year, int month, int day)
+        public Booking(int id, Member member, Boat boat, int year, int month, int day, int hour, int min, int sec)
         {
             Id = id;
-            DateTime = new DateTime(year, month, day);
+            DateTime = new DateTime(year, month, day, hour, min, sec);
             Member = member;
             Boat = boat;
         }
