@@ -143,17 +143,31 @@ Console.WriteLine();
     foreach (Events events1 in events.GetAllEvents()) Console.WriteLine(events1);
     Console.WriteLine();
 
-// --------------------------- Events --------------------------------
-// Testing Events Methods:
-List<Events> joinEvent = new List<Events>();
+// --------------------------- JoinerRepo --------------------------------
+// Testing joinedRepo Methods:
+JoinedRepo membersjoined = new JoinedRepo();
+Joined joiner1 = new Joined(1, member, event1);
+Joined joiner2 = new Joined(2, member2, event2);
+Joined joiner3 = new Joined(3, member3, event3);
 
-    // Here we will add a Member to the joinEvent list
-    event1.JoinEvent(member);
-    Console.WriteLine(event1.ShowLastMember());
-    Console.WriteLine(events.GetEvents(1));
-    Console.WriteLine(event1.ShowLastMember());
-    foreach (Events joinevent1 in joinEvent) Console.WriteLine(joinevent1);
-    Console.WriteLine();
+//Add member to list and printing all
+membersjoined.JoinEvent(member);
+membersjoined.JoinEvent(member2);
+membersjoined.JoinEvent(member3);
+Console.WriteLine("List of members joining event:");
+foreach (Member joinedMembers in membersjoined.GetAllJoinedMember()) Console.WriteLine(joinedMembers);
+Console.WriteLine();
+
+//Showing the last member to join the event/list
+Console.WriteLine("The last member to join event:");
+Console.WriteLine(membersjoined.ShowLastMember());
+Console.WriteLine();
+
+//Delte a member that has joined, then shwo the list
+Console.WriteLine("Delete a member from the list, then show the remaining:");
+membersjoined.DeleteMemberInEvent(member);
+foreach (Member joinedMembers in membersjoined.GetAllJoinedMember()) Console.WriteLine(joinedMembers);
+Console.WriteLine();
 
 // --------------------------- BlogDict --------------------------------
 // Creating Blog objects:
@@ -202,3 +216,4 @@ void PrintBookings(List<Booking> bookings)
 {
     foreach (Booking booking in bookings) Console.WriteLine(booking);
 }
+

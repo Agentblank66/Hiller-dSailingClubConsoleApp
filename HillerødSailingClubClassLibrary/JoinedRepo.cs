@@ -7,25 +7,9 @@ using System.Threading.Tasks;
 
 namespace HillerødSailingClubClassLibrary
 {
-    internal class JoinedRepo
+    public class JoinedRepo
     {
         List<Member> Participants = new List<Member>();
-
-        public int Id { get; set; }
-        public Member Member { get; set; }
-        public Events Events { get; set; }
-
-        public JoinedRepo(int id, Member member, Events events)
-        {
-            Id = id;
-            Member = member;
-            Events = events;
-        }
-
-        public override string ToString()
-        {
-            return $"Id: {Id} \nMember: {Member} \nEvents: {Events}";
-        }
 
         //A method which adds a member from a list, by chechking if the member hasnt joined already, then adds that member. 
         public void JoinEvent(Member member)
@@ -50,5 +34,12 @@ namespace HillerødSailingClubClassLibrary
                 Participants.Remove(member);
             }
         }
+
+
+        public List<Member> GetAllJoinedMember()
+        {
+            return Participants;
+        }
+            
     }
 }

@@ -62,7 +62,7 @@ namespace HillerødSailingClubClassLibrary
         }
 
 
-        //Method which prints out every activity.
+        //Method which prints out every object.
         public List<Events> GetAllEvents()
         {
             return EventsList;
