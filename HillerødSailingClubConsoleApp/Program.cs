@@ -110,13 +110,13 @@ BookingList bookingList = new BookingList();
     bookingList.UpdateBookedBoat(booking, member, boat, 2025, 01, 01);
 
     // Printing all bookings out
-    //PrintBookings(bookingList.PrintAllBookedBoats());
+    PrintBookings(bookingList.PrintAllBookedBoats());
 
     // Starting a rescue of a missing member
     Console.WriteLine(bookingList.RescueMember());
 
     // Getting all members that are out sailing
-    Console.WriteLine(bookingList.MembersSailing);
+    PrintSailingMembers(bookingList.MembersSailing());
 
 
 // --------------------------- EventList --------------------------------
@@ -229,7 +229,7 @@ void PrintBookings(List<Booking> bookings)
 {
     foreach (Booking booking in bookings) Console.WriteLine(booking);
 }
-void PrintSailingMembers(List<Member> sailingMembers)
+void PrintSailingMembers(List<Member> membersSailing)
 {
-    foreach (Member member in sailingMembers) Console.WriteLine(bookingList.MembersSailing);
+    foreach (Member member in membersSailing) Console.WriteLine(member);
 }
