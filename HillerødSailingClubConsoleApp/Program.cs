@@ -25,31 +25,31 @@ Console.WriteLine(boat.PrintRepairsLog() + "\n");
 // --------------------------- BoatDict ---------------------------------
 // creates object of BoatDict and adds 3 boats to the Dictioonary
 Console.WriteLine("BoatDict Part:");
-BoatRepo boatDict = new BoatRepo();
-boatDict.Add(boat);
-boatDict.Add(boat2);
-boatDict.Add(boat3);
+BoatRepo boatRepo = new BoatRepo();
+boatRepo.Add(boat);
+boatRepo.Add(boat2);
+boatRepo.Add(boat3);
 
 // Prints All boats from the Dictioonary
 Console.WriteLine("Prints All boats from the Dictioonary:");
-Console.WriteLine(boatDict.PrintAllBoat() + "\n");
+Console.WriteLine(boatRepo.PrintAllBoat() + "\n");
 
 // Creating Blogs Dictionary 
 BlogRepo Blogs = new BlogRepo();
 
 // Updates Boat with Id: 1 
-boatDict.Update(1, "type", "model", "name", 123, "engineinfo", 12, 1990);
+boatRepo.Update(1, "type", "model", "name", 123, "engineinfo", 12, 1990);
 
 // Get metode on 3 Boats 
 Console.WriteLine("\n" + "Get metode on 3 Boats:");
-Console.WriteLine(boatDict.GetBoat(1));
-Console.WriteLine(boatDict.GetBoat(2));
-Console.WriteLine(boatDict.GetBoat(3));
+Console.WriteLine(boatRepo.GetBoat(1));
+Console.WriteLine(boatRepo.GetBoat(2));
+Console.WriteLine(boatRepo.GetBoat(3));
 
 // Delete() on Boat with Id: 1 && PrintAllBoat
 Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoat:");
-boatDict.DeleteBoat(1);
-Console.WriteLine(boatDict.PrintAllBoat());
+boatRepo.DeleteBoat(1);
+Console.WriteLine(boatRepo.PrintAllBoat());
 
 
 // --------------------------- MemberDict --------------------------------
@@ -60,27 +60,27 @@ Member member3 = new Member(3, "Rasmus", 12457801, "test3@mail.com", "addresseTe
 Member member4 = new Member(4, "Martin", 15609284, "test4@mail.com", "addresseTest4");
 
 // Testing Member Methods:
-MemberRepo memberDict = new MemberRepo();
+MemberRepo memberRepo = new MemberRepo();
 
     // Start by adding members to the memberDict Dictionary
-    memberDict.AddMember(member);
-    memberDict.AddMember(member2);
-    memberDict.AddMember(member3);
-    memberDict.AddMember(member4);
+    memberRepo.AddMember(member);
+    memberRepo.AddMember(member2);
+    memberRepo.AddMember(member3);
+    memberRepo.AddMember(member4);
 
     // Deleting a member from the memberDict Dictionary
-    memberDict.DeleteMember(member4);
+    memberRepo.DeleteMember(member4);
 
     // Getting member 3 and 4, but 4 was deleted above so it will not get printed out
-    Console.WriteLine(memberDict.GetMember(3));
-    Console.WriteLine(memberDict.GetMember(4));
+    Console.WriteLine(memberRepo.GetMember(3));
+    Console.WriteLine(memberRepo.GetMember(4));
 
     // Updating member and member4, but member4 don't exist
-    memberDict.UpdateMember(member, "AddressTest0", "Kasper", "test0@mail.com", 43518990);
-    memberDict.UpdateMember(member4, "AddressTest4", "martin", "Test4@mail.com", 16758933);
+    memberRepo.UpdateMember(member, "AddressTest0", "Kasper", "test0@mail.com", 43518990);
+    memberRepo.UpdateMember(member4, "AddressTest4", "martin", "Test4@mail.com", 16758933);
 
     // Printing out all members in the memberDict Dictionary
-    PrintMembers(memberDict.PrintAllMembers());
+    PrintMembers(memberRepo.PrintAllMembers());
 
 
 // --------------------------- BookingList --------------------------------
@@ -90,31 +90,31 @@ Booking booking2 = new Booking(1, member2, boat2, 2024, 12, 26, 12, 56, 58);
 Booking booking3 = new Booking(2, member3, boat3, 2024, 12, 31, 12, 56, 58);
 
 // Testing Booking methods:
-BookingRepo bookingList = new BookingRepo();
+BookingRepo bookingRepo = new BookingRepo();
     
     // Start by adding Booking object to the bookingList
-    bookingList.BookBoat(booking);
-    bookingList.BookBoat(booking2);
-    bookingList.BookBoat(booking3);
+    bookingRepo.BookBoat(booking);
+    bookingRepo.BookBoat(booking2);
+    bookingRepo.BookBoat(booking3);
 
     // Deleting a Booking object from the bookingList
-    bookingList.RemoveBookedBoat(booking2);
+    bookingRepo.RemoveBookedBoat(booking2);
 
     // Getting booking and booking2, but booking2 was deleted above
-    Console.WriteLine(bookingList.GetBookedBoat(0));
-    Console.WriteLine(bookingList.GetBookedBoat(1));
+    Console.WriteLine(bookingRepo.GetBookedBoat(0));
+    Console.WriteLine(bookingRepo.GetBookedBoat(1));
 
     // Updating the booking object
-    bookingList.UpdateBookedBoat(booking, member, boat, 2025, 01, 01);
+    bookingRepo.UpdateBookedBoat(booking, member, boat, 2025, 01, 01);
 
     // Printing all bookings out
-    PrintBookings(bookingList.PrintAllBookedBoats());
+    PrintBookings(bookingRepo.PrintAllBookedBoats());
 
     // Starting a rescue of a missing member
-    Console.WriteLine(bookingList.RescueMember());
+    Console.WriteLine(bookingRepo.RescueMember());
 
     // Getting all members that are out sailing
-    PrintSailingMembers(bookingList.MembersSailing());
+    PrintSailingMembers(bookingRepo.MembersSailing());
 
 
 // --------------------------- EventList --------------------------------
@@ -148,10 +148,10 @@ Console.WriteLine();
 
 // --------------------------- JoinerRepo --------------------------------
 // Testing joinedRepo Methods:
-JoinedRepo membersjoined = new JoinedRepo();
-Joined joiner1 = new Joined(1, member, event1);
-Joined joiner2 = new Joined(2, member2, event2);
-Joined joiner3 = new Joined(3, member3, event3);
+JoinRepo membersjoined = new JoinRepo();
+Join joiner1 = new Join(1, member, event1);
+Join joiner2 = new Join(2, member2, event2);
+Join joiner3 = new Join(3, member3, event3);
 
 //Add member to list and printing all
 membersjoined.JoinEvent(member);
@@ -180,8 +180,8 @@ Blog blog3 = new Blog(3, "blogTitel3", "text text text3");
 
 // Delete() on Boat with Id: 1 && PrintAllBoat
 Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoat:");
-boatDict.DeleteBoat(1);
-Console.WriteLine(boatDict.PrintAllBoat());
+boatRepo.DeleteBoat(1);
+Console.WriteLine(boatRepo.PrintAllBoat());
 
 // ----------------------- Blog ---------------------------------------
 

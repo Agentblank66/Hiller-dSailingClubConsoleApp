@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HillerødSailingClubClassLibrary
 {
-    public class JoinedRepo
+    public class JoinRepo
     {
         List<Member> Participants = new List<Member>();
 

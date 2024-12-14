@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace HillerødSailingClubClassLibrary
 {
-    public class Joined
+    public class Join
     {
         public int Id { get; set; }
         public Member Member { get; set; }
         public Event Events { get; set; }
 
-        public Joined(int id, Member member, Event events)
+        public Join(int id, Member member, Event events)
         {
             Id = id;
             Member = member;
