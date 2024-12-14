@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HillerødSialingClub
 {
-	public class BoatDict
+	public class BoatRepo
 	{
 		private Dictionary<int, Boat> Boats = new Dictionary<int, Boat>();
 

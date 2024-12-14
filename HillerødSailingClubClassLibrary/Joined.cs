@@ -10,9 +10,9 @@ namespace HillerødSailingClubClassLibrary
     {
         public int Id { get; set; }
         public Member Member { get; set; }
-        public Events Events { get; set; }
+        public Event Events { get; set; }
 
-        public Joined(int id, Member member, Events events)
+        public Joined(int id, Member member, Event events)
         {
             Id = id;
             Member = member;

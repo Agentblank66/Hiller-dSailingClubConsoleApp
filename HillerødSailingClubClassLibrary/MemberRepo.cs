@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HillerødSailingClubClassLibrary
 {
-    public class MemberDict
+    public class MemberRepo
     {
         #region Properties
         // Creating a dictionary with the name Members, with Member objects

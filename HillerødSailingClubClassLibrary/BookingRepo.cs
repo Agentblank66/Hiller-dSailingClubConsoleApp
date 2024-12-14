@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HillerødSailingClubClassLibrary
 {
-    public class BookingList
+    public class BookingRepo
     {
         #region Properties
         List<Booking> BookedBoats = new List<Booking>();

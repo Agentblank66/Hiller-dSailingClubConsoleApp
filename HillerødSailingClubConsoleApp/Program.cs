@@ -4,8 +4,6 @@ using HillerødSialingClub;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-
-
 // --------------------------- Boat --------------------------------
 // Creating Boat Objects:
 Boat boat = new Boat(1, 11.30, "Volvo D2-40 37HP", 2016, "Dehler 38", "Cruiser/Racer", 234, "Berit");
@@ -27,7 +25,7 @@ Console.WriteLine(boat.PrintRepairsLog() + "\n");
 // --------------------------- BoatDict ---------------------------------
 // creates object of BoatDict and adds 3 boats to the Dictioonary
 Console.WriteLine("BoatDict Part:");
-BoatDict boatDict = new BoatDict();
+BoatRepo boatDict = new BoatRepo();
 boatDict.Add(boat);
 boatDict.Add(boat2);
 boatDict.Add(boat3);
@@ -37,7 +35,7 @@ Console.WriteLine("Prints All boats from the Dictioonary:");
 Console.WriteLine(boatDict.PrintAllBoat() + "\n");
 
 // Creating Blogs Dictionary 
-BlogDict Blogs = new BlogDict();
+BlogRepo Blogs = new BlogRepo();
 
 // Updates Boat with Id: 1 
 boatDict.Update(1, "type", "model", "name", 123, "engineinfo", 12, 1990);
@@ -62,7 +60,7 @@ Member member3 = new Member(3, "Rasmus", 12457801, "test3@mail.com", "addresseTe
 Member member4 = new Member(4, "Martin", 15609284, "test4@mail.com", "addresseTest4");
 
 // Testing Member Methods:
-MemberDict memberDict = new MemberDict();
+MemberRepo memberDict = new MemberRepo();
 
     // Start by adding members to the memberDict Dictionary
     memberDict.AddMember(member);
@@ -92,7 +90,7 @@ Booking booking2 = new Booking(1, member2, boat2, 2024, 12, 26, 12, 56, 58);
 Booking booking3 = new Booking(2, member3, boat3, 2024, 12, 31, 12, 56, 58);
 
 // Testing Booking methods:
-BookingList bookingList = new BookingList();
+BookingRepo bookingList = new BookingRepo();
     
     // Start by adding Booking object to the bookingList
     bookingList.BookBoat(booking);
@@ -121,12 +119,12 @@ BookingList bookingList = new BookingList();
 
 // --------------------------- EventList --------------------------------
 // Creating Event objects:
-Events event1 = new Events(1, "Juleaften", "Der holdes juleaften event.", 2024, 12, 24, 13, 49, 30);
-Events event2 = new Events(2, "Påske", "Der holdes påskefrokost.", 2024, 4, 5, 13, 49, 30);
-Events event3 = new Events(3, "Sommerstart", "Der fejres at sommeren begynder.", 2024, 6, 21, 13, 49, 30);
+Event event1 = new Event(1, "Juleaften", "Der holdes juleaften event.", 2024, 12, 24, 13, 49, 30);
+Event event2 = new Event(2, "Påske", "Der holdes påskefrokost.", 2024, 4, 5, 13, 49, 30);
+Event event3 = new Event(3, "Sommerstart", "Der fejres at sommeren begynder.", 2024, 6, 21, 13, 49, 30);
 
 //Testing EventList methods:
-EventList events = new EventList();
+EventRepo events = new EventRepo();
 
     // Starting by adding multiple event to events list, then showing them
     events.AddEvents(event1);
@@ -141,11 +139,11 @@ Console.WriteLine(events.GetEvents(1));
 Console.WriteLine();
 
     // Here we will search after a specific event with "holdes" in the description
-    foreach (Events Events in events.SearchEvents("holdes")) Console.WriteLine(Events); // Ask Tomorrow
+    foreach (Event Events in events.SearchEvents("holdes")) Console.WriteLine(Events); // Ask Tomorrow
     Console.WriteLine();
 
     // Here we will get all events in the events list
-    foreach (Events events1 in events.GetAllEvents()) Console.WriteLine(events1);
+    foreach (Event events1 in events.GetAllEvents()) Console.WriteLine(events1);
     Console.WriteLine();
 
 // --------------------------- JoinerRepo --------------------------------
@@ -215,7 +213,7 @@ Employee employee1 = new Employee("Kunde", 1, "Preben", 45324567, "Preben@mail.c
 //employee.RescueMember(bookingList);
 
 //Update employee with new employee
-EmployeeDict employeeDict = new EmployeeDict();
+EmployeeRepo employeeDict = new EmployeeRepo();
 employeeDict.Add(employee);
 employeeDict.Add(employee1);
 employeeDict.Update(employee, "Anders Andersen", 4655532, "BaskMig@gmail.com", "OndPræstevej");

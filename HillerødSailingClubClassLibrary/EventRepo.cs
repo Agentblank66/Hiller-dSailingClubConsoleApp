@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace HillerødSailingClubClassLibrary
 {
-    public class EventList
+    public class EventRepo
     {
-        List<Events> EventsList = new List<Events>();
+        List<Event> EventsList = new List<Event>();
 
         //Method which adds an activity to the list.
-        public void AddEvents(Events events)
+        public void AddEvents(Event events)
         {
             EventsList.Add(events);
         }
@@ -20,7 +20,7 @@ namespace HillerødSailingClubClassLibrary
         //Method which deletes an activtity from the list.
         public void DeleteEvents(int id)
         {
-            Events events = GetEvents(id);
+            Event events = GetEvents(id);
             EventsList.Remove(events);
         }
 
@@ -37,10 +37,10 @@ namespace HillerødSailingClubClassLibrary
         }
 
         //Method which goes through the old list(List) by searching for either a name or a description and is than added to the new empty list(activities) of all the activities, either with big or small lette.
-        public List<Events> SearchEvents(string keyWord)
+        public List<Event> SearchEvents(string keyWord)
         {
-            List<Events> evented = new List<Events>();
-            foreach (Events events in EventsList)
+            List<Event> evented = new List<Event>();
+            foreach (Event events in EventsList)
             {
                 if (events.Name.ToLower().Contains(keyWord.ToLower()) || events.Description.ToLower().Contains(keyWord.ToLower()))
                 {
@@ -51,7 +51,7 @@ namespace HillerødSailingClubClassLibrary
         }
 
         //Method which finds a specific activity, by searching for an activitys Id in the list and then returns that activity.  
-        public Events? GetEvents(int id)
+        public Event? GetEvents(int id)
         {
             foreach (var events in EventsList)
             {
@@ -63,7 +63,7 @@ namespace HillerødSailingClubClassLibrary
 
 
         //Method which prints out every object.
-        public List<Events> GetAllEvents()
+        public List<Event> GetAllEvents()
         {
             return EventsList;
         }

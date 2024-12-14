@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace HillerødSailingClubClassLibrary
 {
-    public class Events
+    public class Event
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime Date { get; set; }
 
-        public Events(int id, string name, string description, int year, int month, int day, int hour, int minute, int second)
+        public Event(int id, string name, string description, int year, int month, int day, int hour, int minute, int second)
         {
             Id = id;
             Name = name;

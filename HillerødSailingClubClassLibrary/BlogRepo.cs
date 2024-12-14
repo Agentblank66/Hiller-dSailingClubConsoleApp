@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HillerødSailingClubClassLibrary
 {
-    public class BlogDict
+    public class BlogRepo
     {
         private Dictionary<int, Blog> Blogs = new Dictionary<int, Blog>();
         

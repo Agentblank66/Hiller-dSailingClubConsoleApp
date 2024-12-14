@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HillerødSailingClubClassLibrary
 {
-    public class EmployeeDict
+    public class EmployeeRepo
     //Her laver vi en "Dictionary" over Employees
     {
         private Dictionary<int, Employee> Employees = new Dictionary<int, Employee>();
