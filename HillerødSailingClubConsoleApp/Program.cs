@@ -22,7 +22,7 @@ Console.WriteLine(boat.PrintMaintenanceLog());
 Console.WriteLine(boat.PrintRepairsLog() + "\n");
 
 
-// --------------------------- BoatDict ---------------------------------
+// --------------------------- BoatRepo ---------------------------------
 // creates object of BoatDict and adds 3 boats to the Dictioonary
 Console.WriteLine("BoatDict Part:");
 BoatRepo boatRepo = new BoatRepo();
@@ -52,7 +52,7 @@ boatRepo.DeleteBoat(1);
 Console.WriteLine(boatRepo.PrintAllBoat());
 
 
-// --------------------------- MemberDict --------------------------------
+// --------------------------- MemberRepo --------------------------------
 // Creating Member Objects:
 Member member = new Member(1, "Casper", 42418990, "test1@mail.com", "addresseTest1");
 Member member2 = new Member(2, "Oliver", 34568913, "test2@mail.com", "addresseTest2");
@@ -83,7 +83,7 @@ MemberRepo memberRepo = new MemberRepo();
     PrintMembers(memberRepo.PrintAllMembers());
 
 
-// --------------------------- BookingList --------------------------------
+// --------------------------- BookingRepo --------------------------------
 // Creating Booking Objects:
 Booking booking = new Booking(0, member, boat, 2024, 12, 24, 12, 56, 58);
 Booking booking2 = new Booking(1, member2, boat2, 2024, 12, 26, 12, 56, 58);
@@ -117,7 +117,7 @@ BookingRepo bookingRepo = new BookingRepo();
     PrintSailingMembers(bookingRepo.MembersSailing());
 
 
-// --------------------------- EventList --------------------------------
+// --------------------------- EventRepo --------------------------------
 // Creating Event objects:
 Event event1 = new Event(1, "Juleaften", "Der holdes juleaften event.", 2024, 12, 24, 13, 49, 30);
 Event event2 = new Event(2, "Påske", "Der holdes påskefrokost.", 2024, 4, 5, 13, 49, 30);
@@ -146,7 +146,7 @@ Console.WriteLine();
     foreach (Event events1 in events.GetAllEvents()) Console.WriteLine(events1);
     Console.WriteLine();
 
-// --------------------------- JoinerRepo --------------------------------
+// --------------------------- JoinRepo --------------------------------
 // Testing joinedRepo Methods:
 JoinRepo membersjoined = new JoinRepo();
 Join joiner1 = new Join(1, member, event1);
@@ -172,7 +172,7 @@ membersjoined.DeleteMemberInEvent(member);
 foreach (Member joinedMembers in membersjoined.GetAllJoinedMember()) Console.WriteLine(joinedMembers);
 Console.WriteLine();
 
-// --------------------------- BlogDict --------------------------------
+// --------------------------- BlogRepo --------------------------------
 // Creating Blog objects:
 Blog blog = new Blog(1, "blogTitel", "text text text");
 Blog blog2 = new Blog(2, "blogTitel2", "text text text2");
@@ -183,10 +183,6 @@ Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoat:");
 boatRepo.DeleteBoat(1);
 Console.WriteLine(boatRepo.PrintAllBoat());
 
-// ----------------------- Blog ---------------------------------------
-
-
-// ----------------------- BlogDict ------------------------------------
 // add to Dictionary
 Blogs.AddBlogPost(blog);
 Blogs.AddBlogPost(blog2);
@@ -205,7 +201,7 @@ Console.WriteLine(Blogs.GetBlogPost(1) + " deleted here");
 // Search blog
 Console.WriteLine( Blogs.SearchBlog("blog"));
 Console.WriteLine(Blogs.SearchBlog("Din"));
-// --------------------------- EmployeeDict --------------------------------
+// --------------------------- EmployeeRepo --------------------------------
 // Creating Employee Objects:
 Employee employee = new Employee("Kunde", 1, "Casper", 42418990, "test@mail.com", "addresseTest1");
 
