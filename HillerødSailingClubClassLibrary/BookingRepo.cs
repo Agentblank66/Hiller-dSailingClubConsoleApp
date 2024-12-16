@@ -59,6 +59,9 @@ namespace HillerødSailingClubClassLibrary
             return BookedBoats;
         }
 
+        /* This method goes through all bookings in the BookedBoats dictionary and checking
+        whether the current time is later or equal to booking time plus 2 hours and 30 minutes.
+        If true then we start the search, if the loope never returns anything another thing is returned */
         public string RescueMember()
         {
             foreach (Booking booking1 in BookedBoats)
@@ -71,6 +74,8 @@ namespace HillerødSailingClubClassLibrary
             return "Medlem er kommet retur";
         }
 
+        /* This method starts by creating a new list, then goes through all objects in BookedBoats
+         dictionary, takes the Member objects and adds them to the new list and returns that list */
         public List<Member> MembersSailing()
         {
             List<Member> membersSailing = new List<Member>();
