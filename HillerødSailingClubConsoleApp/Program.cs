@@ -113,9 +113,9 @@ BookingRepo bookingRepo = new BookingRepo();
     // Getting all members that are out sailing
     PrintSailingMembers(bookingRepo.MembersSailing());Console.WriteLine();
     Console.WriteLine();
-    Console.WriteLine();
 
 
+Console.WriteLine("\n------------------------------------------------------EvenRepo-----------------------------------------------------------");
 // --------------------------- EventRepo --------------------------------
 // Creating Event objects:
 Event event1 = new Event(1, "Juleaften", "Der holdes juleaften event.", 2024, 12, 24, 13, 49, 30);
@@ -126,7 +126,7 @@ Event event3 = new Event(3, "Sommerstart", "Der fejres at sommeren begynder.", 2
 EventRepo events = new EventRepo();
 
 // Starting by adding multiple event to events list, then showing them
-Console.WriteLine("EventsRepo:");
+Console.WriteLine();
     events.AddEvents(event1);
     events.AddEvents(event2);
     events.AddEvents(event3);
@@ -149,9 +149,9 @@ Console.WriteLine("EventsRepo:");
     Console.WriteLine("Here we use a foreach-loop, where we print out all the events, by using the GetAllEvents() method. For every event, a console WriteLine is called and then that event is printed:");
     foreach (Event events1 in events.GetAllEvents()) Console.WriteLine(events1);
     Console.WriteLine();
-    Console.WriteLine();
 
 
+    Console.WriteLine("\n------------------------------------------------------JoinRepo----------------------------------------------------------");
 // --------------------------- JoinRepo --------------------------------
 // Testing joinedRepo Methods:
 JoinRepo membersjoined = new JoinRepo();
@@ -160,7 +160,7 @@ Join joiner2 = new Join(2, member2, event2);
 Join joiner3 = new Join(3, member3, event3);
 
 //Add member to list and printing all
-    Console.WriteLine("JoinRepo:");
+    Console.WriteLine();
     membersjoined.JoinEvent(member);
     membersjoined.JoinEvent(member2);
     membersjoined.JoinEvent(member3);
