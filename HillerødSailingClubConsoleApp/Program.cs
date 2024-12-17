@@ -30,12 +30,15 @@ boatRepo.Add(boat);
 boatRepo.Add(boat2);
 boatRepo.Add(boat3);
 
+
+
 // Prints All boats from the Dictioonary
 Console.WriteLine("Prints All boats from the Dictioonary:");
 Console.WriteLine(boatRepo.PrintAllBoat() + "\n");
 
 // Updates Boat with Id: 1 
 boatRepo.Update(1, "type", "model", "name", 123, "engineinfo", 12, 1990);
+
 
 // Get metode on 3 Boats 
 Console.WriteLine("\n" + "Get metode on 3 Boats:");
@@ -170,66 +173,80 @@ foreach (Member joinedMembers in membersjoined.GetAllJoinedMember()) Console.Wri
 Console.WriteLine();
 
 // --------------------------- BlogRepo --------------------------------
-// Creating Blog objects:
-Blog blog = new Blog(1, "blogTitel", "text text text");
-Blog blog2 = new Blog(2, "blogTitel2", "text text text2");
-Blog blog3 = new Blog(3, "blogTitel3", "text text text3");
-
-// Delete() on Boat with Id: 1 && PrintAllBoat
-Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoat:");
-boatRepo.DeleteBoat(1);
-Console.WriteLine(boatRepo.PrintAllBoat());
 
 // Creating Blogs Dictionary 
 BlogRepo Blogs = new BlogRepo();
+
+// Creating Blog objects:
+Blog blog = new Blog(1, "Garmin ur mistet", "Jeg har under sejladsen i dag, mistet mit ur. Jeg har snakket med ejeren af Hillerød Sejlklub, og han vil få fat på et dykkerhold som vil dykke ned i opgaven.");
+Blog blog2 = new Blog(2, "Sommerfest?", "Jeg undersøger om der er stemning for vi holder en sommerfest. Der vil selvfølgelig blive sørget for fadølsanker, samt hoppeborg.");
+Blog blog3 = new Blog(3, "Dagens rapport", "Henning røg over bord, og Torben kunne ikke holde det inde, og stod i lårefede stråler.");
 
 // add to Dictionary
 Blogs.AddBlogPost(blog);
 Blogs.AddBlogPost(blog2);
 Blogs.AddBlogPost(blog3);
+Console.WriteLine("Blog 1");
+Console.WriteLine(blog);
+Console.WriteLine();
+Console.WriteLine("Blog 2");
+Console.WriteLine(blog2);
+Console.WriteLine();
+Console.WriteLine("Blog 3");
+Console.WriteLine(blog3);
+Console.WriteLine();
 
 // Get blog by Id update and get again 
 
+Console.WriteLine("Here we get Blog 1:");
 Console.WriteLine( Blogs.GetBlogPost(1));
-Blogs.UpdateBlogPost( blog2, 1, "updatedText text", "newtext test");
-Console.WriteLine( Blogs.GetBlogPost(1));
+Console.WriteLine();
+Console.WriteLine("Here we get blog 2, and update it:");
+Blogs.UpdateBlogPost( blog, 1, "Jeg fandt uret!", "Allan og Mathias fandt uret tidligere i dag!");
+Console.WriteLine(Blogs.GetAllBlogs());
+Console.WriteLine();
 
 // delete blog with Id 1
+Console.WriteLine(blog);
+Console.WriteLine(blog2);
+Console.WriteLine(blog3);
+Console.WriteLine("Here we get blog 1, and delete it:");
 Blogs.DeleteBlogPost(1);
-Console.WriteLine(Blogs.GetBlogPost(1) + " deleted here");
+Console.WriteLine(Blogs.GetBlogPost(1) + "Opslag slettet, da uret blev fundet.");
+Console.WriteLine();
 
 // Search blog
-Console.WriteLine( Blogs.SearchBlog("blog"));
-Console.WriteLine(Blogs.SearchBlog("Din"));
+Console.WriteLine(Blogs.SearchBlog("Garmin"));
+Console.WriteLine(Blogs.SearchBlog("Sommerfest"));
 // --------------------------- EmployeeRepo --------------------------------
 // Creating Employee Objects:
-Employee employee1 = new Employee("Medarbejder", 1, "Torsten Jensen", 42418990, "Torstj@mail.com", "Midtvejskrigsvej 54");
-Employee employee2 = new Employee("Medarbejder", 2, "Preben Larsen", 45324567, "Preben@mail.com", "Ondstorkevej 2");
-Employee employee3 = new Employee("Medarbejder", 3, "Michael Antonsen", 43675473, "Micant@gmail.com", "Vildmarksvej 69");
+Employee employee = new Employee("Medarbejder", 1, "Torsten Jensen", 42418990, "Torstj@mail.com", "Midtvejskrigsvej 54");
+Employee employee1 = new Employee("Medarbejder", 2, "Preben Larsen", 45324567, "Preben@mail.com", "Ondstorkevej 2");
+Employee employee2 = new Employee("Medarbejder", 3, "Michael Antonsen", 43675473, "Micant@gmail.com", "Vildmarksvej 69");
 
 
 //Update employee with new employee
 EmployeeRepo employeeDict = new EmployeeRepo();
+employeeDict.Add(employee);
 employeeDict.Add(employee1);
 employeeDict.Add(employee2);
-employeeDict.Add(employee3);
 Console.WriteLine();
 Console.WriteLine("Employee 1:");
-Console.WriteLine(employee1);
+Console.WriteLine(employee);
 Console.WriteLine();
 Console.WriteLine("Employee 2:");
-Console.WriteLine(employee2);
+Console.WriteLine(employee1);
 Console.WriteLine();
 Console.WriteLine("Employee 3:");
-Console.WriteLine(employee3);
+Console.WriteLine(employee2);
 Console.WriteLine();
 Console.WriteLine("Here we've updated Employee 1, to a new member:");
-employeeDict.Update(employee1, "Anders Andersen", 4655532, "andand@gmail.com", "OndPræstevej");
-Console.WriteLine(employee1);
+employeeDict.Update(employee, "Anders Andersen", 4655532, "andand@gmail.com", "OndPræstevej");
+Console.WriteLine(employee);
 
-employeeDict.DeleteEmployee(3);
+employeeDict.DeleteEmployee(2);
 Console.WriteLine();
-Console.WriteLine("Removing Employee 3:");
+Console.WriteLine("Removing Employee 2:");
 employeeDict.PrintAllEmployees();
 // ---------------------------Function----------------------------------------
 void PrintMembers(List<Member> members)
