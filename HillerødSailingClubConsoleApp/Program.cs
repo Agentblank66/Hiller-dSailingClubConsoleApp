@@ -53,6 +53,7 @@ Console.WriteLine(boatRepo.PrintAllBoat());
 
 
 // --------------------------- MemberRepo --------------------------------
+Console.WriteLine("\n---------------------------------------MemberRepo------------------------------------");
 // Creating Member Objects:
 Member member = new Member(1, "Casper", 42418990, "test1@mail.com", "addresseTest1");
 Member member2 = new Member(2, "Oliver", 34568913, "test2@mail.com", "addresseTest2");
@@ -67,23 +68,32 @@ MemberRepo memberRepo = new MemberRepo();
     memberRepo.AddMember(member2);
     memberRepo.AddMember(member3);
     memberRepo.AddMember(member4);
+    Console.WriteLine("\nPrinting out all Members in the Dictionary memberRepo:\n");
+    PrintMembers();
 
     // Deleting a member from the memberDict Dictionary
     memberRepo.DeleteMember(member4);
+    Console.WriteLine("\nPrinting out memberReop after removeing member4\n");
+    PrintMembers();
 
     // Getting member 3 and 4, but 4 was deleted above so it will not get printed out
+    Console.WriteLine("\nPrinting out the member with Key 3 and 4:\n");
     Console.WriteLine(memberRepo.GetMember(3));
+    Console.WriteLine("member4 ain't printed out, because it was deleted earlier\n");
     Console.WriteLine(memberRepo.GetMember(4));
 
     // Updating member and member4, but member4 don't exist
+    Console.WriteLine("Printing out the updated member\n");
     memberRepo.UpdateMember(member, "AddressTest0", "Kasper", "test0@mail.com", 43518990);
-    memberRepo.UpdateMember(member4, "AddressTest4", "martin", "Test4@mail.com", 16758933);
+    Console.WriteLine(memberRepo.GetMember(1));
 
     // Printing out all members in the memberDict Dictionary
-    PrintMembers(memberRepo.PrintAllMembers());
+    Console.WriteLine("\nPrinting out all members\n");
+    PrintMembers();
 
 
 // --------------------------- BookingRepo --------------------------------
+Console.WriteLine("\n----------------------------------------BookingRepo-----------------------------------");
 // Creating Booking Objects:
 Booking booking = new Booking(0, member, boat, 2024, 12, 24, 12, 56, 58);
 Booking booking2 = new Booking(1, member2, boat2, 2024, 12, 26, 12, 56, 58);
@@ -96,19 +106,27 @@ BookingRepo bookingRepo = new BookingRepo();
     bookingRepo.BookBoat(booking);
     bookingRepo.BookBoat(booking2);
     bookingRepo.BookBoat(booking3);
+    Console.WriteLine("\nPrinting out alle booking objects in bookingRepo:\n");
+    PrintBookings();
 
     // Deleting a Booking object from the bookingList
     bookingRepo.RemoveBookedBoat(booking2);
+    Console.WriteLine("\nPrinting out all bookings, after booking2 has been removed:\n");
+    PrintBookings();
 
     // Getting booking and booking2, but booking2 was deleted above
+    Console.WriteLine("\nPrintng out booking and booking2");
     Console.WriteLine(bookingRepo.GetBookedBoat(0));
     Console.WriteLine(bookingRepo.GetBookedBoat(1));
+    Console.WriteLine("booking2 is not printed out, because it was removed earlier\n");
 
     // Updating the booking object
+    Console.WriteLine("Updating booking object and printing it out:");
     bookingRepo.UpdateBookedBoat(booking, member, boat, 2025, 01, 01);
+    Console.WriteLine(bookingRepo.GetBookedBoat(0));
 
     // Printing all bookings out
-    PrintBookings(bookingRepo.PrintAllBookedBoats());
+    PrintBookings();
 
     // Starting a rescue of a missing member
     Console.WriteLine(bookingRepo.RescueMember());
@@ -215,13 +233,13 @@ employeeDict.Add(employee1);
 employeeDict.Update(employee, "Anders Andersen", 4655532, "BaskMig@gmail.com", "OndPræstevej");
 Console.WriteLine(employee);
 // ---------------------------Function----------------------------------------
-void PrintMembers(List<Member> members)
+void PrintMembers()
 {
-    foreach (Member member in members) Console.WriteLine(member);
+    foreach (Member member in memberRepo.PrintAllMembers()) Console.WriteLine(member);
 }
-void PrintBookings(List<Booking> bookings)
+void PrintBookings()
 {
-    foreach (Booking booking in bookings) Console.WriteLine(booking);
+    foreach (Booking booking in bookingRepo.PrintAllBookedBoats()) Console.WriteLine(booking);
 }
 void PrintSailingMembers(List<Member> membersSailing)
 {
