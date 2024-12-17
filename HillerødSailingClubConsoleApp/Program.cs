@@ -34,9 +34,6 @@ boatRepo.Add(boat3);
 Console.WriteLine("Prints All boats from the Dictioonary:");
 Console.WriteLine(boatRepo.PrintAllBoat() + "\n");
 
-// Creating Blogs Dictionary 
-BlogRepo Blogs = new BlogRepo();
-
 // Updates Boat with Id: 1 
 boatRepo.Update(1, "type", "model", "name", 123, "engineinfo", 12, 1990);
 
@@ -182,6 +179,9 @@ Blog blog3 = new Blog(3, "blogTitel3", "text text text3");
 Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoat:");
 boatRepo.DeleteBoat(1);
 Console.WriteLine(boatRepo.PrintAllBoat());
+
+// Creating Blogs Dictionary 
+BlogRepo Blogs = new BlogRepo();
 
 // add to Dictionary
 Blogs.AddBlogPost(blog);
