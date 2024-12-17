@@ -24,7 +24,7 @@ Console.WriteLine(boat.PrintRepairsLog() + "\n");
 
 // --------------------------- BoatRepo ---------------------------------
 // creates object of BoatDict and adds 3 boats to the Dictioonary
-Console.WriteLine("BoatDict Part:");
+Console.WriteLine("BoatRepo Part:");
 BoatRepo boatRepo = new BoatRepo();
 boatRepo.Add(boat);
 boatRepo.Add(boat2);
@@ -47,7 +47,7 @@ Console.WriteLine(boatRepo.GetBoat(3));
 Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoat:");
 boatRepo.DeleteBoat(1);
 Console.WriteLine(boatRepo.PrintAllBoat());
-
+Console.WriteLine("End of BoatRepo \n ");
 
 // --------------------------- MemberRepo --------------------------------
 // Creating Member Objects:
