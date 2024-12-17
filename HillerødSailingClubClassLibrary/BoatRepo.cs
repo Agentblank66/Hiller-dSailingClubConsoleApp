@@ -57,8 +57,7 @@ namespace HillerødSialingClub
 		// metoden udskriver alle objecter i consolen og retunere en string
 		public string PrintAllBoat()
 		{
-			string BoatsString = string.Join(",", Boats);
-			return BoatsString;
+			return string.Join(",", Boats);
 		}
 
 		public void SendBoatToRepair(Boat boat, string message)
