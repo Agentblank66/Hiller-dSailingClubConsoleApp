@@ -1,5 +1,6 @@
 ﻿using System.Threading.Channels;
 
+
 namespace HillerødSialingClub
 {
 	public class Boat
@@ -50,11 +51,10 @@ namespace HillerødSialingClub
 		}
 
 		// metode tilføjer en string til List
-		public void RequestRepairs(string requestRepairs)
+		public void RequestRepairs(string RepairText)
 		{
-			RepairsLog.Add(requestRepairs);
-		}
-
+			RepairsLog.Add(RepairText);
+        }
 
 		// ToString() bliver overskrevet så vi bestemmer hvordan den skriver når kaldet
 		public override string ToString()

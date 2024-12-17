@@ -72,8 +72,6 @@ namespace HillerødSailingClubClassLibrary
             {
                 return "Der blev ikke fundet noget";
             } 
-
-
         }
 
         public string GetAllBlogs()

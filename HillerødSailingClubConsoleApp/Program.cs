@@ -4,6 +4,7 @@ using HillerødSialingClub;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
+#region Boat
 // --------------------------- Boat --------------------------------
 // Creating Boat Objects:
 Boat boat = new Boat(1, 11.30, "Volvo D2-40 37HP", 2016, "Dehler 38", "Cruiser/Racer", 234, "Berit");
@@ -20,8 +21,9 @@ boat.AddToMaintenanceLog("testtexttoMaintencelog");
 boat.RequestRepairs("testtextToReapairlog");
 Console.WriteLine(boat.PrintMaintenanceLog());
 Console.WriteLine(boat.PrintRepairsLog() + "\n");
+#endregion
 
-
+#region BoatRepo
 // --------------------------- BoatRepo ---------------------------------
 // creates object of BoatDict and adds 3 boats to the Dictioonary
 Console.WriteLine("BoatRepo Part:");
@@ -50,8 +52,27 @@ Console.WriteLine(boatRepo.GetBoat(3));
 Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoat:");
 boatRepo.DeleteBoat(1);
 Console.WriteLine(boatRepo.PrintAllBoat());
-Console.WriteLine("End of BoatRepo \n ");
 
+
+Console.WriteLine("---------------------------- fjerner og udsktiver");
+Console.WriteLine(boatRepo.PrintAllBoat());
+boatRepo.SendBoatToRepair(boat2, "Hul i Bunden");
+Console.WriteLine("see all boats from boats list" + boatRepo.PrintAllBoat());
+Console.WriteLine();
+Console.WriteLine("print all boats from repair list" + boatRepo.PrintAllRepairBoats());
+Console.WriteLine();
+boatRepo.GetBoatFromRepair(boat2);
+Console.WriteLine("see all boats from boats list" + boatRepo.PrintAllBoat());
+Console.WriteLine("---------------------------- fjerner og udsktiver slut");
+
+
+
+
+
+Console.WriteLine("End of BoatRepo \n ");
+#endregion
+
+#region MemberRepo
 // --------------------------- MemberRepo --------------------------------
 Console.WriteLine("\n---------------------------------------MemberRepo------------------------------------");
 // Creating Member Objects:
@@ -90,8 +111,9 @@ MemberRepo memberRepo = new MemberRepo();
     // Printing out all members in the memberDict Dictionary
     Console.WriteLine("\nPrinting out all members\n");
     PrintMembers();
+#endregion
 
-
+#region BookingRepo
 // --------------------------- BookingRepo --------------------------------
 Console.WriteLine("\n----------------------------------------BookingRepo-----------------------------------");
 // Creating Booking Objects:
@@ -134,8 +156,9 @@ BookingRepo bookingRepo = new BookingRepo();
     // Getting all members that are out sailing
     PrintSailingMembers(bookingRepo.MembersSailing());Console.WriteLine();
     Console.WriteLine();
+#endregion
 
-
+#region EventRepo
 Console.WriteLine("\n------------------------------------------------------EvenRepo-----------------------------------------------------------");
 // --------------------------- EventRepo --------------------------------
 // Creating Event objects:
@@ -170,9 +193,10 @@ Console.WriteLine();
     Console.WriteLine("Here we use a foreach-loop, where we print out all the events, by using the GetAllEvents() method. For every event, a console WriteLine is called and then that event is printed:");
     foreach (Event events1 in events.GetAllEvents()) Console.WriteLine(events1);
     Console.WriteLine();
+#endregion
 
-
-    Console.WriteLine("\n------------------------------------------------------JoinRepo----------------------------------------------------------");
+#region JoinRepo
+Console.WriteLine("\n------------------------------------------------------JoinRepo----------------------------------------------------------");
 // --------------------------- JoinRepo --------------------------------
 // Testing joinedRepo Methods:
 JoinRepo membersjoined = new JoinRepo();
@@ -200,8 +224,9 @@ Join joiner3 = new Join(3, member3, event3);
     foreach (Member joinedMembers in membersjoined.GetAllJoinedMember()) Console.WriteLine(joinedMembers);
     Console.WriteLine();
     Console.WriteLine();
+#endregion
 
-
+#region BlogRepo
 // --------------------------- BlogRepo --------------------------------
 
 // Creating Blogs Dictionary 
@@ -248,6 +273,9 @@ Console.WriteLine();
 // Search blog
 Console.WriteLine(Blogs.SearchBlog("Garmin"));
 Console.WriteLine(Blogs.SearchBlog("Sommerfest"));
+#endregion
+
+#region EmployeeRepo
 // --------------------------- EmployeeRepo --------------------------------
 // Creating Employee Objects:
 Employee employee = new Employee("Medarbejder", 1, "Torsten Jensen", 42418990, "Torstj@mail.com", "Midtvejskrigsvej 54");
@@ -278,6 +306,9 @@ employeeDict.DeleteEmployee(2);
 Console.WriteLine();
 Console.WriteLine("Removing Employee 2:");
 employeeDict.PrintAllEmployees();
+#endregion
+
+#region Functions
 // ---------------------------Function----------------------------------------
 void PrintMembers()
 {
@@ -291,3 +322,4 @@ void PrintSailingMembers(List<Member> membersSailing)
 {
     foreach (Member member in membersSailing) Console.WriteLine(member);
 }
+#endregion
