@@ -20,6 +20,7 @@ namespace HillerødSailingClubClassLibrary
             Text = text;
         }
 
+
         public override string ToString()
         {
             return $"Id: {Id} + Titel: {Titel} + Text: {Text}";

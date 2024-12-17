@@ -1,6 +1,8 @@
-﻿using System;
+﻿using HillerødSialingClub;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -61,6 +63,14 @@ namespace HillerødSailingClubClassLibrary
             {
                 return "Der blev ikke fundet noget";
             } 
+
+
+        }
+
+        public string GetAllBlogs()
+        {
+            string BlogsString = string.Join(",", Blogs);
+            return BlogsString;
         }
     }
 }
