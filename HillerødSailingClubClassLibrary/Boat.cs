@@ -59,7 +59,7 @@ namespace HillerødSialingClub
 		// ToString() bliver overskrevet så vi bestemmer hvordan den skriver når kaldet
 		public override string ToString()
 		{
-			return $"Boat {BoatName} has id:{Id} and is {Size} big as model {Model} and type {BoatType} with a {EngineInformation} Engine with sailnumber {SailingNumber} build in {BuildYear}";
+			return $" \n BoatName: {BoatName} \n Id:{Id} \n Size: {Size}m \n Model: {Model} \n Type: {BoatType} \n Engine: {EngineInformation} \n Sailnumber: {SailingNumber} \n Build in: {BuildYear} \n ";
 		}
 	}
 }

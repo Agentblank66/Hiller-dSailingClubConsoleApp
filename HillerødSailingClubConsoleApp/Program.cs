@@ -24,7 +24,7 @@ Console.WriteLine(boat.PrintRepairsLog() + "\n");
 
 // --------------------------- BoatRepo ---------------------------------
 // creates object of BoatDict and adds 3 boats to the Dictioonary
-Console.WriteLine("BoatDict Part:");
+Console.WriteLine("BoatRepo Part:");
 BoatRepo boatRepo = new BoatRepo();
 boatRepo.Add(boat);
 boatRepo.Add(boat2);
@@ -33,9 +33,6 @@ boatRepo.Add(boat3);
 // Prints All boats from the Dictioonary
 Console.WriteLine("Prints All boats from the Dictioonary:");
 Console.WriteLine(boatRepo.PrintAllBoat() + "\n");
-
-// Creating Blogs Dictionary 
-BlogRepo Blogs = new BlogRepo();
 
 // Updates Boat with Id: 1 
 boatRepo.Update(1, "type", "model", "name", 123, "engineinfo", 12, 1990);
@@ -50,7 +47,7 @@ Console.WriteLine(boatRepo.GetBoat(3));
 Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoat:");
 boatRepo.DeleteBoat(1);
 Console.WriteLine(boatRepo.PrintAllBoat());
-
+Console.WriteLine("End of BoatRepo \n ");
 
 // --------------------------- MemberRepo --------------------------------
 // Creating Member Objects:
@@ -195,6 +192,9 @@ Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoat:");
 boatRepo.DeleteBoat(1);
 Console.WriteLine(boatRepo.PrintAllBoat());
 
+// Creating Blogs Dictionary 
+BlogRepo Blogs = new BlogRepo();
+
 // add to Dictionary
 Blogs.AddBlogPost(blog);
 Blogs.AddBlogPost(blog2);
@@ -215,17 +215,34 @@ Console.WriteLine( Blogs.SearchBlog("blog"));
 Console.WriteLine(Blogs.SearchBlog("Din"));
 // --------------------------- EmployeeRepo --------------------------------
 // Creating Employee Objects:
-Employee employee = new Employee("Kunde", 1, "Casper", 42418990, "test@mail.com", "addresseTest1");
+Employee employee1 = new Employee("Medarbejder", 1, "Torsten Jensen", 42418990, "Torstj@mail.com", "Midtvejskrigsvej 54");
+Employee employee2 = new Employee("Medarbejder", 2, "Preben Larsen", 45324567, "Preben@mail.com", "Ondstorkevej 2");
+Employee employee3 = new Employee("Medarbejder", 3, "Michael Antonsen", 43675473, "Micant@gmail.com", "Vildmarksvej 69");
 
-Employee employee1 = new Employee("Kunde", 1, "Preben", 45324567, "Preben@mail.com", "Ondstorkevej 2");
-//employee.RescueMember(bookingList);
 
 //Update employee with new employee
 EmployeeRepo employeeDict = new EmployeeRepo();
-employeeDict.Add(employee);
 employeeDict.Add(employee1);
-employeeDict.Update(employee, "Anders Andersen", 4655532, "BaskMig@gmail.com", "OndPræstevej");
-Console.WriteLine(employee);
+employeeDict.Add(employee2);
+employeeDict.Add(employee3);
+Console.WriteLine();
+Console.WriteLine("Employee 1:");
+Console.WriteLine(employee1);
+Console.WriteLine();
+Console.WriteLine("Employee 2:");
+Console.WriteLine(employee2);
+Console.WriteLine();
+Console.WriteLine("Employee 3:");
+Console.WriteLine(employee3);
+Console.WriteLine();
+Console.WriteLine("Here we've updated Employee 1, to a new member:");
+employeeDict.Update(employee1, "Anders Andersen", 4655532, "andand@gmail.com", "OndPræstevej");
+Console.WriteLine(employee1);
+
+employeeDict.DeleteEmployee(3);
+Console.WriteLine();
+Console.WriteLine("Removing Employee 3:");
+employeeDict.PrintAllEmployees();
 // ---------------------------Function----------------------------------------
 void PrintMembers(List<Member> members)
 {
