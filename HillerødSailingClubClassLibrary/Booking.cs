@@ -29,7 +29,7 @@ namespace HillerødSailingClubClassLibrary
         #region Methods
         public override string ToString()
         {
-            return $"Id: {Id}" + $"\nMember: {Member}" + $"\nBoat: {Boat}" + $"\nDate: {DateTime}";
+            return $"Id: {Id}" + $"\nMember: {Member}" + $"\nBoat: {Boat}" + $"\nDate: {DateTime}\n" + "-----------------------\n" + "\n";
         }
         #endregion
     }

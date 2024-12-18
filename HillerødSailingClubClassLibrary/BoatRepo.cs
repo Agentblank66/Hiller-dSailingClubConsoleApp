@@ -9,7 +9,8 @@ namespace HillerødSialingClub
 {
 	public class BoatRepo
 	{
-		private Dictionary<int, Boat> Boats = new Dictionary<int, Boat>();
+		public Dictionary<int, Boat> Boats = new Dictionary<int, Boat>();
+		public Dictionary<int, Boat> RepairBoats = new Dictionary<int, Boat>();
 
 		// Metoden Add prøver at tilføje object referrence til dictionary 
 		public void Add(Boat boat)
@@ -52,12 +53,30 @@ namespace HillerødSialingClub
 		{
 			return Boats.Remove(id);
 		}
-
-		// metoden udskriver alle objecter i consolen og retunere dictionariet
+		
+		// metoden udskriver alle objecter i consolen og retunere en string
 		public string PrintAllBoat()
 		{
-			string BoatsString = string.Join(",", Boats);
-			return BoatsString;
+			return string.Join(",", Boats);
 		}
-	}
+
+		public void SendBoatToRepair(Boat boat, string message)
+		{
+			RepairBoats.TryAdd(boat.Id, boat);
+			Boats.Remove(boat.Id);
+			boat.RequestRepairs(message);
+        }
+
+        public void GetBoatFromRepair(Boat boat)
+        {
+            Boats.TryAdd(boat.Id, boat);
+            RepairBoats.Remove(boat.Id);
+        }
+
+		public string PrintAllRepairBoats()
+		{
+			return string.Join(", \n ", RepairBoats);
+
+        }
+    }
 }

@@ -25,7 +25,7 @@ namespace HillerødSailingClubClassLibrary
         //Method which overrrides the base ConsoleWriteLine
         public override string ToString()
         {
-            return $"Id: {Id} \nName: {Name} \nDescription: {Description} \nDate: {Date}";
+            return $"Id: {Id} \nName: {Name} \nDescription: {Description} \nDate: {Date} \n" + "-----------------------\n";
         }
 
     }

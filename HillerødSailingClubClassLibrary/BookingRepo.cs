@@ -59,7 +59,7 @@ namespace HillerødSailingClubClassLibrary
             return BookedBoats;
         }
 
-        /* This method goes through all bookings in the BookedBoats dictionary and checking
+        /* This method goes through all booking objects in the BookedBoats dictionary and checking
         whether the current time is later or equal to booking time plus 2 hours and 30 minutes.
         If true then we start the search, if the loope never returns anything another thing is returned */
         public string RescueMember()
