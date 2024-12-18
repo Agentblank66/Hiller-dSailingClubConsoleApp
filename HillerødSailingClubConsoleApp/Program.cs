@@ -159,7 +159,7 @@ BookingRepo bookingRepo = new BookingRepo();
 #endregion
 
 #region EventRepo
-Console.WriteLine("\n------------------------------------------------------EvenRepo-----------------------------------------------------------");
+Console.WriteLine("\n------------------------------------------------------EvenRepo----------------------------------------------------------");
 // --------------------------- EventRepo --------------------------------
 // Creating Event objects:
 Event event1 = new Event(1, "Juleaften", "Der holdes juleaften event.", 2024, 12, 24, 13, 49, 30);
