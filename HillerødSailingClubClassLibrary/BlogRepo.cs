@@ -75,7 +75,8 @@ namespace HillerødSailingClubClassLibrary
 
         public string GetAllBlogs()
         {
-            return string.Join(",", Blogs);
+            string BlogsString = string.Join(",", Blogs);
+            return BlogsString;
         }
     }
 }
