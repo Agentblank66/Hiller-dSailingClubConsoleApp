@@ -10,25 +10,25 @@ using System.Xml.Serialization;
 Boat boat = new Boat(1, 11.30, "Volvo D2-40 37HP", 2016, "Dehler 38", "Cruiser/Racer", 234, "Berit");
 Boat boat2 = new Boat(2, 3, "Årer", 2022, "Walkerbay", "Plast Jolle", 652, "Ralle");
 Boat boat3 = new Boat(3, 13, "Yanmar 4JH57 57HP", 2019, "Arcona 435 Carbon", "Cruiser/Racer", 472, "Sandra");
-Console.WriteLine();
-Console.WriteLine("Boat Part");
+Console.WriteLine("---------------------Boat Part-----------------");
 // Add string to the Two lists on object boat 
 // get the two lists printed out
-Console.WriteLine("get the two lists printed out:");
+Console.WriteLine("Add text to MaintenceLog and Repairlog and print the two list out:");
 boat.AddToMaintenanceLog("testtexttoMaintencelog");
+boat.AddToMaintenanceLog("testtexttoMaintencelog2");
 boat.RequestRepairs("testtextToReapairlog");
-boat.AddToMaintenanceLog("testtexttoMaintencelog");
-boat.RequestRepairs("testtextToReapairlog");
-Console.WriteLine(boat.PrintMaintenanceLog());
-Console.WriteLine(boat.PrintRepairsLog() + "\n");
+boat.RequestRepairs("testtextToReapairlog2");
+Console.WriteLine("maintencelog: " + boat.PrintMaintenanceLog());
+Console.WriteLine("repairslog: " + boat.PrintRepairsLog() + "\n");
 #endregion
 
 #region BoatRepo
 // --------------------------- BoatRepo ---------------------------------
 // creates object of BoatDict and adds 3 boats to the Dictioonary
-Console.WriteLine("BoatRepo Part:");
+Console.WriteLine("---------------BoatRepo Part------------");
 BoatRepo boatRepo = new BoatRepo();
 boatRepo.Add(boat);
+boatRepo.Add(boat); // tilføjer ikkke båden igen til Dictionary
 boatRepo.Add(boat2);
 boatRepo.Add(boat3);
 
@@ -41,33 +41,27 @@ Console.WriteLine(boatRepo.PrintAllBoat() + "\n");
 // Updates Boat with Id: 1 
 boatRepo.Update(1, "type", "model", "name", 123, "engineinfo", 12, 1990);
 
-
 // Get metode on 3 Boats 
-Console.WriteLine("\n" + "Get metode on 3 Boats:");
+Console.WriteLine("\n" + "Get metode on all 3 Boats:");
 Console.WriteLine(boatRepo.GetBoat(1));
 Console.WriteLine(boatRepo.GetBoat(2));
 Console.WriteLine(boatRepo.GetBoat(3));
 
 // Delete() on Boat with Id: 1 && PrintAllBoat
-Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoat:");
+Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoats:");
 boatRepo.DeleteBoat(1);
 Console.WriteLine(boatRepo.PrintAllBoat());
 
 
-Console.WriteLine("---------------------------- fjerner og udsktiver");
+Console.WriteLine("\n Udskriver alle både, kalder SendBoatToRepair() og ser listen igen");
 Console.WriteLine(boatRepo.PrintAllBoat());
 boatRepo.SendBoatToRepair(boat2, "Hul i Bunden");
-Console.WriteLine("see all boats from boats list" + boatRepo.PrintAllBoat());
+Console.WriteLine("\n see all boats from boats list \n" + boatRepo.PrintAllBoat());
 Console.WriteLine();
-Console.WriteLine("print all boats from repair list" + boatRepo.PrintAllRepairBoats());
+Console.WriteLine("\n print all boats from repair list \n" + boatRepo.PrintAllRepairBoats());
 Console.WriteLine();
 boatRepo.GetBoatFromRepair(boat2);
-Console.WriteLine("see all boats from boats list" + boatRepo.PrintAllBoat());
-Console.WriteLine("---------------------------- fjerner og udsktiver slut");
-
-
-
-
+Console.WriteLine("\n move boat 2 from repair to boat Dictionary and see all boats from boats list \n" + boatRepo.PrintAllBoat());
 
 Console.WriteLine("End of BoatRepo \n ");
 #endregion
@@ -344,3 +338,16 @@ void PrintSailingMembers(List<Member> membersSailing)
     foreach (Member member in membersSailing) Console.WriteLine(member);
 }
 #endregion
+
+//Console.WriteLine( "------------------------------------------------------------------------" );
+//Blog blog7 = new Blog(7, "titel7", "er der noget at sige");
+//Blog blog8 = new Blog(8, "titel8", "er der andet at sige");
+//Blog blog9 = new Blog(9, "titel9", "er dersletikke at sige");
+//Blog blog12 = new Blog(12, "titel12", "tom er at ikke at sige");
+//Blogs.AddBlogPost(blog7);
+//Blogs.AddBlogPost(blog8);
+//Blogs.AddBlogPost(blog9);
+//Blogs.AddBlogPost(blog12);
+
+
+//Console.WriteLine(Blogs.SearchBlog("hold"));
