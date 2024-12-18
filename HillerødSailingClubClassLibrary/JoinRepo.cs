@@ -9,34 +9,34 @@ namespace HillerødSailingClubClassLibrary
 {
     public class JoinRepo
     {
-        List<Member> Participants = new List<Member>();
+        List<Join> Participants = new List<Join>();
 
         //A method which adds a member from a list, by chechking if the member hasnt joined already, then adds that member. 
-        public void JoinEvent(Member member)
+        public void JoinEvent(Join join)
         {
-            if (!Participants.Contains(member))
+            if (!Participants.Contains(join))
             {
-                Participants.Add(member);
+                Participants.Add(join);
             }
         }
 
         //A method which looks at list Participants and uses .Count, which looks at all the objects in the list, and minuses with 1, to account for that it starts at 0, and then shows the object.
-        public Member? ShowLastMember()
+        public Join? ShowLastMember()
         {
             return Participants[Participants.Count - 1];
         }
 
         //A method which removes a member from a list, by chechking if the member has joined already, then removes that member. 
-        public void DeleteMemberInEvent(Member member)
+        public void DeleteMemberInEvent(Join join)
         {
-            if (Participants.Contains(member))
+            if (Participants.Contains(join))
             {
-                Participants.Remove(member);
+                Participants.Remove(join);
             }
         }
 
 
-        public List<Member> GetAllJoinedMember()
+        public List<Join> GetAllJoinedMember()
         {
             return Participants;
         }

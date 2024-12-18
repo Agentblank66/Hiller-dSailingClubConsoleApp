@@ -158,7 +158,6 @@ BookingRepo bookingRepo = new BookingRepo();
     // Getting all members that are out sailing
     Console.WriteLine("\nPrinting out all sailing memebers:\n");
     PrintSailingMembers(bookingRepo.MembersSailing());
-    Console.WriteLine();
 #endregion
 
 #region EventRepo
@@ -200,7 +199,6 @@ Console.WriteLine();
         "\nby using the GetAllEvents() method. " +
         "\nFor every event, a console WriteLine is called and then that event is printed:");
     foreach (Event events1 in events.GetAllEvents()) Console.WriteLine(events1);
-    Console.WriteLine();
 #endregion
 
 #region JoinRepo
@@ -213,28 +211,24 @@ Join joiner2 = new Join(2, member2, event2);
 Join joiner3 = new Join(3, member3, event3);
 
 //Add member to list and printing all
-    Console.WriteLine();
-    membersjoined.JoinEvent(member);
-    membersjoined.JoinEvent(member2);
-    membersjoined.JoinEvent(member3);
-    Console.WriteLine("Her we use a foreach-loop to print out a list of members joining a event, " +
-        "\nby printing out all joined members with the GetAllJoinedMembers() method. " +
-        "\nFor every member, a console WriteLine is called and then that member is printed:");
-    foreach (Member joinedMembers in membersjoined.GetAllJoinedMember()) Console.WriteLine(joinedMembers);
-    Console.WriteLine();
+    membersjoined.JoinEvent(joiner1);
+    membersjoined.JoinEvent(joiner2);
+    membersjoined.JoinEvent(joiner3);
+    Console.WriteLine("Her we use a foreach-loop to print out a list of objects, " +
+        "\nby printing out the id, the members and the events with the GetAllJoinedMembers() method. " +
+        "\nFor every joinedmembers, a console WriteLine is called and then that object is printed:");
+    foreach (Join joinedMembers in membersjoined.GetAllJoinedMember()) Console.WriteLine(joinedMembers);
 
     //Showing the last member to join the event/list
-    Console.WriteLine("Here we print out the last member to join an event:");
+    Console.WriteLine("Here we print out the last object to join the list:");
     Console.WriteLine(membersjoined.ShowLastMember());
-    Console.WriteLine();
 
     //Delte a member that has joined, then shwo the list
-    Console.WriteLine("Here we delete a member from the list, by using the DeleteMemberInEvent() method, " +
-        "\nand are then using a foreach-loop, where printing out the remaining members in the list with the GetAllJoinedMembers() method. " +
-        "\nFor every member, a console WriteLine is called and then that member is printed:");
-    membersjoined.DeleteMemberInEvent(member);
-    foreach (Member joinedMembers in membersjoined.GetAllJoinedMember()) Console.WriteLine(joinedMembers);
-    Console.WriteLine();
+    Console.WriteLine("Here we delete a object from the list, by using the DeleteMemberInEvent() method, " +
+        "\nand are then using a foreach-loop, where printing out the remaining objects in the list with the GetAllJoinedMembers() method. " +
+        "\nFor every joinedmembers, a console WriteLine is called and then that object is printed:");
+    membersjoined.DeleteMemberInEvent(joiner1);
+    foreach (Join joinedMembers in membersjoined.GetAllJoinedMember()) Console.WriteLine(joinedMembers);
     Console.WriteLine();
 #endregion
 
