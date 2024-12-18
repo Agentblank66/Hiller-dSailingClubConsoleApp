@@ -185,11 +185,14 @@ Join joiner3 = new Join(3, member3, event3);
 
 
 // --------------------------- BlogRepo --------------------------------
+Console.WriteLine("\n------------------------------------------------------BlogRepo----------------------------------------------------------");
 
 // Creating Blogs Dictionary 
 BlogRepo Blogs = new BlogRepo();
 
 // Creating Blog objects:
+Console.WriteLine("Here we print all the blogs:");
+Console.WriteLine();
 Blog blog = new Blog(1, "Garmin ur mistet", "Jeg har under sejladsen i dag, mistet mit ur. Jeg har snakket med ejeren af Hillerød Sejlklub, og han vil få fat på et dykkerhold som vil dykke ned i opgaven.");
 Blog blog2 = new Blog(2, "Sommerfest?", "Jeg undersøger om der er stemning for vi holder en sommerfest. Der vil selvfølgelig blive sørget for fadølsanker, samt hoppeborg.");
 Blog blog3 = new Blog(3, "Dagens rapport", "Henning røg over bord, og Torben kunne ikke holde det inde, og stod i lårefede stråler.");
@@ -213,26 +216,30 @@ Console.WriteLine();
 Console.WriteLine("Here we get Blog 1:");
 Console.WriteLine( Blogs.GetBlogPost(1));
 Console.WriteLine();
-Console.WriteLine("Here we get blog 2, and update it:");
+Console.WriteLine("Here we get blog 1, and update it:");
 Blogs.UpdateBlogPost( blog, 1, "Jeg fandt uret!", "Allan og Mathias fandt uret tidligere i dag!");
-Console.WriteLine(Blogs.GetAllBlogs());
-Console.WriteLine();
 
 // delete blog with Id 1
 Console.WriteLine(blog);
-Console.WriteLine(blog2);
-Console.WriteLine(blog3);
-Console.WriteLine("Here we get blog 1, and delete it:");
-Blogs.DeleteBlogPost(1);
-Console.WriteLine(Blogs.GetBlogPost(1) + "Opslag slettet, da uret blev fundet.");
 Console.WriteLine();
+Console.WriteLine(blog2);
+Console.WriteLine();
+Console.WriteLine(blog3);
+Console.WriteLine("\n" +"Here we get blog 3, and delete it:");
+Blogs.DeleteBlogPost(3);
+Console.WriteLine(Blogs.GetAllBlogs()+"\n");
+
 
 // Search blog
-Console.WriteLine(Blogs.SearchBlog("Garmin"));
+Console.WriteLine("\n" +"Here we use our search method, and searching by word. The first one will NOT show anything due to invalid input. The last one will show searched object:");
+Console.WriteLine(Blogs.SearchBlog("Dagens rapport"));
+Console.WriteLine();
 Console.WriteLine(Blogs.SearchBlog("Sommerfest"));
+Console.WriteLine();
 // --------------------------- EmployeeRepo --------------------------------
 // Creating Employee Objects:
-Employee employee = new Employee("Medarbejder", 1, "Torsten Jensen", 42418990, "Torstj@mail.com", "Midtvejskrigsvej 54");
+Console.WriteLine("\n--------------------------------------------------EmployeeRepo----------------------------------------------------------");
+Employee employee = new Employee("\n"+"Medarbejder", 1, "Torsten Jensen", 42418990, "Torstj@mail.com", "Midtvejskrigsvej 54");
 Employee employee1 = new Employee("Medarbejder", 2, "Preben Larsen", 45324567, "Preben@mail.com", "Ondstorkevej 2");
 Employee employee2 = new Employee("Medarbejder", 3, "Michael Antonsen", 43675473, "Micant@gmail.com", "Vildmarksvej 69");
 
@@ -242,6 +249,7 @@ EmployeeRepo employeeDict = new EmployeeRepo();
 employeeDict.Add(employee);
 employeeDict.Add(employee1);
 employeeDict.Add(employee2);
+Console.WriteLine("Here we print all the employees:");
 Console.WriteLine();
 Console.WriteLine("Employee 1:");
 Console.WriteLine(employee);

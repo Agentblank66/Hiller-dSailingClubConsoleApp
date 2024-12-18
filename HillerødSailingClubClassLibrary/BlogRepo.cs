@@ -69,7 +69,7 @@ namespace HillerødSailingClubClassLibrary
 
         public string GetAllBlogs()
         {
-            string BlogsString = string.Join(",", Blogs);
+            string BlogsString = string.Join(", \n", Blogs);
             return BlogsString;
         }
     }
