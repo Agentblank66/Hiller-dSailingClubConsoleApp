@@ -259,35 +259,41 @@ Console.WriteLine();
 Console.WriteLine("Blog 3");
 Console.WriteLine(blog3);
 Console.WriteLine();
-Console.WriteLine();
+Console.WriteLine("-----------------------------------------");
 
 // Get blog by Id update and get again 
 
 Console.WriteLine("Here we get Blog 1:");
 Console.WriteLine( Blogs.GetBlogPost(1));
 Console.WriteLine();
-Console.WriteLine();
+Console.WriteLine("------------------------------------------");
 Console.WriteLine("Here we get blog 1, and update it:");
 Blogs.UpdateBlogPost( blog, 1, "Jeg fandt uret!", "Allan og Mathias fandt uret tidligere i dag!");
 
 // delete blog with Id 1
 Console.WriteLine(blog);
+Console.WriteLine("...........................................");
 Console.WriteLine();
 Console.WriteLine(blog2);
 Console.WriteLine();
 Console.WriteLine(blog3);
-Console.WriteLine();
+Console.WriteLine("-----------------------------------------");
 Console.WriteLine("\n" +"Here we get blog 3, and delete it:");
 Blogs.DeleteBlogPost(3);
 Console.WriteLine(Blogs.GetAllBlogs()+"\n");
 Console.WriteLine();
+Console.WriteLine("-----------------------------------------");
 
 
 // Search blog
 Console.WriteLine("\n" +"Here we use our search method, and searching by word. The first one will NOT show anything due to invalid input. The second will find the word in titel, and last one will find the word i text show searched object:");
+Console.WriteLine("\n" +"Here we search for 'Jordbærtærte':");
 Console.WriteLine(Blogs.SearchBlog("Jordbærtærte")+ "\n");
+Console.WriteLine("Here we search for 'Sommerfest':");
 Console.WriteLine(Blogs.SearchBlog("Sommerfest")+ "\n");
+Console.WriteLine("Here we search for 'Allan':");
 Console.WriteLine(Blogs.SearchBlog("Allan") + "\n");
+Console.WriteLine("Here we search for 'er':");
 Console.WriteLine(Blogs.SearchBlog("er"));
 // --------------------------- EmployeeRepo --------------------------------
 // Creating Employee Objects:
@@ -296,8 +302,6 @@ Employee employee = new Employee("\n"+"Medarbejder", 1, "Torsten Jensen", 424189
 Employee employee1 = new Employee("Medarbejder", 2, "Preben Larsen", 45324567, "Preben@mail.com", "Ondstorkevej 2");
 Employee employee2 = new Employee("Medarbejder", 3, "Michael Antonsen", 43675473, "Micant@gmail.com", "Vildmarksvej 69");
 
-
-//Update employee with new employee
 EmployeeRepo employeeDict = new EmployeeRepo();
 employeeDict.Add(employee);
 employeeDict.Add(employee1);
@@ -312,17 +316,33 @@ Console.WriteLine(employee1);
 Console.WriteLine();
 Console.WriteLine("Employee 3:");
 Console.WriteLine(employee2);
-Console.WriteLine();
+Console.WriteLine("-------------------------------------");
+
+//Update employee with new employee
 Console.WriteLine("Here we've updated Employee 1, to a new member:");
 employeeDict.Update(employee, "Anders Andersen", 4655532, "andand@gmail.com", "OndPræstevej");
 Console.WriteLine(employee);
+Console.WriteLine("-------------------------------------");
 
+
+//Get employee
+Console.WriteLine("Here we get employee 2:");
+employeeDict.GetEmployee(2);
+Console.WriteLine(employee2);
+Console.WriteLine("-------------------------------------");
+
+//Delete employee
 employeeDict.DeleteEmployee(2);
 Console.WriteLine();
 Console.WriteLine("Removing Employee 2:");
 employeeDict.PrintAllEmployees();
+Console.WriteLine("-------------------------------------");
 #endregion
 
+//Printing all employees
+Console.WriteLine("Here we print all employees:");
+employeeDict.PrintAllEmployees();
+Console.WriteLine("-------------------------------------");
 #region Functions
 // ---------------------------Function----------------------------------------
 void PrintMembers()
