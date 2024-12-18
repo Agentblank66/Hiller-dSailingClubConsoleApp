@@ -23,7 +23,7 @@ namespace HillerødSailingClubClassLibrary
         // This method overrides the base ConsoleWriteLine
         public override string ToString()
         {
-            return $"Id: {Id}" + $"\nName: {Name}" + $"\nTlf: {Tlf}" + $"\nEmail: {Email}" + $"\nAddress: {Address}\n";
+            return $"Id: {Id}" + $"\nName: {Name}" + $"\nTlf: {Tlf}" + $"\nEmail: {Email}" + $"\nAddress: {Address}\n" + "-----------------------";
         }
         #endregion
     }
