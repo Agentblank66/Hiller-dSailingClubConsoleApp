@@ -10,25 +10,25 @@ using System.Xml.Serialization;
 Boat boat = new Boat(1, 11.30, "Volvo D2-40 37HP", 2016, "Dehler 38", "Cruiser/Racer", 234, "Berit");
 Boat boat2 = new Boat(2, 3, "Årer", 2022, "Walkerbay", "Plast Jolle", 652, "Ralle");
 Boat boat3 = new Boat(3, 13, "Yanmar 4JH57 57HP", 2019, "Arcona 435 Carbon", "Cruiser/Racer", 472, "Sandra");
-Console.WriteLine();
-Console.WriteLine("Boat Part");
+Console.WriteLine("---------------------Boat Part-----------------");
 // Add string to the Two lists on object boat 
 // get the two lists printed out
-Console.WriteLine("get the two lists printed out:");
+Console.WriteLine("Add text to MaintenceLog and Repairlog and print the two list out:");
 boat.AddToMaintenanceLog("testtexttoMaintencelog");
+boat.AddToMaintenanceLog("testtexttoMaintencelog2");
 boat.RequestRepairs("testtextToReapairlog");
-boat.AddToMaintenanceLog("testtexttoMaintencelog");
-boat.RequestRepairs("testtextToReapairlog");
-Console.WriteLine(boat.PrintMaintenanceLog());
-Console.WriteLine(boat.PrintRepairsLog() + "\n");
+boat.RequestRepairs("testtextToReapairlog2");
+Console.WriteLine("maintencelog: " + boat.PrintMaintenanceLog());
+Console.WriteLine("repairslog: " + boat.PrintRepairsLog() + "\n");
 #endregion
 
 #region BoatRepo
 // --------------------------- BoatRepo ---------------------------------
 // creates object of BoatDict and adds 3 boats to the Dictioonary
-Console.WriteLine("BoatRepo Part:");
+Console.WriteLine("---------------BoatRepo Part------------");
 BoatRepo boatRepo = new BoatRepo();
 boatRepo.Add(boat);
+boatRepo.Add(boat); // tilføjer ikkke båden igen til Dictionary
 boatRepo.Add(boat2);
 boatRepo.Add(boat3);
 
@@ -41,33 +41,27 @@ Console.WriteLine(boatRepo.PrintAllBoat() + "\n");
 // Updates Boat with Id: 1 
 boatRepo.Update(1, "type", "model", "name", 123, "engineinfo", 12, 1990);
 
-
 // Get metode on 3 Boats 
-Console.WriteLine("\n" + "Get metode on 3 Boats:");
+Console.WriteLine("\n" + "Get metode on all 3 Boats:");
 Console.WriteLine(boatRepo.GetBoat(1));
 Console.WriteLine(boatRepo.GetBoat(2));
 Console.WriteLine(boatRepo.GetBoat(3));
 
 // Delete() on Boat with Id: 1 && PrintAllBoat
-Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoat:");
+Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoats:");
 boatRepo.DeleteBoat(1);
 Console.WriteLine(boatRepo.PrintAllBoat());
 
 
-Console.WriteLine("---------------------------- fjerner og udsktiver");
+Console.WriteLine("\n Udskriver alle både, kalder SendBoatToRepair() og ser listen igen");
 Console.WriteLine(boatRepo.PrintAllBoat());
 boatRepo.SendBoatToRepair(boat2, "Hul i Bunden");
-Console.WriteLine("see all boats from boats list" + boatRepo.PrintAllBoat());
+Console.WriteLine("\n see all boats from boats list \n" + boatRepo.PrintAllBoat());
 Console.WriteLine();
-Console.WriteLine("print all boats from repair list" + boatRepo.PrintAllRepairBoats());
+Console.WriteLine("\n print all boats from repair list \n" + boatRepo.PrintAllRepairBoats());
 Console.WriteLine();
 boatRepo.GetBoatFromRepair(boat2);
-Console.WriteLine("see all boats from boats list" + boatRepo.PrintAllBoat());
-Console.WriteLine("---------------------------- fjerner og udsktiver slut");
-
-
-
-
+Console.WriteLine("\n move boat 2 from repair to boat Dictionary and see all boats from boats list \n" + boatRepo.PrintAllBoat());
 
 Console.WriteLine("End of BoatRepo \n ");
 #endregion
@@ -84,7 +78,7 @@ Member member4 = new Member(4, "Martin", 15609284, "test4@mail.com", "addresseTe
 // Testing Member Methods:
 MemberRepo memberRepo = new MemberRepo();
 
-    // Start by adding members to the memberDict Dictionary
+    // Start by adding members to the memberRepo Dictionary
     memberRepo.AddMember(member);
     memberRepo.AddMember(member2);
     memberRepo.AddMember(member3);
@@ -92,7 +86,7 @@ MemberRepo memberRepo = new MemberRepo();
     Console.WriteLine("\nPrinting out all Members in the Dictionary memberRepo:\n");
     PrintMembers();
 
-    // Deleting a member from the memberDict Dictionary
+    // Deleting a member from the memberRepo Dictionary
     memberRepo.DeleteMember(member4);
     Console.WriteLine("\nPrinting out memberReop after removeing member4:\n");
     PrintMembers();
@@ -108,7 +102,7 @@ MemberRepo memberRepo = new MemberRepo();
     memberRepo.UpdateMember(member, "AddressTest0", "Kasper", "test0@mail.com", 43518990);
     Console.WriteLine(memberRepo.GetMember(1));
 
-    // Printing out all members in the memberDict Dictionary
+    // Printing out all members in the memberRepo Dictionary
     Console.WriteLine("\nPrinting out all members:\n");
     PrintMembers();
 #endregion
@@ -131,7 +125,7 @@ BookingRepo bookingRepo = new BookingRepo();
     Console.WriteLine("\nPrinting out all booking objects in bookingRepo:\n");
     PrintBookings();
 
-    // Deleting a Booking object from the bookingList
+    // Deleting a Booking object from the bookingRepo
     bookingRepo.RemoveBookedBoat(booking2);
     Console.WriteLine("\nPrinting out all bookings, after booking2 has been removed:\n");
     PrintBookings();
@@ -259,31 +253,42 @@ Console.WriteLine();
 Console.WriteLine("Blog 3");
 Console.WriteLine(blog3);
 Console.WriteLine();
+Console.WriteLine("-----------------------------------------");
 
 // Get blog by Id update and get again 
 
 Console.WriteLine("Here we get Blog 1:");
 Console.WriteLine( Blogs.GetBlogPost(1));
 Console.WriteLine();
+Console.WriteLine("------------------------------------------");
 Console.WriteLine("Here we get blog 1, and update it:");
 Blogs.UpdateBlogPost( blog, 1, "Jeg fandt uret!", "Allan og Mathias fandt uret tidligere i dag!");
 
 // delete blog with Id 1
 Console.WriteLine(blog);
+Console.WriteLine("...........................................");
 Console.WriteLine();
 Console.WriteLine(blog2);
 Console.WriteLine();
 Console.WriteLine(blog3);
+Console.WriteLine("-----------------------------------------");
 Console.WriteLine("\n" +"Here we get blog 3, and delete it:");
 Blogs.DeleteBlogPost(3);
 Console.WriteLine(Blogs.GetAllBlogs()+"\n");
+Console.WriteLine();
+Console.WriteLine("-----------------------------------------");
 
 
 // Search blog
-Console.WriteLine("\n" +"Here we use our search method, and searching by word. The first one will NOT show anything due to invalid input. The last one will show searched object:");
-Console.WriteLine(Blogs.SearchBlog("Dagens rapport"));
-Console.WriteLine();
-Console.WriteLine(Blogs.SearchBlog("Sommerfest"));
+Console.WriteLine("\n" +"Here we use our search method, and searching by word. The first one will NOT show anything due to invalid input. The second will find the word in titel, and last one will find the word i text show searched object:");
+Console.WriteLine("\n" +"Here we search for 'Jordbærtærte':");
+Console.WriteLine(Blogs.SearchBlog("Jordbærtærte")+ "\n");
+Console.WriteLine("Here we search for 'Sommerfest':");
+Console.WriteLine(Blogs.SearchBlog("Sommerfest")+ "\n");
+Console.WriteLine("Here we search for 'Allan':");
+Console.WriteLine(Blogs.SearchBlog("Allan") + "\n");
+Console.WriteLine("Here we search for 'er':");
+Console.WriteLine(Blogs.SearchBlog("er"));
 // --------------------------- EmployeeRepo --------------------------------
 // Creating Employee Objects:
 Console.WriteLine("\n--------------------------------------------------EmployeeRepo----------------------------------------------------------");
@@ -291,8 +296,6 @@ Employee employee = new Employee("\n"+"Medarbejder", 1, "Torsten Jensen", 424189
 Employee employee1 = new Employee("Medarbejder", 2, "Preben Larsen", 45324567, "Preben@mail.com", "Ondstorkevej 2");
 Employee employee2 = new Employee("Medarbejder", 3, "Michael Antonsen", 43675473, "Micant@gmail.com", "Vildmarksvej 69");
 
-
-//Update employee with new employee
 EmployeeRepo employeeDict = new EmployeeRepo();
 employeeDict.Add(employee);
 employeeDict.Add(employee1);
@@ -307,17 +310,33 @@ Console.WriteLine(employee1);
 Console.WriteLine();
 Console.WriteLine("Employee 3:");
 Console.WriteLine(employee2);
-Console.WriteLine();
+Console.WriteLine("-------------------------------------");
+
+//Update employee with new employee
 Console.WriteLine("Here we've updated Employee 1, to a new member:");
 employeeDict.Update(employee, "Anders Andersen", 4655532, "andand@gmail.com", "OndPræstevej");
 Console.WriteLine(employee);
+Console.WriteLine("-------------------------------------");
 
+
+//Get employee
+Console.WriteLine("Here we get employee 2:");
+employeeDict.GetEmployee(2);
+Console.WriteLine(employee2);
+Console.WriteLine("-------------------------------------");
+
+//Delete employee
 employeeDict.DeleteEmployee(2);
 Console.WriteLine();
 Console.WriteLine("Removing Employee 2:");
 employeeDict.PrintAllEmployees();
+Console.WriteLine("-------------------------------------");
 #endregion
 
+//Printing all employees
+Console.WriteLine("Here we print all employees:");
+employeeDict.PrintAllEmployees();
+Console.WriteLine("-------------------------------------");
 #region Functions
 // ---------------------------Function----------------------------------------
 void PrintMembers()
@@ -333,3 +352,16 @@ void PrintSailingMembers(List<Member> membersSailing)
     foreach (Member member in membersSailing) Console.WriteLine(member);
 }
 #endregion
+
+//Console.WriteLine( "------------------------------------------------------------------------" );
+//Blog blog7 = new Blog(7, "titel7", "er der noget at sige");
+//Blog blog8 = new Blog(8, "titel8", "er der andet at sige");
+//Blog blog9 = new Blog(9, "titel9", "er dersletikke at sige");
+//Blog blog12 = new Blog(12, "titel12", "tom er at ikke at sige");
+//Blogs.AddBlogPost(blog7);
+//Blogs.AddBlogPost(blog8);
+//Blogs.AddBlogPost(blog9);
+//Blogs.AddBlogPost(blog12);
+
+
+//Console.WriteLine(Blogs.SearchBlog("hold"));
