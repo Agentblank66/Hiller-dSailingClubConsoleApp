@@ -65,7 +65,7 @@ namespace HillerødSailingClubClassLibrary
             if (result.Count > 0) { 
                 //  opretter ResultString som er ligmed hele listen skrevet som string
                 // der bruges string.Join() til at skrive result objekterne i en string adskilt af komma
-                return string.Join(", ", result); // Return the list of matching blogs
+                return string.Join(", \n", result); // Return the list of matching blogs
             }
             else // vis listen er tom så retunere vi nedenstående string
             {
@@ -75,7 +75,8 @@ namespace HillerødSailingClubClassLibrary
 
         public string GetAllBlogs()
         {
-            return string.Join(",", Blogs);
+            string BlogsString = string.Join(",\n", Blogs);
+            return BlogsString;
         }
     }
 }

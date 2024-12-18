@@ -10,25 +10,25 @@ using System.Xml.Serialization;
 Boat boat = new Boat(1, 11.30, "Volvo D2-40 37HP", 2016, "Dehler 38", "Cruiser/Racer", 234, "Berit");
 Boat boat2 = new Boat(2, 3, "Årer", 2022, "Walkerbay", "Plast Jolle", 652, "Ralle");
 Boat boat3 = new Boat(3, 13, "Yanmar 4JH57 57HP", 2019, "Arcona 435 Carbon", "Cruiser/Racer", 472, "Sandra");
-Console.WriteLine();
-Console.WriteLine("Boat Part");
+Console.WriteLine("---------------------Boat Part-----------------");
 // Add string to the Two lists on object boat 
 // get the two lists printed out
-Console.WriteLine("get the two lists printed out:");
+Console.WriteLine("Add text to MaintenceLog and Repairlog and print the two list out:");
 boat.AddToMaintenanceLog("testtexttoMaintencelog");
+boat.AddToMaintenanceLog("testtexttoMaintencelog2");
 boat.RequestRepairs("testtextToReapairlog");
-boat.AddToMaintenanceLog("testtexttoMaintencelog");
-boat.RequestRepairs("testtextToReapairlog");
-Console.WriteLine(boat.PrintMaintenanceLog());
-Console.WriteLine(boat.PrintRepairsLog() + "\n");
+boat.RequestRepairs("testtextToReapairlog2");
+Console.WriteLine("maintencelog: " + boat.PrintMaintenanceLog());
+Console.WriteLine("repairslog: " + boat.PrintRepairsLog() + "\n");
 #endregion
 
 #region BoatRepo
 // --------------------------- BoatRepo ---------------------------------
 // creates object of BoatDict and adds 3 boats to the Dictioonary
-Console.WriteLine("BoatRepo Part:");
+Console.WriteLine("---------------BoatRepo Part------------");
 BoatRepo boatRepo = new BoatRepo();
 boatRepo.Add(boat);
+boatRepo.Add(boat); // tilføjer ikkke båden igen til Dictionary
 boatRepo.Add(boat2);
 boatRepo.Add(boat3);
 
@@ -41,33 +41,27 @@ Console.WriteLine(boatRepo.PrintAllBoat() + "\n");
 // Updates Boat with Id: 1 
 boatRepo.Update(1, "type", "model", "name", 123, "engineinfo", 12, 1990);
 
-
 // Get metode on 3 Boats 
-Console.WriteLine("\n" + "Get metode on 3 Boats:");
+Console.WriteLine("\n" + "Get metode on all 3 Boats:");
 Console.WriteLine(boatRepo.GetBoat(1));
 Console.WriteLine(boatRepo.GetBoat(2));
 Console.WriteLine(boatRepo.GetBoat(3));
 
 // Delete() on Boat with Id: 1 && PrintAllBoat
-Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoat:");
+Console.WriteLine("\n" + "Delete() Boat with Id: 1 && PrintAllBoats:");
 boatRepo.DeleteBoat(1);
 Console.WriteLine(boatRepo.PrintAllBoat());
 
 
-Console.WriteLine("---------------------------- fjerner og udsktiver");
+Console.WriteLine("\n Udskriver alle både, kalder SendBoatToRepair() og ser listen igen");
 Console.WriteLine(boatRepo.PrintAllBoat());
 boatRepo.SendBoatToRepair(boat2, "Hul i Bunden");
-Console.WriteLine("see all boats from boats list" + boatRepo.PrintAllBoat());
+Console.WriteLine("\n see all boats from boats list \n" + boatRepo.PrintAllBoat());
 Console.WriteLine();
-Console.WriteLine("print all boats from repair list" + boatRepo.PrintAllRepairBoats());
+Console.WriteLine("\n print all boats from repair list \n" + boatRepo.PrintAllRepairBoats());
 Console.WriteLine();
 boatRepo.GetBoatFromRepair(boat2);
-Console.WriteLine("see all boats from boats list" + boatRepo.PrintAllBoat());
-Console.WriteLine("---------------------------- fjerner og udsktiver slut");
-
-
-
-
+Console.WriteLine("\n move boat 2 from repair to boat Dictionary and see all boats from boats list \n" + boatRepo.PrintAllBoat());
 
 Console.WriteLine("End of BoatRepo \n ");
 #endregion
@@ -162,7 +156,7 @@ BookingRepo bookingRepo = new BookingRepo();
 #endregion
 
 #region EventRepo
-Console.WriteLine("\n------------------------------------------------------EvenRepo-----------------------------------------------------------");
+Console.WriteLine("\n------------------------------------------------------EvenRepo----------------------------------------------------------");
 // --------------------------- EventRepo --------------------------------
 // Creating Event objects:
 Event event1 = new Event(1, "Juleaften", "Der holdes juleaften event.", 2024, 12, 24, 13, 49, 30);
@@ -182,18 +176,23 @@ Console.WriteLine();
     Console.WriteLine();
 
 //Update an event and the showing that one event
-    Console.WriteLine("Here we update an Event by using the UpdateEvents() method, and then we find that specific event to see the changes, by using the GetEvent() method:");
+    Console.WriteLine("Here we update an Event by using the UpdateEvents() method, " +
+        "\nand then we find that specific event to see the changes, by using the GetEvent() method:");
     events.UpdateEvents(1, "Juleaften", "Der holdes Juleaften.", 2025, 12, 24, 13, 49, 30);
     Console.WriteLine(events.GetEvent(1)); 
     Console.WriteLine();
 
     // Here we will search after a specific event with "holdes" in the description
-    Console.WriteLine("Here we use a foreach-loop where we search for the word, holdes, in the events descriptions, and then return the events which has that word in the description, by using the SearchEvents() method. For every event, console WriteLine is called and that event is printed:");
+    Console.WriteLine("Here we use a foreach-loop where we search for the word, holdes, in the events descriptions, " +
+        "\nand then return the events which has that word in the description, by using the SearchEvents() method. " +
+        "\nFor every event, console WriteLine is called and that event is printed:");
     foreach (Event Events in events.SearchEvents("holdes")) Console.WriteLine(Events);
     Console.WriteLine();
 
     // Here we will get all events in the events list
-    Console.WriteLine("Here we use a foreach-loop, where we print out all the events, by using the GetAllEvents() method. For every event, a console WriteLine is called and then that event is printed:");
+    Console.WriteLine("Here we use a foreach-loop, where we print out all the events, " +
+        "\nby using the GetAllEvents() method. " +
+        "\nFor every event, a console WriteLine is called and then that event is printed:");
     foreach (Event events1 in events.GetAllEvents()) Console.WriteLine(events1);
     Console.WriteLine();
 #endregion
@@ -212,7 +211,9 @@ Join joiner3 = new Join(3, member3, event3);
     membersjoined.JoinEvent(member);
     membersjoined.JoinEvent(member2);
     membersjoined.JoinEvent(member3);
-    Console.WriteLine("Her we use a foreach-loop to print out a list of members joining a event, by printing out all joined members with the GetAllJoinedMembers() method. For every member, a console WriteLine is called and then that member is printed:");
+    Console.WriteLine("Her we use a foreach-loop to print out a list of members joining a event, " +
+        "\nby printing out all joined members with the GetAllJoinedMembers() method. " +
+        "\nFor every member, a console WriteLine is called and then that member is printed:");
     foreach (Member joinedMembers in membersjoined.GetAllJoinedMember()) Console.WriteLine(joinedMembers);
     Console.WriteLine();
 
@@ -222,7 +223,9 @@ Join joiner3 = new Join(3, member3, event3);
     Console.WriteLine();
 
     //Delte a member that has joined, then shwo the list
-    Console.WriteLine("Here we delete a member from the list, by using the DeleteMemberInEvent() method, and are then using a foreach-loop, where printing out the remaining members in the list with the GetAllJoinedMembers() method. For every member, a console WriteLine is called and then that member is printed:");
+    Console.WriteLine("Here we delete a member from the list, by using the DeleteMemberInEvent() method, " +
+        "\nand are then using a foreach-loop, where printing out the remaining members in the list with the GetAllJoinedMembers() method. " +
+        "\nFor every member, a console WriteLine is called and then that member is printed:");
     membersjoined.DeleteMemberInEvent(member);
     foreach (Member joinedMembers in membersjoined.GetAllJoinedMember()) Console.WriteLine(joinedMembers);
     Console.WriteLine();
@@ -231,11 +234,14 @@ Join joiner3 = new Join(3, member3, event3);
 
 #region BlogRepo
 // --------------------------- BlogRepo --------------------------------
+Console.WriteLine("\n------------------------------------------------------BlogRepo----------------------------------------------------------");
 
 // Creating Blogs Dictionary 
 BlogRepo Blogs = new BlogRepo();
 
 // Creating Blog objects:
+Console.WriteLine("Here we print all the blogs:");
+Console.WriteLine();
 Blog blog = new Blog(1, "Garmin ur mistet", "Jeg har under sejladsen i dag, mistet mit ur. Jeg har snakket med ejeren af Hillerød Sejlklub, og han vil få fat på et dykkerhold som vil dykke ned i opgaven.");
 Blog blog2 = new Blog(2, "Sommerfest?", "Jeg undersøger om der er stemning for vi holder en sommerfest. Der vil selvfølgelig blive sørget for fadølsanker, samt hoppeborg.");
 Blog blog3 = new Blog(3, "Dagens rapport", "Henning røg over bord, og Torben kunne ikke holde det inde, og stod i lårefede stråler.");
@@ -253,44 +259,54 @@ Console.WriteLine();
 Console.WriteLine("Blog 3");
 Console.WriteLine(blog3);
 Console.WriteLine();
+Console.WriteLine("-----------------------------------------");
 
 // Get blog by Id update and get again 
 
 Console.WriteLine("Here we get Blog 1:");
 Console.WriteLine( Blogs.GetBlogPost(1));
 Console.WriteLine();
-Console.WriteLine("Here we get blog 2, and update it:");
+Console.WriteLine("------------------------------------------");
+Console.WriteLine("Here we get blog 1, and update it:");
 Blogs.UpdateBlogPost( blog, 1, "Jeg fandt uret!", "Allan og Mathias fandt uret tidligere i dag!");
-Console.WriteLine(Blogs.GetAllBlogs());
-Console.WriteLine();
 
 // delete blog with Id 1
 Console.WriteLine(blog);
-Console.WriteLine(blog2);
-Console.WriteLine(blog3);
-Console.WriteLine("Here we get blog 1, and delete it:");
-Blogs.DeleteBlogPost(1);
-Console.WriteLine(Blogs.GetBlogPost(1) + "Opslag slettet, da uret blev fundet.");
+Console.WriteLine("...........................................");
 Console.WriteLine();
+Console.WriteLine(blog2);
+Console.WriteLine();
+Console.WriteLine(blog3);
+Console.WriteLine("-----------------------------------------");
+Console.WriteLine("\n" +"Here we get blog 3, and delete it:");
+Blogs.DeleteBlogPost(3);
+Console.WriteLine(Blogs.GetAllBlogs()+"\n");
+Console.WriteLine();
+Console.WriteLine("-----------------------------------------");
+
 
 // Search blog
-Console.WriteLine(Blogs.SearchBlog("Garmin"));
-Console.WriteLine(Blogs.SearchBlog("Sommerfest"));
-#endregion
-
-#region EmployeeRepo
+Console.WriteLine("\n" +"Here we use our search method, and searching by word. The first one will NOT show anything due to invalid input. The second will find the word in titel, and last one will find the word i text show searched object:");
+Console.WriteLine("\n" +"Here we search for 'Jordbærtærte':");
+Console.WriteLine(Blogs.SearchBlog("Jordbærtærte")+ "\n");
+Console.WriteLine("Here we search for 'Sommerfest':");
+Console.WriteLine(Blogs.SearchBlog("Sommerfest")+ "\n");
+Console.WriteLine("Here we search for 'Allan':");
+Console.WriteLine(Blogs.SearchBlog("Allan") + "\n");
+Console.WriteLine("Here we search for 'er':");
+Console.WriteLine(Blogs.SearchBlog("er"));
 // --------------------------- EmployeeRepo --------------------------------
 // Creating Employee Objects:
-Employee employee = new Employee("Medarbejder", 1, "Torsten Jensen", 42418990, "Torstj@mail.com", "Midtvejskrigsvej 54");
+Console.WriteLine("\n--------------------------------------------------EmployeeRepo----------------------------------------------------------");
+Employee employee = new Employee("\n"+"Medarbejder", 1, "Torsten Jensen", 42418990, "Torstj@mail.com", "Midtvejskrigsvej 54");
 Employee employee1 = new Employee("Medarbejder", 2, "Preben Larsen", 45324567, "Preben@mail.com", "Ondstorkevej 2");
 Employee employee2 = new Employee("Medarbejder", 3, "Michael Antonsen", 43675473, "Micant@gmail.com", "Vildmarksvej 69");
 
-
-//Update employee with new employee
 EmployeeRepo employeeDict = new EmployeeRepo();
 employeeDict.Add(employee);
 employeeDict.Add(employee1);
 employeeDict.Add(employee2);
+Console.WriteLine("Here we print all the employees:");
 Console.WriteLine();
 Console.WriteLine("Employee 1:");
 Console.WriteLine(employee);
@@ -300,17 +316,33 @@ Console.WriteLine(employee1);
 Console.WriteLine();
 Console.WriteLine("Employee 3:");
 Console.WriteLine(employee2);
-Console.WriteLine();
+Console.WriteLine("-------------------------------------");
+
+//Update employee with new employee
 Console.WriteLine("Here we've updated Employee 1, to a new member:");
 employeeDict.Update(employee, "Anders Andersen", 4655532, "andand@gmail.com", "OndPræstevej");
 Console.WriteLine(employee);
+Console.WriteLine("-------------------------------------");
 
+
+//Get employee
+Console.WriteLine("Here we get employee 2:");
+employeeDict.GetEmployee(2);
+Console.WriteLine(employee2);
+Console.WriteLine("-------------------------------------");
+
+//Delete employee
 employeeDict.DeleteEmployee(2);
 Console.WriteLine();
 Console.WriteLine("Removing Employee 2:");
 employeeDict.PrintAllEmployees();
+Console.WriteLine("-------------------------------------");
 #endregion
 
+//Printing all employees
+Console.WriteLine("Here we print all employees:");
+employeeDict.PrintAllEmployees();
+Console.WriteLine("-------------------------------------");
 #region Functions
 // ---------------------------Function----------------------------------------
 void PrintMembers()
@@ -326,3 +358,16 @@ void PrintSailingMembers(List<Member> membersSailing)
     foreach (Member member in membersSailing) Console.WriteLine(member);
 }
 #endregion
+
+//Console.WriteLine( "------------------------------------------------------------------------" );
+//Blog blog7 = new Blog(7, "titel7", "er der noget at sige");
+//Blog blog8 = new Blog(8, "titel8", "er der andet at sige");
+//Blog blog9 = new Blog(9, "titel9", "er dersletikke at sige");
+//Blog blog12 = new Blog(12, "titel12", "tom er at ikke at sige");
+//Blogs.AddBlogPost(blog7);
+//Blogs.AddBlogPost(blog8);
+//Blogs.AddBlogPost(blog9);
+//Blogs.AddBlogPost(blog12);
+
+
+//Console.WriteLine(Blogs.SearchBlog("hold"));

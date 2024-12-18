@@ -21,7 +21,7 @@ namespace HillerødSailingClubClassLibrary
 
         public override string ToString()
         {
-            return $"Id: {Id} \nMember: {Member} \nEvents: {Events}";
+            return $"Id: {Id} \nMember: {Member} \nEvents: {Events} \n" + "-----------------------\n";
         }
 
     }
