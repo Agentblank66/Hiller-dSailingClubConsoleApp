@@ -94,22 +94,22 @@ MemberRepo memberRepo = new MemberRepo();
 
     // Deleting a member from the memberDict Dictionary
     memberRepo.DeleteMember(member4);
-    Console.WriteLine("\nPrinting out memberReop after removeing member4\n");
+    Console.WriteLine("\nPrinting out memberReop after removeing member4:\n");
     PrintMembers();
 
     // Getting member 3 and 4, but 4 was deleted above so it will not get printed out
     Console.WriteLine("\nPrinting out the member with Key 3 and 4:\n");
     Console.WriteLine(memberRepo.GetMember(3));
-    Console.WriteLine("member4 ain't printed out, because it was deleted earlier\n");
+    Console.WriteLine("Member4 ain't printed out, because it was deleted earlier:");
     Console.WriteLine(memberRepo.GetMember(4));
 
     // Updating member and member4, but member4 don't exist
-    Console.WriteLine("Printing out the updated member\n");
+    Console.WriteLine("Printing out the updated member:\n");
     memberRepo.UpdateMember(member, "AddressTest0", "Kasper", "test0@mail.com", 43518990);
     Console.WriteLine(memberRepo.GetMember(1));
 
     // Printing out all members in the memberDict Dictionary
-    Console.WriteLine("\nPrinting out all members\n");
+    Console.WriteLine("\nPrinting out all members:\n");
     PrintMembers();
 #endregion
 
@@ -128,7 +128,7 @@ BookingRepo bookingRepo = new BookingRepo();
     bookingRepo.BookBoat(booking);
     bookingRepo.BookBoat(booking2);
     bookingRepo.BookBoat(booking3);
-    Console.WriteLine("\nPrinting out alle booking objects in bookingRepo:\n");
+    Console.WriteLine("\nPrinting out all booking objects in bookingRepo:\n");
     PrintBookings();
 
     // Deleting a Booking object from the bookingList
@@ -137,24 +137,27 @@ BookingRepo bookingRepo = new BookingRepo();
     PrintBookings();
 
     // Getting booking and booking2, but booking2 was deleted above
-    Console.WriteLine("\nPrintng out booking and booking2");
+    Console.WriteLine("\nPrintng out booking and booking2:\n");
     Console.WriteLine(bookingRepo.GetBookedBoat(0));
-    Console.WriteLine(bookingRepo.GetBookedBoat(1));
     Console.WriteLine("booking2 is not printed out, because it was removed earlier\n");
+    Console.WriteLine(bookingRepo.GetBookedBoat(1));
 
     // Updating the booking object
-    Console.WriteLine("Updating booking object and printing it out:");
+    Console.WriteLine("Updating booking object and printing it out:\n");
     bookingRepo.UpdateBookedBoat(booking, member, boat, 2025, 01, 01);
     Console.WriteLine(bookingRepo.GetBookedBoat(0));
 
     // Printing all bookings out
+    Console.WriteLine("\nPrinting out all booking objects:\n");
     PrintBookings();
 
     // Starting a rescue of a missing member
+    Console.WriteLine("Printing out members that need rescueing!\n");
     Console.WriteLine(bookingRepo.RescueMember());
 
     // Getting all members that are out sailing
-    PrintSailingMembers(bookingRepo.MembersSailing());Console.WriteLine();
+    Console.WriteLine("\nPrinting out all sailing memebers:\n");
+    PrintSailingMembers(bookingRepo.MembersSailing());
     Console.WriteLine();
 #endregion
 
