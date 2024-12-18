@@ -256,11 +256,13 @@ Console.WriteLine();
 Console.WriteLine("Blog 3");
 Console.WriteLine(blog3);
 Console.WriteLine();
+Console.WriteLine();
 
 // Get blog by Id update and get again 
 
 Console.WriteLine("Here we get Blog 1:");
 Console.WriteLine( Blogs.GetBlogPost(1));
+Console.WriteLine();
 Console.WriteLine();
 Console.WriteLine("Here we get blog 1, and update it:");
 Blogs.UpdateBlogPost( blog, 1, "Jeg fandt uret!", "Allan og Mathias fandt uret tidligere i dag!");
@@ -271,16 +273,19 @@ Console.WriteLine();
 Console.WriteLine(blog2);
 Console.WriteLine();
 Console.WriteLine(blog3);
+Console.WriteLine();
 Console.WriteLine("\n" +"Here we get blog 3, and delete it:");
 Blogs.DeleteBlogPost(3);
 Console.WriteLine(Blogs.GetAllBlogs()+"\n");
+Console.WriteLine();
 
 
 // Search blog
-Console.WriteLine("\n" +"Here we use our search method, and searching by word. The first one will NOT show anything due to invalid input. The last one will show searched object:");
-Console.WriteLine(Blogs.SearchBlog("Dagens rapport"));
-Console.WriteLine();
-Console.WriteLine(Blogs.SearchBlog("Sommerfest"));
+Console.WriteLine("\n" +"Here we use our search method, and searching by word. The first one will NOT show anything due to invalid input. The second will find the word in titel, and last one will find the word i text show searched object:");
+Console.WriteLine(Blogs.SearchBlog("Jordbærtærte")+ "\n");
+Console.WriteLine(Blogs.SearchBlog("Sommerfest")+ "\n");
+Console.WriteLine(Blogs.SearchBlog("Allan") + "\n");
+Console.WriteLine(Blogs.SearchBlog("er"));
 // --------------------------- EmployeeRepo --------------------------------
 // Creating Employee Objects:
 Console.WriteLine("\n--------------------------------------------------EmployeeRepo----------------------------------------------------------");
