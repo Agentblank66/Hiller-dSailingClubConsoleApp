@@ -84,7 +84,7 @@ Member member4 = new Member(4, "Martin", 15609284, "test4@mail.com", "addresseTe
 // Testing Member Methods:
 MemberRepo memberRepo = new MemberRepo();
 
-    // Start by adding members to the memberDict Dictionary
+    // Start by adding members to the memberRepo Dictionary
     memberRepo.AddMember(member);
     memberRepo.AddMember(member2);
     memberRepo.AddMember(member3);
@@ -92,7 +92,7 @@ MemberRepo memberRepo = new MemberRepo();
     Console.WriteLine("\nPrinting out all Members in the Dictionary memberRepo:\n");
     PrintMembers();
 
-    // Deleting a member from the memberDict Dictionary
+    // Deleting a member from the memberRepo Dictionary
     memberRepo.DeleteMember(member4);
     Console.WriteLine("\nPrinting out memberReop after removeing member4:\n");
     PrintMembers();
@@ -108,7 +108,7 @@ MemberRepo memberRepo = new MemberRepo();
     memberRepo.UpdateMember(member, "AddressTest0", "Kasper", "test0@mail.com", 43518990);
     Console.WriteLine(memberRepo.GetMember(1));
 
-    // Printing out all members in the memberDict Dictionary
+    // Printing out all members in the memberRepo Dictionary
     Console.WriteLine("\nPrinting out all members:\n");
     PrintMembers();
 #endregion
@@ -131,7 +131,7 @@ BookingRepo bookingRepo = new BookingRepo();
     Console.WriteLine("\nPrinting out all booking objects in bookingRepo:\n");
     PrintBookings();
 
-    // Deleting a Booking object from the bookingList
+    // Deleting a Booking object from the bookingRepo
     bookingRepo.RemoveBookedBoat(booking2);
     Console.WriteLine("\nPrinting out all bookings, after booking2 has been removed:\n");
     PrintBookings();
