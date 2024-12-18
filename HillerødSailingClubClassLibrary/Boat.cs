@@ -1,5 +1,6 @@
 ﻿using System.Threading.Channels;
 
+
 namespace HillerødSialingClub
 {
 	public class Boat
@@ -32,8 +33,7 @@ namespace HillerødSialingClub
         // PrintMaintenanceLog() laver en joined string af listen som så retuneres
         public string PrintMaintenanceLog()
 		{
-            string Maintencelog = string.Join(", ", MaintenanceLog);
-            return Maintencelog;
+            return string.Join(", ", MaintenanceLog);
         }
 
 		// metode tilføjer en string til List
@@ -45,16 +45,14 @@ namespace HillerødSialingClub
         // PrintRepairsLog() laver en joined string af listen som så retuneres
         public string PrintRepairsLog()
 		{
-			string ReoairsLogString = string.Join(", ", RepairsLog);
-            return ReoairsLogString;
+			return string.Join(", ", RepairsLog);
 		}
 
 		// metode tilføjer en string til List
-		public void RequestRepairs(string requestRepairs)
+		public void RequestRepairs(string RepairText)
 		{
-			RepairsLog.Add(requestRepairs);
-		}
-
+			RepairsLog.Add(RepairText);
+        }
 
 		// ToString() bliver overskrevet så vi bestemmer hvordan den skriver når kaldet
 		public override string ToString()
