@@ -289,6 +289,8 @@ Console.WriteLine("Here we search for 'Allan':");
 Console.WriteLine(Blogs.SearchBlog("Allan") + "\n");
 Console.WriteLine("Here we search for 'er':");
 Console.WriteLine(Blogs.SearchBlog("er"));
+#endregion
+#region EmployeeRepo
 // --------------------------- EmployeeRepo --------------------------------
 // Creating Employee Objects:
 Console.WriteLine("\n--------------------------------------------------EmployeeRepo----------------------------------------------------------");
@@ -331,12 +333,13 @@ Console.WriteLine();
 Console.WriteLine("Removing Employee 2:");
 employeeDict.PrintAllEmployees();
 Console.WriteLine("-------------------------------------");
-#endregion
 
 //Printing all employees
 Console.WriteLine("Here we print all employees:");
 employeeDict.PrintAllEmployees();
 Console.WriteLine("-------------------------------------");
+#endregion
+
 #region Functions
 // ---------------------------Function----------------------------------------
 void PrintMembers()
