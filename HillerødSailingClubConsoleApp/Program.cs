@@ -337,7 +337,7 @@ Console.WriteLine("-------------------------------------");
 
 //Printing all employees
 Console.WriteLine("Here we print all employees:");
-employeeDict.PrintAllEmployees();
+PrintAllEmployees(employeeDict.PrintAllEmployees());
 Console.WriteLine("-------------------------------------");
 #endregion
 
