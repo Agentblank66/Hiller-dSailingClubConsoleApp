@@ -291,6 +291,7 @@ Console.WriteLine(Blogs.SearchBlog("Allan") + "\n");
 Console.WriteLine("Here we search for 'er':");
 Console.WriteLine(Blogs.SearchBlog("er"));
 #endregion
+
 #region EmployeeRepo
 // --------------------------- EmployeeRepo --------------------------------
 // Creating Employee Objects:
@@ -337,7 +338,7 @@ Console.WriteLine("-------------------------------------");
 
 //Printing all employees
 Console.WriteLine("Here we print all employees:");
-employeeDict.PrintAllEmployees();
+PrintAllEmployees(employeeDict.PrintAllEmployees());
 Console.WriteLine("-------------------------------------");
 #endregion
 
@@ -355,17 +356,8 @@ void PrintSailingMembers(List<Member> membersSailing)
 {
     foreach (Member member in membersSailing) Console.WriteLine(member);
 }
+void PrintAllEmployees(List<Employee> employees)
+{
+    foreach (Employee employee in employees) Console.WriteLine(employee);
+}
 #endregion
-
-//Console.WriteLine( "------------------------------------------------------------------------" );
-//Blog blog7 = new Blog(7, "titel7", "er der noget at sige");
-//Blog blog8 = new Blog(8, "titel8", "er der andet at sige");
-//Blog blog9 = new Blog(9, "titel9", "er dersletikke at sige");
-//Blog blog12 = new Blog(12, "titel12", "tom er at ikke at sige");
-//Blogs.AddBlogPost(blog7);
-//Blogs.AddBlogPost(blog8);
-//Blogs.AddBlogPost(blog9);
-//Blogs.AddBlogPost(blog12);
-
-
-//Console.WriteLine(Blogs.SearchBlog("hold"));
