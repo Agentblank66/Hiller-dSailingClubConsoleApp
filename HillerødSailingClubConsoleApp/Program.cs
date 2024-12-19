@@ -355,4 +355,8 @@ void PrintSailingMembers(List<Member> membersSailing)
 {
     foreach (Member member in membersSailing) Console.WriteLine(member);
 }
+void PrintAllEmployees(List<Employee> employees)
+{
+    foreach (Employee employee in employees) Console.WriteLine(employee);
+}
 #endregion
