@@ -356,4 +356,3 @@ void PrintSailingMembers(List<Member> membersSailing)
     foreach (Member member in membersSailing) Console.WriteLine(member);
 }
 #endregion
-

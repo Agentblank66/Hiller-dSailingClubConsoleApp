@@ -13,14 +13,14 @@ namespace HillerødSialingClub
 		public Dictionary<int, Boat> RepairBoats = new Dictionary<int, Boat>();
 
 		// Metoden Add prøver at tilføje object referrence til dictionary 
-		public void Add(Boat boat)
+		public bool Add(Boat boat)
 		{
-			Boats.TryAdd(boat.Id, boat);
-		}
+			return Boats.TryAdd(boat.Id, boat);
+        }
 
 		// Metoden Update opdaterer informationer for en båd i et Dictionary kaldet Boats.
 		// Den tager flere argumenter når kaldet, som bruges til at opdatere de relevante egenskaber for båden.
-		public void Update(int Id, string boattype, string model, string boatname, int sailnr, string engineinfo, double size, int buildyear)
+		public Boat? Update(int Id, string boattype, string model, string boatname, int sailnr, string engineinfo, double size, int buildyear)
 		{
 			// hent båden med det givne id
 			Boat? boatToUpdate = GetBoat(Id);
@@ -36,6 +36,8 @@ namespace HillerødSialingClub
                 boatToUpdate.Size = size;
                 boatToUpdate.BuildYear = buildyear;
 			}
+
+			return boatToUpdate;
 		}
 
 		// retunere Boat som type når kaldet 
@@ -60,17 +62,23 @@ namespace HillerødSialingClub
 			return string.Join(",", Boats);
 		}
 
-		public void SendBoatToRepair(Boat boat, string message)
+		public bool SendBoatToRepair(Boat boat, string message)
 		{
-			RepairBoats.TryAdd(boat.Id, boat);
-			Boats.Remove(boat.Id);
-			boat.RequestRepairs(message);
+            boat.RequestRepairs(message);
+			if (RepairBoats.TryAdd(boat.Id, boat))
+			{				
+				return Boats.Remove(boat.Id);
+			}
+			return false;
         }
 
-        public void GetBoatFromRepair(Boat boat)
-        {
-            Boats.TryAdd(boat.Id, boat);
-            RepairBoats.Remove(boat.Id);
+		public bool GetBoatFromRepair(Boat boat)
+		{
+			if (Boats.TryAdd(boat.Id, boat)) 
+			{ 
+				return RepairBoats.Remove(boat.Id);
+			}
+			return false;
         }
 
 		public string PrintAllRepairBoats()
