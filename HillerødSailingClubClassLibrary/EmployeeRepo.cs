@@ -12,10 +12,11 @@ namespace HillerødSailingClubClassLibrary
         private Dictionary<int, Employee> Employees = new Dictionary<int, Employee>();
 
         //Her laver vi en Add metode. Vi bruger TryAdd, da 2 ID IKKE må være ens.
-        public string Add(Employee emp)
+        public bool Add(Employee emp)
         {
-            Employees.TryAdd(emp.Id, emp);
+           return Employees.TryAdd(emp.Id, emp);
         }
+
 
         //Her laver vi en Update metode. Vi bruger nedstående metode.
         //Vi laver en “If” statement, da vi skal give employee nye parametre. 
