@@ -13,18 +13,20 @@ namespace HillerødSailingClubClassLibrary
         private Dictionary<int, Blog> Blogs = new Dictionary<int, Blog>();
         
 
-        public void AddBlogPost(Blog blog)
+        public bool AddBlogPost(Blog blog)
         {
-            Blogs.TryAdd(blog.Id, blog);
+            return Blogs.TryAdd(blog.Id, blog);
         }
 
-        public void UpdateBlogPost(Blog blog,int newid, string newtitel, string newtext)
+        public bool UpdateBlogPost(Blog blog,int newid, string newtitel, string newtext)
         {
             if (Blogs.ContainsKey(newid))
             {
                 blog.Titel = newtitel;
                 blog.Text = newtext;
+                return true;
             }
+            return false;
         }
 
         public Blog? GetBlogPost(int id)
