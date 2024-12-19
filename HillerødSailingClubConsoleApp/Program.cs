@@ -79,17 +79,19 @@ Member member4 = new Member(4, "Martin", 15609284, "test4@mail.com", "addresseTe
 MemberRepo memberRepo = new MemberRepo();
 
     // Start by adding members to the memberRepo Dictionary
-    memberRepo.AddMember(member);
-    memberRepo.AddMember(member2);
-    memberRepo.AddMember(member3);
-    memberRepo.AddMember(member4);
-    Console.WriteLine("\nPrinting out all Members in the Dictionary memberRepo:\n");
+    Console.WriteLine("Adding the created Member objects to memberRepo: Expects True\n");
+    Console.WriteLine(memberRepo.AddMember(member));
+    Console.WriteLine(memberRepo.AddMember(member2));
+    Console.WriteLine(memberRepo.AddMember(member3));
+    Console.WriteLine(memberRepo.AddMember(member4));
+    Console.WriteLine("\nTrying to add an already existing member to the dictionary: Expects False\n");
+    Console.WriteLine(memberRepo.AddMember(member4));
+    Console.WriteLine("\nPrinting out all Member objects in the Dictionary memberRepo:\n");
     PrintMembers();
 
     // Deleting a member from the memberRepo Dictionary
-    memberRepo.DeleteMember(member4);
-    Console.WriteLine("\nPrinting out memberReop after removeing member4:\n");
-    PrintMembers();
+    Console.WriteLine("\nPrinting out removed member:\n");
+    Console.WriteLine(memberRepo.DeleteMember(member4));
 
     // Getting member 3 and 4, but 4 was deleted above so it will not get printed out
     Console.WriteLine("\nPrinting out the member with Key 3 and 4:\n");
@@ -99,8 +101,7 @@ MemberRepo memberRepo = new MemberRepo();
 
     // Updating member and member4, but member4 don't exist
     Console.WriteLine("Printing out the updated member:\n");
-    memberRepo.UpdateMember(member, "AddressTest0", "Kasper", "test0@mail.com", 43518990);
-    Console.WriteLine(memberRepo.GetMember(1));
+    Console.WriteLine(memberRepo.UpdateMember(member, "AddressTest0", "Kasper", "test0@mail.com", 43518990));
 
     // Printing out all members in the memberRepo Dictionary
     Console.WriteLine("\nPrinting out all members:\n");
