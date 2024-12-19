@@ -35,7 +35,7 @@ namespace HillerødSailingClubClassLibrary
         }
 
         //Method which updates an event, by using the GetActivity method to find a specific event and then changing that events parameters.
-        public void UpdateEvents(int id, string name, string description, int year, int month, int day, int hour, int minute, int second)
+        public Event UpdateEvents(int id, string name, string description, int year, int month, int day, int hour, int minute, int second)
         {
             var theEvents = GetEvent(id);
             if (theEvents != null)
@@ -43,8 +43,8 @@ namespace HillerødSailingClubClassLibrary
                 theEvents.Name = name;
                 theEvents.Description = description;
                 theEvents.Date = new DateTime(year, month, day, hour, minute, second);
-                
             }
+            return theEvents;
         }
 
         //Method which goes through the old list(List) by searching for either a name or a description and is than added to the new empty list(activities) of all the activities, either with big or small lette.

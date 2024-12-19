@@ -178,13 +178,8 @@ EventRepo events = new EventRepo();
 
 //Update an event and the showing that one event
     Console.WriteLine("Here we update an Event by using the UpdateEvents() method, " +
-        "\nand then see if the event has been updated or not " +
-        "\nand then we find that specific event to see the changes, by using the GetEvent() method:");
-    events.UpdateEvents(1, "Juleaften", "Der holdes Juleaften.", 2025, 12, 24, 13, 49, 30);
-    //kig på update metode omkring noget bekræftelse på det er virket gennem selve metoden
-    //Console.WriteLine(events.UpdateEvents(1, "Juleaften", "Der holdes Juleaften.", 2025, 12, 24, 13, 49, 30));
-    //Console.WriteLine(events.UpdateEvents(2, "Påske", "Der holdes påskefrokost.", 2024, 4, 5, 13, 49, 30));
-    Console.WriteLine(events.GetEvent(1)); 
+        "\nand then print that event and see its changes");
+    Console.WriteLine(events.UpdateEvents(1, "Juleaften", "Der holdes Juleaften.", 2025, 12, 24, 13, 49, 30));
     Console.WriteLine();
 
     // Here we will search after a specific event with "holdes" in the description
