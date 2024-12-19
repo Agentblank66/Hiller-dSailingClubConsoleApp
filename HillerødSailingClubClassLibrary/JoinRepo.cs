@@ -12,12 +12,14 @@ namespace HillerødSailingClubClassLibrary
         List<Join> Participants = new List<Join>();
 
         //A method which adds a member from a list, by chechking if the member hasnt joined already, then adds that member. 
-        public void JoinEvent(Join join)
+        public bool JoinEvent(Join join)
         {
             if (!Participants.Contains(join))
             {
                 Participants.Add(join);
+                return true;
             }
+            return false;
         }
 
         //A method which looks at list Participants and uses .Count, which looks at all the objects in the list, and minuses with 1, to account for that it starts at 0, and then shows the object.

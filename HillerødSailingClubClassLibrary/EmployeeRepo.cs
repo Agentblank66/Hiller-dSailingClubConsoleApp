@@ -15,6 +15,7 @@ namespace HillerødSailingClubClassLibrary
         public string Add(Employee emp)
         {
             Employees.TryAdd(emp.Id, emp);
+            return string.Empty;
         }
 
         //Her laver vi en Update metode. Vi bruger nedstående metode.
