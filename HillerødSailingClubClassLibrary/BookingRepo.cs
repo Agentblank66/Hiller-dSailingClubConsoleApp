@@ -15,13 +15,13 @@ namespace HillerødSailingClubClassLibrary
 
         #region Methods
         //This method adds the a booking of a boat with to a list of all bookedboats
-        public void BookBoat(Booking booking)
+        public void AddBooking(Booking booking)
         {
             Bookings.Add(booking);
         }
 
         //This method removes a bookedboat from the Bookedboat list
-        public void RemoveBookedBoat(Booking booking)
+        public void RemoveBooking(Booking booking)
         {
             if (Bookings.Contains(booking))
             {
@@ -30,7 +30,7 @@ namespace HillerødSailingClubClassLibrary
         }
 
         //This method searches the BookedBoat list after a booking with a matching id
-        public Booking? GetBookedBoat(int id)
+        public Booking? GetBooking(int id)
         {
             foreach (Booking booking in Bookings)
             {
@@ -43,7 +43,7 @@ namespace HillerødSailingClubClassLibrary
         }
 
         // This method takes a booking object and checks if Bookings list contains a object with a matching Id, then overrids the old information with the new one
-        public void UpdateBookedBoat(Booking booking, Member newMember, Boat newBoat, int newYear, int newMonth, int newDay)
+        public void UpdateBooking(Booking booking, Member newMember, Boat newBoat, int newYear, int newMonth, int newDay)
         {
             if (Bookings.Contains(booking)) 
             {
@@ -54,7 +54,7 @@ namespace HillerødSailingClubClassLibrary
         }
 
         // This method goes through the Bookings list and printout all booking objects
-        public List<Booking> PrintAllBookedBoats()
+        public List<Booking> PrintAllBookings()
         {
             return Bookings;
         }

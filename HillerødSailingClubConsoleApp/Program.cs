@@ -120,27 +120,27 @@ Booking booking3 = new Booking(2, member3, boat3, 2024, 12, 31, 12, 56, 58);
 BookingRepo bookingRepo = new BookingRepo();
     
     // Start by adding Booking object to the bookingList
-    bookingRepo.BookBoat(booking);
-    bookingRepo.BookBoat(booking2);
-    bookingRepo.BookBoat(booking3);
+    bookingRepo.AddBooking(booking);
+    bookingRepo.AddBooking(booking2);
+    bookingRepo.AddBooking(booking3);
     Console.WriteLine("\nPrinting out all booking objects in bookingRepo:\n");
     PrintBookings();
 
     // Deleting a Booking object from the bookingRepo
-    bookingRepo.RemoveBookedBoat(booking2);
+    bookingRepo.RemoveBooking(booking2);
     Console.WriteLine("\nPrinting out all bookings, after booking2 has been removed:\n");
     PrintBookings();
 
     // Getting booking and booking2, but booking2 was deleted above
     Console.WriteLine("\nPrintng out booking and booking2:\n");
-    Console.WriteLine(bookingRepo.GetBookedBoat(0));
+    Console.WriteLine(bookingRepo.GetBooking(0));
     Console.WriteLine("booking2 is not printed out, because it was removed earlier\n");
-    Console.WriteLine(bookingRepo.GetBookedBoat(1));
+    Console.WriteLine(bookingRepo.GetBooking(1));
 
     // Updating the booking object
     Console.WriteLine("Updating booking object and printing it out:\n");
-    bookingRepo.UpdateBookedBoat(booking, member, boat, 2025, 01, 01);
-    Console.WriteLine(bookingRepo.GetBookedBoat(0));
+    bookingRepo.UpdateBooking(booking, member, boat, 2025, 01, 01);
+    Console.WriteLine(bookingRepo.GetBooking(0));
 
     // Printing all bookings out
     Console.WriteLine("\nPrinting out all booking objects:\n");
@@ -350,7 +350,7 @@ void PrintMembers()
 }
 void PrintBookings()
 {
-    foreach (Booking booking in bookingRepo.PrintAllBookedBoats()) Console.WriteLine(booking);
+    foreach (Booking booking in bookingRepo.PrintAllBookings()) Console.WriteLine(booking);
 }
 void PrintSailingMembers(List<Member> membersSailing)
 {
