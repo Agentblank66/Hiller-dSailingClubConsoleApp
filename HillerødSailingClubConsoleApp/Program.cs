@@ -224,13 +224,15 @@ Join joiner3 = new Join(3, member3, event3);
 
     //Showing the last member to join the event/list
     Console.WriteLine("Here we print out the last object to join the list:");
-    Console.WriteLine(membersjoined.ShowLastMember());
+    Console.WriteLine(membersjoined.ShowLastMemberAndEvent());
 
     //Delte a member that has joined, then shwo the list
     Console.WriteLine("Here we delete a object from the list, by using the DeleteMemberInEvent() method, " +
-        "\nand are then using a foreach-loop, where printing out the remaining objects in the list with the GetAllJoinedMembers() method. " +
+        "\nand then check if that object is deleted." +
+        "\nThen we use a foreach-loop, where we print out the remaining objects in the list with the GetAllJoinedMembers() method. " +
         "\nFor every joinedmembers, a console WriteLine is called and then that object is printed:");
-    membersjoined.DeleteMemberInEvent(joiner1);
+    Console.WriteLine(membersjoined.DeleteMemberInEvent(joiner1));
+    Console.WriteLine(membersjoined.DeleteMemberInEvent(joiner1));
     foreach (Join joinedMembers in membersjoined.GetAllJoinedMember()) Console.WriteLine(joinedMembers);
     Console.WriteLine();
 #endregion
