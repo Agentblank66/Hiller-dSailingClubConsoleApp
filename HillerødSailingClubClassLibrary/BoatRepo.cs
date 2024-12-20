@@ -64,10 +64,10 @@ namespace HillerødSialingClub
 
 		public bool SendBoatToRepair(Boat boat, string message)
 		{
-            boat.RequestRepairs(message);
 			if (RepairBoats.TryAdd(boat.Id, boat))
-			{				
-				return Boats.Remove(boat.Id);
+			{
+                boat.RequestRepairs(message);
+                return Boats.Remove(boat.Id);
 			}
 			return false;
         }

@@ -165,20 +165,20 @@ Event event3 = new Event(3, "Sommerstart", "Der fejres at sommeren begynder.", 2
 //Testing EventList methods:
 EventRepo events = new EventRepo();
 
-// Starting by adding multiple event to events list, then showing them
-Console.WriteLine();
-    events.AddEvents(event1);
-    events.AddEvents(event2);
-    events.AddEvents(event3);
+// Starting by adding multiple event to events list, then showing them, and testing if they are added or ar already added
+    Console.WriteLine("Testing to see if events have been added or not:");
+    Console.WriteLine(events.AddEvents(event1));
+    Console.WriteLine(events.AddEvents(event2)); 
+    Console.WriteLine(events.AddEvents(event3));
+    Console.WriteLine(events.AddEvents(event1));
     Console.WriteLine("Here we are printing the list of all the events, which are added to the events list, by using the GetAllEvents() method:");
     foreach (Event events1 in events.GetAllEvents()) Console.WriteLine(events1);
     Console.WriteLine();
 
 //Update an event and the showing that one event
     Console.WriteLine("Here we update an Event by using the UpdateEvents() method, " +
-        "\nand then we find that specific event to see the changes, by using the GetEvent() method:");
-    events.UpdateEvents(1, "Juleaften", "Der holdes Juleaften.", 2025, 12, 24, 13, 49, 30);
-    Console.WriteLine(events.GetEvent(1)); 
+        "\nand then print that event and see its changes");
+    Console.WriteLine(events.UpdateEvents(1, "Juleaften", "Der holdes Juleaften.", 2025, 12, 24, 13, 49, 30));
     Console.WriteLine();
 
     // Here we will search after a specific event with "holdes" in the description
@@ -188,8 +188,14 @@ Console.WriteLine();
     foreach (Event Events in events.SearchEvents("holdes")) Console.WriteLine(Events);
     Console.WriteLine();
 
-    // Here we will get all events in the events list
-    Console.WriteLine("Here we use a foreach-loop, where we print out all the events, " +
+    Console.WriteLine("Testing to see if event have been deleted or not:");
+    Console.WriteLine(events.DeleteEvents(1));
+    Console.WriteLine(events.DeleteEvents(1));
+    Console.WriteLine("Showing the remaining list of events:");
+    foreach (Event events1 in events.GetAllEvents()) Console.WriteLine(events1);
+
+// Here we will get all events in the events list
+Console.WriteLine("Here we use a foreach-loop, where we print out all the events, " +
         "\nby using the GetAllEvents() method. " +
         "\nFor every event, a console WriteLine is called and then that event is printed:");
     foreach (Event events1 in events.GetAllEvents()) Console.WriteLine(events1);
@@ -204,10 +210,12 @@ Join joiner1 = new Join(1, member, event1);
 Join joiner2 = new Join(2, member2, event2);
 Join joiner3 = new Join(3, member3, event3);
 
-//Add member to list and printing all
-    membersjoined.JoinEvent(joiner1);
-    membersjoined.JoinEvent(joiner2);
-    membersjoined.JoinEvent(joiner3);
+//Add member to list and printing all, and seeing if they added or already added
+    Console.WriteLine("Testing to see if joined members have been added or not:");
+    Console.WriteLine(membersjoined.JoinEvent(joiner1));
+    Console.WriteLine(membersjoined.JoinEvent(joiner2));
+    Console.WriteLine(membersjoined.JoinEvent(joiner3));
+    Console.WriteLine(membersjoined.JoinEvent(joiner1));
     Console.WriteLine("Her we use a foreach-loop to print out a list of objects, " +
         "\nby printing out the id, the members and the events with the GetAllJoinedMembers() method. " +
         "\nFor every joinedmembers, a console WriteLine is called and then that object is printed:");
@@ -215,13 +223,15 @@ Join joiner3 = new Join(3, member3, event3);
 
     //Showing the last member to join the event/list
     Console.WriteLine("Here we print out the last object to join the list:");
-    Console.WriteLine(membersjoined.ShowLastMember());
+    Console.WriteLine(membersjoined.ShowLastMemberAndEvent());
 
     //Delte a member that has joined, then shwo the list
     Console.WriteLine("Here we delete a object from the list, by using the DeleteMemberInEvent() method, " +
-        "\nand are then using a foreach-loop, where printing out the remaining objects in the list with the GetAllJoinedMembers() method. " +
+        "\nand then check if that object is deleted." +
+        "\nThen we use a foreach-loop, where we print out the remaining objects in the list with the GetAllJoinedMembers() method. " +
         "\nFor every joinedmembers, a console WriteLine is called and then that object is printed:");
-    membersjoined.DeleteMemberInEvent(joiner1);
+    Console.WriteLine(membersjoined.DeleteMemberInEvent(joiner1));
+    Console.WriteLine(membersjoined.DeleteMemberInEvent(joiner1));
     foreach (Join joinedMembers in membersjoined.GetAllJoinedMember()) Console.WriteLine(joinedMembers);
     Console.WriteLine();
 #endregion

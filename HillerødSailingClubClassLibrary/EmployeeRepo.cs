@@ -14,6 +14,8 @@ namespace HillerødSailingClubClassLibrary
         //Her laver vi en Add metode. Vi bruger TryAdd, da 2 ID IKKE må være ens.
         public bool Add(Employee emp)
         {
+            Employees.TryAdd(emp.Id, emp);
+
            return Employees.TryAdd(emp.Id, emp);
         }
 
