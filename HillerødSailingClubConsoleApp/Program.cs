@@ -112,35 +112,34 @@ MemberRepo memberRepo = new MemberRepo();
 // --------------------------- BookingRepo --------------------------------
 Console.WriteLine("\n----------------------------------------BookingRepo-----------------------------------");
 // Creating Booking Objects:
-Booking booking = new Booking(0, member, boat, 2024, 12, 24, 12, 56, 58);
-Booking booking2 = new Booking(1, member2, boat2, 2024, 12, 26, 12, 56, 58);
-Booking booking3 = new Booking(2, member3, boat3, 2024, 12, 31, 12, 56, 58);
+Booking booking = new Booking(1, member, boat, 2024, 12, 24, 12, 56, 58);
+Booking booking2 = new Booking(2, member2, boat2, 2024, 12, 26, 12, 56, 58);
+Booking booking3 = new Booking(3, member3, boat3, 2024, 12, 31, 12, 56, 58);
 
 // Testing Booking methods:
 BookingRepo bookingRepo = new BookingRepo();
-    
+
     // Start by adding Booking object to the bookingList
-    bookingRepo.AddBooking(booking);
-    bookingRepo.AddBooking(booking2);
-    bookingRepo.AddBooking(booking3);
+    Console.WriteLine("Adding the created Booking objects to bookingRepo: Expects True\n");
+    Console.WriteLine(bookingRepo.AddBooking(booking));
+    Console.WriteLine(bookingRepo.AddBooking(booking2));
+    Console.WriteLine(bookingRepo.AddBooking(booking3));
     Console.WriteLine("\nPrinting out all booking objects in bookingRepo:\n");
     PrintBookings();
 
-    // Deleting a Booking object from the bookingRepo
-    bookingRepo.RemoveBooking(booking2);
-    Console.WriteLine("\nPrinting out all bookings, after booking2 has been removed:\n");
-    PrintBookings();
+    // Removing a Booking object from the bookingRepo
+    Console.WriteLine("\nPrinting out the Booking object that has been removed:\n");
+    Console.WriteLine(bookingRepo.RemoveBooking(booking2));
 
     // Getting booking and booking2, but booking2 was deleted above
     Console.WriteLine("\nPrintng out booking and booking2:\n");
-    Console.WriteLine(bookingRepo.GetBooking(0));
-    Console.WriteLine("booking2 is not printed out, because it was removed earlier\n");
     Console.WriteLine(bookingRepo.GetBooking(1));
+    Console.WriteLine("booking2 is not printed out, because it was removed earlier\n");
+    Console.WriteLine(bookingRepo.GetBooking(2));
 
     // Updating the booking object
-    Console.WriteLine("Updating booking object and printing it out:\n");
-    bookingRepo.UpdateBooking(booking, member, boat, 2025, 01, 01);
-    Console.WriteLine(bookingRepo.GetBooking(0));
+    Console.WriteLine("Updating a Booking object and printing it out:\n");
+    Console.WriteLine(bookingRepo.UpdateBooking(booking, member, boat, 2025, 01, 01, 23, 14, 56));
 
     // Printing all bookings out
     Console.WriteLine("\nPrinting out all booking objects:\n");
@@ -338,7 +337,7 @@ Console.WriteLine("-------------------------------------");
 
 //Printing all employees
 Console.WriteLine("Here we print all employees:");
-PrintAllEmployees(employeeDict.PrintAllEmployees());
+//PrintAllEmployees(employeeDict.PrintAllEmployees());
 Console.WriteLine("-------------------------------------");
 #endregion
 
